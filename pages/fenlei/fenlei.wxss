@@ -1,0 +1,110 @@
+/* pages/fenlei/fenlei.wxss */
+.Fenlei{
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+/* 左部tab切换 */
+.lefttab{
+  width: 170rpx;
+  height: 100%;
+  background: #F6F6F6;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+}
+.lefttab .list{
+  width: 100%;
+  height: 90rpx;
+  background: #F6F6F6;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 24rpx;
+  color: #333;
+  box-sizing: border-box;
+  border-left: 4rpx solid #F6F6F6;
+  letter-spacing: 2rpx;
+}
+.lefttab .active{
+  color: #E90D16;
+  box-sizing: border-box;
+  border-left: 4rpx solid #E90D16;
+  background: #fff;
+}
+/* 右部内容 */
+.rightcon{
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 580rpx;
+  height: 100%;
+  overflow-y: auto;
+  /* background: yellow; */
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  padding-bottom: 20rpx;
+}
+.rightcon .banner{
+  width: 100%;
+  height: 210rpx;
+}
+.rightcon .banner image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.rightcon .listbox{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.rightcon .listbox .list{
+  width:270rpx;
+  height: 395rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0rpx 3rpx 5rpx #999;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.rightcon .listbox .list image{
+  width: 270rpx;
+  height: 260rpx;
+
+}
+.rightcon .listbox .list .con{
+  width: 100%;
+  height: 135rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.rightcon .listbox .list .con .tit{
+  font-size: 26rpx;
+  color: #333;
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 20rpx;
+  margin-bottom: 32rpx;
+}
+.rightcon .listbox .list .con .bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.rightcon .listbox .list .con .bottom .haoping{
+  color: #D21F22;
+  font-size: 20rpx;
+}
+.rightcon .listbox .list .con .bottom .juli{
+  color: #636363;
+  font-size: 18rpx;
+}

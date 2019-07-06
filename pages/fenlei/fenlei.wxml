@@ -1,0 +1,77 @@
+<!--pages/fenlei/fenlei.wxml-->
+<view class="Fenlei">
+  <!-- 左部tab -->
+  <view class="lefttab">
+    <view class="list {{tabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changetab">休闲零食</view>
+    <view class="list {{tabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changetab">蔬果生鲜</view>
+    <view class="list {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab">童装</view>
+  </view>
+  <!-- 右部内容 -->
+  <view class="rightcon">
+    <!-- 轮播图 -->
+    <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="#eee" indicator-active-color="#f00" class='banner'>
+      <!-- <block wx:for="{{banner}}" wx:key="i"> -->
+      <swiper-item>
+        <image src="../../images/index/banner.png" />
+      </swiper-item>
+      <swiper-item>
+        <image src="../../images/index/banner.png" />
+      </swiper-item>
+      <!-- </block> -->
+    </swiper>
+    <!-- 商店列表 -->
+    <view class="listbox">
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="con">
+          <view class="tit">天天回家超市</view>
+          <view class="bottom">
+            <view class="haoping">好评率：66%</view>
+            <view class="juli">125m</view>
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="con">
+          <view class="tit">天天回家超市天天回家超市天天回家超市</view>
+          <view class="bottom">
+            <view class="haoping">好评率：66%</view>
+            <view class="juli">125m</view>
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="con">
+          <view class="tit">天天回家超市</view>
+          <view class="bottom">
+            <view class="haoping">好评率：66%</view>
+            <view class="juli">125m</view>
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="con">
+          <view class="tit">天天回家超市</view>
+          <view class="bottom">
+            <view class="haoping">好评率：66%</view>
+            <view class="juli">125m</view>
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="con">
+          <view class="tit">天天回家超市</view>
+          <view class="bottom">
+            <view class="haoping">好评率：66%</view>
+            <view class="juli">125m</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

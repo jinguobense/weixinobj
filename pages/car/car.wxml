@@ -1,0 +1,9 @@
+<!--pages/car/car.wxml-->
+<view class="Car">
+  <view class="header">
+    <view class="guanlibox">
+      <image src="../../images/car/guanli.png"></image>
+      <view>管理商品</view>
+    </view>
+  </view>
+</view>

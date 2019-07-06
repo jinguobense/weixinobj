@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/car/car",
+    "pages/near/near",
+    "pages/fenlei/fenlei",
+    "pages/index/index",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#E74104",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index2.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "images/tabbar/classify.png",
+        "selectedIconPath": "images/tabbar/classify2.png",
+        "pagePath": "pages/fenlei/fenlei",
+        "text": "分类"
+      },
+      {
+        "iconPath": "images/tabbar/near.png",
+        "selectedIconPath": "images/tabbar/near2.png",
+        "pagePath": "pages/near/near",
+        "text": "附近"
+      },
+      {
+        "iconPath": "images/tabbar/car.png",
+        "selectedIconPath": "images/tabbar/car2.png",
+        "pagePath": "pages/car/car",
+        "text": "购物车"
+      },
+      {
+        "iconPath": "images/tabbar/chat.png",
+        "selectedIconPath": "images/tabbar/chat2.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,132 @@
+<!--index.wxml-->
+<view class="Index">
+  <image src="../../images/index/down.png" class="bg"></image>
+  <!-- 头部 -->
+  <view class="head start_C">
+    <image src="../../images/index/loc.png" class="dingweiicon"></image>
+    <text class="dingwei">郑州市</text>
+    <view class="sousuobox">
+      <icon type='search' size='28rpx'></icon>
+      <input placeholder="关键词搜索"></input>
+      <icon type='clear' size='22rpx'></icon>
+    </view>
+    <image src="../../images/index/msg.png" class="msgicon"></image>
+  </view>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="#eee" indicator-active-color="#f00" class='banner'>
+    <!-- <block wx:for="{{banner}}" wx:key="i"> -->
+    <swiper-item>
+      <image src="../../images/index/down.png" />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/index/down.png" />
+    </swiper-item>
+    <!-- </block> -->
+  </swiper>
+  <!-- 中间块 -->
+  <view class="centerbox">
+    <!-- 分类块 -->
+    <view class="fenleicon between">
+      <view class="fenleilist">
+        <image src="../../images/index/tp.png"></image>
+        <text>众聚团拼</text>
+      </view>
+      <view class="fenleilist">
+        <image src="../../images/index/xs.png"></image>
+        <text>限时抢购</text>
+      </view>
+      <view class="fenleilist">
+        <image src="../../images/index/mj.png"></image>
+        <text>满减专场</text>
+      </view>
+      <view class="fenleilist">
+        <image src="../../images/index/yhq.png"></image>
+        <text>优惠券</text>
+      </view>
+    </view>
+    <!-- 参团图片 -->
+    <image class="cantuan" src="../../images/index/ptrk.png"></image>
+    <!-- 推荐好店标题 -->
+    <view class="tuijiantitbox">
+      <image src="../../images/index/titxian.png" class="xianbg"></image>
+      <text>推荐好店</text>
+      <view class="right">
+        <text>更多</text>
+        <image src="../../images/index/dpjj.png"></image>
+      </view>
+    </view>
+    <!-- 推荐好店内容 -->
+    <view class="tuijiancon">
+      <view class="tuijianlist start">
+        <image src="../../images/index/down.png"></image>
+        <view class="rightcon">
+          <view class="toptit">
+            <text>露露欢乐超市</text>
+            <view class="starbox">
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp2.png"></image>
+            </view>
+          </view>
+          <view class="centercon">
+            <text>满减</text>
+            <view>意大利进口阿萨德阿达大声道暗示打算打暗示打</view>
+          </view>
+          <view class="money">￥129.0</view>
+          <view class="bottomcon">
+            <view class="yishou">已售：162</view>
+            <view class="juli">1.62km</view>
+          </view>
+        </view>
+      </view>
+      <view class="tuijianlist start">
+        <image src="../../images/index/down.png"></image>
+        <view class="rightcon">
+          <view class="toptit">
+            <text>露露欢乐超市</text>
+            <view class="starbox">
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp1.png"></image>
+              <image src="../../images/index/dp2.png"></image>
+            </view>
+          </view>
+          <view class="centercon">
+            <text>满减</text>
+            <view>意大利进口阿萨德阿达大声道暗示打算打暗示打</view>
+          </view>
+          <view class="money">￥129.0</view>
+          <view class="bottomcon">
+            <view class="yishou">已售：162</view>
+            <view class="juli">1.62km</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 推荐商品 -->
+  <view class="tuijianshop">
+    <view class="tuijiantitbox">
+      <image src="../../images/index/titxian.png" class="xianbg"></image>
+      <text>推荐商品</text>
+    </view>
+    <view class="tabbox">
+      <view class="tablist" catchtap="changetab" data-current="1">
+        <text class="{{tabindex==1 ? 'active' : ''}}">下单量</text> 
+      </view>
+      <view class="tablist" catchtap="changetab" data-current="2">
+        <text class="{{tabindex==2 ? 'active' : ''}}">距离</text> 
+      </view>
+      <view class="tablist" catchtap="changetab" data-current="3">
+        <text class="{{tabindex==3 ? 'active' : ''}}">店铺星级</text> 
+      </view>
+      <view class="tablist" catchtap="changetab" data-current="4">
+        <text class="{{tabindex==4 ? 'active' : ''}}">好评率</text> 
+      </view>
+    </view>
+  </view>
+</view>
