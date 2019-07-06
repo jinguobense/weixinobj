@@ -1,0 +1,27 @@
+<!--pages/manjianmore/manjianmore.wxml-->
+<view class="Manjianmore">
+  <view class="header">
+    <image src="../../images/index/down.png"></image>
+    <view class="center">
+      <view class="tit">露露欢乐超市</view>
+      <view class="manjianxx">满999元减666元</view>
+    </view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="list" wx:for="{{4}}" wx:key="i">
+      <image src="../../images/index/banner.png"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text>￥6565.0</text>
+            <view>/件</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

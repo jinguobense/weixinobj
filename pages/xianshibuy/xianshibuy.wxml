@@ -1,10 +1,9 @@
-<!--pages/pintuan/pintuan.wxml-->
-<view class="Pintuan">
-  <view class="headbox">
-    <!-- 搜索框 -->
-    <view class="searchbox">
-      <input placeholder="搜索您想要的宝贝"></input>
-      <icon type='search' size='36rpx'></icon>
+<!--pages/xianshibuy/xianshibuy.wxml-->
+<view class="Xianshibuy">
+  <view class="header">
+    <view class="headtabbox">
+      <view class="{{headtabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changeheadtab">正在抢购</view>
+      <view class="{{headtabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changeheadtab">即将开始</view>
     </view>
     <!-- 类别横向滚动框 -->
     <scroll-view class="recommend_scroll_x_box" scroll-x="true">
@@ -16,8 +15,7 @@
       <text class="list recommend_hot_box {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab">酒水饮料1</text>
       <text class="list recommend_hot_box {{tabindex==4 ? 'active' : ''}}" data-current="4" catchtap="changetab">酒水饮料2</text>
       <text class="list recommend_hot_box {{tabindex==5 ? 'active' : ''}}" data-current="5" catchtap="changetab">酒水饮料3</text>
-      <text class="list recommend_hot_box {{tabindex==6 ? 'active' : ''}}" data-current="6" catchtap="changetab">酒水饮料4</text>
-      <text class="list recommend_hot_box {{tabindex==7 ? 'active' : ''}}" data-current="7" catchtap="changetab">酒水饮料5</text>
+      
     </scroll-view>
   </view>
   <!-- 内容框 -->
@@ -26,19 +24,25 @@
       <image src="../../images/index/banner.png"></image>
       <view class="listcon">
         <view class="tit">
-          
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
+          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书按时的</text>
         </view>
         <view class="bottom">
           <view class="money">
-            <text class="biaoqian">2人拼</text>
             <text>￥6565.0</text>
             <text>/件</text>
           </view>
+          <view class="yishou">已售：0</view>
         </view>
-        <view class="danmai">单买价：￥19.00</view>
-        <view class="yipin">已拼：21546单</view>
+        <view class="redtimebox" wx:if="{{headtabindex == 1}}">
+          <view>距离结束:</view>
+          <text>24天  16:14:12</text>
+        </view>
+        <view class="graytimebox" wx:if="{{headtabindex == 2}}">
+          <view>距离开始:</view>
+          <text>24天  16:14:12</text>
+        </view>
       </view>
     </view>
   </view>
+
 </view>

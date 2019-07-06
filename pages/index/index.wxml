@@ -13,7 +13,7 @@
     <image src="../../images/index/msg.png" class="msgicon"></image>
   </view>
   <!-- 轮播图 -->
-  <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="#eee" indicator-active-color="#f00" class='banner'>
+  <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" class='banner'>
     <!-- <block wx:for="{{banner}}" wx:key="i"> -->
     <swiper-item>
       <image src="../../images/index/down.png" />
@@ -27,27 +27,27 @@
   <view class="centerbox">
     <!-- 分类块 -->
     <view class="fenleicon between">
-      <navigator url="../pintuan/pintuan">
-        <view class="fenleilist">
+      <navigator url="../pintuan/pintuan" class="fenleilist">
           <image src="../../images/index/tp.png"></image>
           <text>众聚团拼</text>
-        </view>
       </navigator>
-      <view class="fenleilist">
-        <image src="../../images/index/xs.png"></image>
-        <text>限时抢购</text>
-      </view>
-      <view class="fenleilist">
-        <image src="../../images/index/mj.png"></image>
-        <text>满减专场</text>
-      </view>
-      <view class="fenleilist">
+      <navigator url="../xianshibuy/xianshibuy" class="fenleilist">
+          <image src="../../images/index/xs.png"></image>
+          <text>限时抢购</text>
+      </navigator>
+      <navigator url="../manjian/manjian" class="fenleilist">
+          <image src="../../images/index/mj.png"></image>
+          <text>满减专场</text>
+      </navigator>
+      <navigator url="../youhuijuan/youhuijuan" class="fenleilist">
         <image src="../../images/index/yhq.png"></image>
         <text>优惠券</text>
-      </view>
+      </navigator>
     </view>
     <!-- 参团图片 -->
-    <image class="cantuan" src="../../images/index/ptrk.png"></image>
+    <navigator url="../cantuan/cantuan">
+      <image class="cantuan" src="../../images/index/ptrk.png"></image>
+    </navigator>
     <!-- 推荐好店标题 -->
     <view class="tuijiantitbox">
       <image src="../../images/index/titxian.png" class="xianbg"></image>

@@ -1,6 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/youhuishop/youhuishop",
+    
+    "pages/cantuan/cantuan",
+    "pages/youhuijuan/youhuijuan",
+    "pages/manjianmore/manjianmore",
+    "pages/manjian/manjian",
+    "pages/xianshibuy/xianshibuy",
     "pages/pintuan/pintuan",
     "pages/user/user",
     "pages/car/car",
