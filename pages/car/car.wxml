@@ -1,9 +1,169 @@
 <!--pages/car/car.wxml-->
 <view class="Car">
+  <!-- 头部 -->
   <view class="header">
     <view class="guanlibox">
       <image src="../../images/car/guanli.png"></image>
       <view>管理商品</view>
     </view>
   </view>
+  <!-- 购物车信息块 -->
+  <view class="carbox">
+    <view class="carlist">
+      <view class="listtop">
+         <view class="left"><image src="../../images/car/xz01.png"></image></view>
+         <view class="right">
+          <image src="../../images/car/dian.png"></image>
+          <text>一家生活超市</text>
+         </view>
+      </view>
+      <view class="listcenter">
+        <view class="left"><image src="../../images/car/xz01.png"></image></view>
+        <view class="listcon">
+          <image src="../../images/index/banner.png"></image>
+          <view class="conright">
+            <view class="contit">20猴菇饼干猴奥术大师多按时打算菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干</view>
+            <view class="conbottom">
+              <view class="bleft">
+                <view class="guige">规格：原味</view>
+                <view class="money">￥256.44</view>
+              </view> 
+              <view class="bright">
+                <view class='spinner_r'>
+                  <text catchtap='spinnerJian'>-</text>
+                  <input value='{{num}}' disabled></input>
+                  <text catchtap='spinnerJia'>+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="listbottom">
+        <view class="left">
+          <text class="heji">合计：</text>
+          <text class="money">￥265.43</text> 
+        </view>
+        <view class="right active">去结算</view>
+      </view>
+    </view>
+
+    <view class="carlist">
+      <view class="listtop">
+         <view class="left"><image src="../../images/car/xz01.png"></image></view>
+         <view class="right">
+          <image src="../../images/car/dian.png"></image>
+          <text>一家生活超市</text>
+         </view>
+      </view>
+      <view class="listcenter">
+        <view class="left"><image src="../../images/car/xz01.png"></image></view>
+        <view class="listcon">
+          <image src="../../images/index/banner.png"></image>
+          <view class="conright">
+            <view class="contit">20猴菇饼干猴奥术大师多按时打算菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干</view>
+            <view class="conbottom">
+              <view class="bleft">
+                <view class="guige">规格：原味</view>
+                <view class="money">￥256.44</view>
+              </view> 
+              <view class="bright">
+                <view class='spinner_r'>
+                  <text catchtap='spinnerJian'>-</text>
+                  <input value='{{num}}' disabled></input>
+                  <text catchtap='spinnerJia'>+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="listcenter">
+        <view class="left"><image src="../../images/car/xz01.png"></image></view>
+        <view class="listcon">
+          <image src="../../images/index/banner.png"></image>
+          <view class="conright">
+            <view class="contit">20猴菇饼干猴奥术大师多按时打算菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干</view>
+            <view class="conbottom">
+              <view class="bleft">
+                <view class="guige">规格：原味</view>
+                <view class="money">￥256.44</view>
+              </view> 
+              <view class="bright">
+                <view class='spinner_r'>
+                  <text catchtap='spinnerJian'>-</text>
+                  <input value='{{num}}' disabled></input>
+                  <text catchtap='spinnerJia'>+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="listbottom">
+        <view class="left">
+          <text class="heji">合计：</text>
+          <text class="money">￥265.43</text> 
+        </view>
+        <view class="right">去结算</view>
+      </view>
+    </view>
+  </view>
+  <!-- 猜你喜欢 -->
+  <view class="guessbox">
+    <view class="tuijiantitbox">
+      <image src="../../images/index/titxian.png" class="xianbg"></image>
+      <text>猜你喜欢</text>
+      <view class="right">
+        <image src="../../images/car/shua.png"></image>
+        <text>换一批</text>
+      </view>
+    </view>
+    <!-- 内容框 -->
+    <view class="listbox">
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
+          </view>
+          <view class="bottom">
+            <view class="money">
+              <text>￥6565.0</text>
+            </view>
+            <view class="juli">已售：1325</view>
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
+          </view>
+          <view class="bottom">
+            <view class="money">
+              <text>￥6565.0</text>
+            </view>
+            <view class="juli">已售：1325</view>
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <image src="../../images/index/banner.png"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
+          </view>
+          <view class="bottom">
+            <view class="money">
+              <text>￥6565.0</text>
+            </view>
+            <view class="juli">已售：1325</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
 </view>

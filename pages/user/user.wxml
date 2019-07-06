@@ -1,2 +1,90 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="User">
+  <view class="header">
+    <image class="bg" src="../../images/user/bg.png"></image>
+    <image class="msg" src="../../images/user/xx.png"></image>
+    <view class="userxx">
+      <image src="../../images/index/banner.png" class="touxiang"></image>
+      <view class="right">
+        <view class="name">邻家小猫</view>
+        <image src="../../images/user/gxyh.png" class="gx"></image>
+        <!-- <image src="../../images/user/dshsj.png"  class="dsh"></image>
+        <image src="../../images/user/hysj.png" class="hy"></image>
+        <image src="../../images/user/lssj.png" class="ls"></image> -->
+      </view>
+    </view>
+    <view class="youhuibox">
+      <image class="youhuibg" src="../../images/user/kuang.png"></image>
+      <view class="left">
+        <image src="../../images/user/yhq.png"></image>
+        <text>优惠券</text>
+      </view>
+      <view class="right"> <text>立即查看</text><icon class='iconfont icon-31fanhui2'></icon></view>
+    </view>
+  </view>
+  <!-- 订单 -->
+  <view class="dingdanbox">
+    <view class="mydd">
+      <text class="tit">我的订单</text>
+      <view class="right">
+        <text>全部订单</text>
+        <icon class='iconfont icon-31fanhui2'></icon>
+      </view>
+    </view>
+    <view class="tabbox">
+       <view class="tablist">
+          <image src="../../images/user/dfk.png"></image>
+          <text>待付款</text>
+       </view>
+       <view class="tablist">
+          <image src="../../images/user/ptz.png"></image>
+          <text>拼团中</text>
+       </view>
+       <view class="tablist">
+          <image src="../../images/user/dsh.png"></image>
+          <text>待取/收货</text>
+       </view>
+       <view class="tablist">
+          <image src="../../images/user/dpj.png"></image>
+          <text>待评价</text>
+       </view>
+       <view class="tablist">
+          <image src="../../images/user/tksh.png"></image>
+          <text>退款售后</text>
+       </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="listbox">
+    <view class="list">
+      <image class="leftimg" src="../../images/user/ic_sc_mine.png"></image>
+      <text>我的收藏</text>
+      <image class="rightimg" src="../../images/user/jr.png" ></image>
+    </view>
+    <view class="list">
+      <image class="leftimg" src="../../images/user/ic_zj_mine.png"></image>
+      <text>我的足迹</text>
+      <image class="rightimg" src="../../images/user/jr.png" ></image>
+    </view>
+    <view class="list">
+      <image class="leftimg" src="../../images/user/ic_dzgl_mine.png"></image>
+      <text>地址管理</text>
+      <image class="rightimg" src="../../images/user/jr.png" ></image>
+    </view>
+    <view class="list">
+      <image class="leftimg" src="../../images/user/ic_sqkt_mine.png"></image>
+      <text>申请开店</text>
+      <image class="rightimg" src="../../images/user/jr.png" ></image>
+    </view>
+    <view class="list">
+      <image class="leftimg" src="../../images/user/ic_kf_mine.png"></image>
+      <text>客服帮助</text>
+      <image class="rightimg" src="../../images/user/jr.png" ></image>
+    </view>
+    <view class="list">
+      <image class="leftimg" src="../../images/user/ic_share_app.png"></image>
+      <text>分享应用</text>
+      <image class="rightimg" src="../../images/user/jr.png" ></image>
+    </view>
+  </view>
+</view>

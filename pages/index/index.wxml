@@ -27,10 +27,12 @@
   <view class="centerbox">
     <!-- 分类块 -->
     <view class="fenleicon between">
-      <view class="fenleilist">
-        <image src="../../images/index/tp.png"></image>
-        <text>众聚团拼</text>
-      </view>
+      <navigator url="../pintuan/pintuan">
+        <view class="fenleilist">
+          <image src="../../images/index/tp.png"></image>
+          <text>众聚团拼</text>
+        </view>
+      </navigator>
       <view class="fenleilist">
         <image src="../../images/index/xs.png"></image>
         <text>限时抢购</text>
@@ -126,6 +128,154 @@
       </view>
       <view class="tablist" catchtap="changetab" data-current="4">
         <text class="{{tabindex==4 ? 'active' : ''}}">好评率</text> 
+      </view>
+    </view>
+    <view class="listbox">
+      <!-- 下单量 -->
+      <view class="listcon" wx:if="{{tabindex == 1}}">
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="yuanjia">￥19.00</view>
+            <view class="pingji">
+              <text>已售：10000</text>
+            </view>
+          </view>
+        </view>
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="danmai">单买价￥19.00</view>
+            <view class="pingji">
+              <text>已售：10000</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 距离 -->
+      <view class="listcon" wx:if="{{tabindex == 2}}">
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="yuanjia">￥19.00</view>
+            <view class="pingji">
+              <text>距离：600m</text>
+            </view>
+          </view>
+        </view>
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="danmai">单买价￥19.00</view>
+            <view class="pingji">
+              <text>距离：600m</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 店铺星级 -->
+      <view class="listcon" wx:if="{{tabindex == 3}}">
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="yuanjia">￥19.00</view>
+            <view class="pingji">
+              <text>评级：</text>
+              <view class="starbox">
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp2.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="danmai">单买价￥19.00</view>
+            <view class="pingji">
+              <text>评级：</text>
+              <view class="starbox">
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp1.png"></image>
+                <image src="../../images/index/dp2.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 好评率 -->
+      <view class="listcon" wx:if="{{tabindex == 4}}">
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="yuanjia">￥19.00</view>
+            <view class="pingji">
+              <text>好评率：100%</text>
+            </view>
+          </view>
+        </view>
+        <view class="list">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <view class="biaoqian">满减</view>
+              <text>￥13.00</text>
+              <view>/件</view>
+            </view>
+            <view class="danmai">单买价￥19.00</view>
+            <view class="pingji">
+              <text>好评率：100%</text>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>

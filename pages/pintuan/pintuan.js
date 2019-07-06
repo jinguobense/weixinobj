@@ -1,32 +1,20 @@
-// pages/car/car.js
+// pages/pintuan/pintuan.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    num: 1,
+    tabindex: '1',    //分类索引
   },
-  //加
-  spinnerJia: function () {
-    var that = this;
-    this.data.num++;
+  // 分类tab切换
+  changetab(e) {
+    // console.log(e.currentTarget.dataset.current)
     this.setData({
-      num: this.data.num
+      tabindex: e.currentTarget.dataset.current
     })
   },
 
-  //减
-  spinnerJian: function () {
-    var that = this;
-    if (this.data.num > 1) {
-      this.data.num--;
-    }
-    this.setData({
-      num: this.data.num
-    })
-    
-  },
   /**
    * 生命周期函数--监听页面加载
    */

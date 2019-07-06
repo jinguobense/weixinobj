@@ -1,15 +1,17 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/pintuan/pintuan",
+    "pages/user/user",
     "pages/car/car",
     "pages/near/near",
-    "pages/fenlei/fenlei",
-    "pages/index/index",
-    "pages/user/user"
+    "pages/fenlei/fenlei"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "众聚逛选",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

@@ -1,1 +1,233 @@
 /* pages/user/user.wxss */
+@import "../../utils/public.wxss";/*引用图标*/
+/* 头部 */
+.header{
+  width: 100%;
+  height: 336rpx;
+  position: relative;
+  overflow: hidden;
+}
+.header .bg{
+  width: 750rpx;
+  height: 336rpx;
+  position: absolute;
+  z-index: -10;
+  top: 0;
+  left: 0;
+}
+.header .msg{
+  width: 53rpx;
+  height: 53rpx;
+  position: absolute;
+  top: 25rpx;
+  right: 40rpx;
+  
+}
+/* 用户信息框 */
+.userxx{
+  width: 100%;
+  height: 130rpx;
+  margin-top: 78rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.userxx .touxiang{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  margin-left: 36rpx;
+  margin-right: 15rpx;
+}
+.userxx .right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+.userxx .right .name{
+  font-size: 28rpx;
+  color: #fff;
+}
+.userxx .right image{
+  height: 32rpx;
+  margin-top: 20rpx;
+}
+.userxx .right image.gx{
+  width: 145rpx;
+}
+.userxx .right image.dsh{
+  width: 164rpx;
+}
+.userxx .right image.hy{
+  width: 150rpx;
+}
+.userxx .right image.ls{
+  width: 143rpx;
+}
+/* 优惠券 */
+.youhuibox{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 76rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 80rpx;
+}
+.youhuibox .youhuibg{
+  position: absolute;
+  width: 678rpx;
+  height: 76rpx;
+  top: 0;
+  z-index: -1;
+  left: 36rpx;
+}
+.youhuibox .left{
+  display: flex;
+  align-items: center;
+}
+.youhuibox .left image{
+  width: 32rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+.youhuibox .left text{
+  font-size: 26rpx;
+  color: #FFAE00;
+}
+.youhuibox .right{
+  display: flex;
+  align-items: center;
+}
+.youhuibox .right text{
+  font-size: 24rpx;
+  color: #fff;
+}
+.youhuibox .right .iconfont{
+  font-size: 24rpx;
+  color: #fff;
+  display: block;
+  padding-bottom: 20rpx;
+}
+/* 订单 */
+.dingdanbox{
+  width: 100%;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.dingdanbox .mydd{
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 25rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.dingdanbox .mydd .tit{
+  font-size: 26rpx;
+  color: #333;
+}
+.dingdanbox .mydd .right{
+  display: flex;
+  align-items: center;
+
+}
+.dingdanbox .mydd .right text{
+  font-size: 26rpx;
+  color: #333;
+  margin-right: 5rpx;
+}
+.dingdanbox .mydd .right .iconfont{
+  font-size: 24rpx;
+  color: #333;
+  padding-bottom: 20rpx;
+}
+.dingdanbox .tabbox{
+  width: 100%;
+  height: 144rpx;
+  background: #fff;
+
+  box-sizing: border-box;
+  padding: 0 25rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dingdanbox .tabbox .tablist{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.dingdanbox .tabbox .tablist image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-bottom: 15rpx;
+}
+.dingdanbox .tabbox .tablist text{
+  color: #333;
+  font-size: 26rpx;
+}
+/* 列表 */
+.listbox{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.listbox .list{
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f5f5f5;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 45rpx;
+  justify-content: flex-end
+}
+.listbox .list .leftimg{
+  display: block;
+  margin-right: auto;
+}
+.listbox .list:nth-of-type(1) .leftimg{
+  width: 35rpx;
+  height: 36rpx;
+}
+.listbox .list:nth-of-type(2) .leftimg{
+  width: 27rpx;
+  height: 38rpx;
+}
+.listbox .list:nth-of-type(3) .leftimg{
+  width: 35rpx;
+  height: 35rpx;
+}
+.listbox .list:nth-of-type(4) .leftimg{
+  width: 36rpx;
+  height: 32rpx;
+}
+.listbox .list:nth-of-type(5) .leftimg{
+  width: 36rpx;
+  height: 37rpx;
+}
+.listbox .list:nth-of-type(6) .leftimg{
+  width: 36rpx;
+  height: 32rpx;
+}
+.listbox .list text{
+  font-size: 26rpx;
+  color: #333;
+  margin-right: 480rpx;
+}
+.listbox .list .rightimg{
+  width: 16rpx;
+  height: 30rpx;
+  display: block;
+}
