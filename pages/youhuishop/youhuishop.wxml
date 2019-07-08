@@ -22,7 +22,8 @@
   </view>
   <!-- 内容框 -->
   <view class="listbox">
-    <view class="list">
+    
+    <view class="list" wx:for="{{3}}" wx:key="i">
       <image src="../../images/index/banner.png"></image>
       <view class="listcon">
         <view class="tit">
@@ -33,42 +34,11 @@
             <text>￥6565.0</text>
             <text>/件</text>
           </view>
-          <view class="juli">123m</view>
+          <view class="juli">已售:2156</view>
         </view>
       </view>
     </view>
-    <view class="list">
-      <image src="../../images/index/banner.png"></image>
-      <view class="listcon">
-        <view class="tit">
-          <text class="biaoqian">抢购</text>
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-        </view>
-        <view class="bottom">
-          <view class="money">
-            <text>￥6565.0</text>
-            <text>/件</text>
-          </view>
-          <view class="juli">123m</view>
-        </view>
-      </view>
-    </view>
-    <view class="list">
-      <image src="../../images/index/banner.png"></image>
-      <view class="listcon">
-        <view class="tit">
-          <text class="biaoqian">2人拼</text>
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-        </view>
-        <view class="bottom">
-          <view class="money">
-            <text>￥6565.0</text>
-            <text>/件</text>
-          </view>
-          <view class="juli">123m</view>
-        </view>
-      </view>
-    </view>
+    
   </view>
 </view>
 

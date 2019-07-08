@@ -22,7 +22,7 @@
   </view>
   <!-- 内容框 -->
   <view class="listbox">
-    <view class="list" wx:for="{{4}}" wx:key="i">
+    <view class="list" wx:for="{{4}}" wx:key="i" catchtap="toxq">
       <image src="../../images/index/banner.png"></image>
       <view class="listcon">
         <view class="tit">

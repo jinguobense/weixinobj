@@ -69,7 +69,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   overflow: hidden;
   box-sizing: border-box;
   padding: 5rpx 0;
@@ -102,6 +102,6 @@
   color: #999;
 }
 .listbox .list .listcon .bottom .juli{
-  font-size: 18rpx;
+  font-size: 20rpx;
   color: #999;
 }

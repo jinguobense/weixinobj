@@ -27,25 +27,25 @@
   <view class="centerbox">
     <!-- 分类块 -->
     <view class="fenleicon between">
-      <navigator url="../pintuan/pintuan" class="fenleilist">
+      <navigator url="../pintuan/pintuan" class="fenleilist" hover-class="none">
           <image src="../../images/index/tp.png"></image>
           <text>众聚团拼</text>
       </navigator>
-      <navigator url="../xianshibuy/xianshibuy" class="fenleilist">
+      <navigator url="../xianshibuy/xianshibuy" class="fenleilist" hover-class="none">
           <image src="../../images/index/xs.png"></image>
           <text>限时抢购</text>
       </navigator>
-      <navigator url="../manjian/manjian" class="fenleilist">
+      <navigator url="../manjian/manjian" class="fenleilist" hover-class="none">
           <image src="../../images/index/mj.png"></image>
           <text>满减专场</text>
       </navigator>
-      <navigator url="../youhuijuan/youhuijuan" class="fenleilist">
+      <navigator url="../youhuijuan/youhuijuan" class="fenleilist" hover-class="none">
         <image src="../../images/index/yhq.png"></image>
         <text>优惠券</text>
       </navigator>
     </view>
     <!-- 参团图片 -->
-    <navigator url="../cantuan/cantuan">
+    <navigator url="../cantuan/cantuan" hover-class="none">
       <image class="cantuan" src="../../images/index/ptrk.png"></image>
     </navigator>
     <!-- 推荐好店标题 -->

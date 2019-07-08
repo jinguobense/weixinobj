@@ -1,25 +1,13 @@
-// pages/pintuan/pintuan.js
+// pages/myzuji/myzuji.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabindex: '1',    //分类索引
+
   },
-  // 分类tab切换
-  changetab(e) {
-    // console.log(e.currentTarget.dataset.current)
-    this.setData({
-      tabindex: e.currentTarget.dataset.current
-    })
-  },
-  //跳转商品详情
-  toxq(){
-    wx.navigateTo({
-      url: '../pintuanxq/pintuanxq'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

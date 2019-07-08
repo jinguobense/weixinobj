@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/manjianxq/manjianxq",
+    "pages/pintuanxq/pintuanxq",
     "pages/index/index",
+    "pages/myzuji/myzuji",
     "pages/youhuishop/youhuishop",
-    
     "pages/cantuan/cantuan",
     "pages/youhuijuan/youhuijuan",
     "pages/manjianmore/manjianmore",

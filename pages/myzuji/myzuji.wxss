@@ -1,0 +1,76 @@
+/* pages/myzuji/myzuji.wxss */
+.header{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 0 55rpx;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.header text{
+  font-size: 32rpx;
+  color: #0B9D4A;
+}
+/* 内容框 */
+.listbox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 110rpx;
+}
+.listbox .list{
+  width: 100%;
+  height: 200rpx;
+  margin-bottom: 10rpx;
+  background: #fff;
+  display: flex;
+  box-sizing: border-box;
+  padding: 16rpx 22rpx;
+  justify-content: flex-start;
+
+}
+.listbox .list image{
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+
+}
+.listbox .list .con{
+  width: 510rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.listbox .list .con .tit{
+  font-size: 26rpx;
+  color: #333;
+  width: 100%;
+  line-height: 50rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.listbox .list .con .bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.listbox .list .con .bottom .money{
+  font-size: 26rpx;
+  color: #EC1D3B;
+}
+.listbox .list .con .bottom .time{
+  font-size: 20rpx;
+  color: #333;
+}

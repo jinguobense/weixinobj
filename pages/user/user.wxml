@@ -61,11 +61,11 @@
       <text>我的收藏</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
     </view>
-    <view class="list">
+    <navigator url="../myzuji/myzuji" class="list" hover-class="none">
       <image class="leftimg" src="../../images/user/ic_zj_mine.png"></image>
       <text>我的足迹</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
-    </view>
+    </navigator>
     <view class="list">
       <image class="leftimg" src="../../images/user/ic_dzgl_mine.png"></image>
       <text>地址管理</text>
