@@ -129,7 +129,7 @@ Page({
     query.selectViewport().scrollOffset()
     query.exec(function (res) {
       console.log(res[0].top + '-------')
-      if (res[0].top == 0){
+      if (res[0].top <= 0){
         _this.setData({
           foottype:true,
           uptype: true,

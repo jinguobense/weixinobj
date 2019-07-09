@@ -33,7 +33,6 @@
 } 
 .headbox .searchbox input{
   font-size: 28rpx;
-  letter-spacing: 3rpx;
   width: 530rpx;
   margin-left: 50rpx;
   margin-right: 10rpx;

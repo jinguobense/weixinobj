@@ -95,7 +95,7 @@
         <view class="list {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab">童装</view>
       </view>
       <!-- 右部内容 -->
-      <view class="rightcon">
+      <scroll-view class="rightcon" scroll-y='true' scroll-with-animation='true' >
         <view class="list" wx:for="{{10}}" wx:key="i">
           <image src="../../images/index/down.png"></image>
           <view class="listcon">
@@ -110,7 +110,7 @@
             
           </view>
         </view>
-      </view>
+      </scroll-view>
     </view>
     
   </view>

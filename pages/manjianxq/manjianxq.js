@@ -13,6 +13,12 @@ Page({
     guigeindex:'1',    //规格索引
     num:'1',  //购买数量
   },
+  //跳转确认订单
+  tosuredd(){
+    wx.navigateTo({
+      url: '../suredd/suredd',
+    })
+  },
   // 推荐商品tab切换锚点
   changetab(e) {
     // console.log(e.currentTarget.dataset.current)

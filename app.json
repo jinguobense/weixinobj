@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/dianpu/dianpu",
     "pages/share/share",
     "pages/search/search",
     "pages/searchend/searchend",
     "pages/suredd/suredd",
-    "pages/dianpu/dianpu",
     "pages/dianpuxx/dianpuxx",
     "pages/shopxq/shopxq",
     "pages/youhuishopxq/youhuishopxq",
