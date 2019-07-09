@@ -22,7 +22,14 @@ Page({
       tabindex: e.currentTarget.dataset.current
     })
   },
+  //跳转商品详情
+  toxq() {
+    var _this = this;
 
+    wx.navigateTo({
+      url: '../xianshibuyxq/xianshibuyxq?type='+_this.data.headtabindex
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

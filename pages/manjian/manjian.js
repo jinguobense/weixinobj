@@ -7,7 +7,12 @@ Page({
   data: {
 
   },
-
+  //跳转商品详情
+  toxq() {
+    wx.navigateTo({
+      url: '../manjianxq/manjianxq'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

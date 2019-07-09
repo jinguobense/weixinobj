@@ -1,0 +1,76 @@
+<!--pages/suredd/suredd.wxml-->
+<view class="Suredd">
+  <view class="dizhibox">
+     <image src="../../images/dianpu/dizhi.png" class="dizhi"></image>
+     <view class="zitibox" wx:if="{{!peisongtype}}">
+        <text class="tit">店铺地址：</text>
+        <text class="con">河南省正在河南省正在河南省正在河南省正在河南省正在河南省正在</text> 
+     </view>
+     <view class="peisongbox" wx:if="{{peisongtype}}">
+        <view class="top">
+          <view class="name">收货人：张可是</view>
+          <view class="tel">213216546</view>
+        </view>
+        <view class="bottom">收货地址：奥术大师大所多阿萨德奥术大师阿萨德阿萨德阿萨德阿萨德按时</view>
+        
+     </view>
+     <icon class='iconfont icon-31fanhui2' wx:if="{{peisongtype}}"></icon>
+  </view>
+  <!-- 店铺信息 -->
+  <view class="dianxx">
+    <image src="../../images/dianpu/dian.png"></image>
+    <text>清泉酒水超市</text>
+  </view>
+  <!-- 购买的商品信息 -->
+  <view class="listbox">
+    <view class="list">
+      <image src="../../images/index/banner.png"></image>
+      <view class="listright">
+        <view class="tit">创意新品营运被按时</view>
+        <view class="guige">规格：GXZ-J618</view>
+        <view class="bottom">
+          <view class="money">￥35.0</view>
+          <view class="num">x2</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 其他列表 -->
+  <view class="otherbox">
+    <view class="list youhuilist">
+      <text>优惠券</text>
+      <view class="right">
+        <text>可使用2</text>
+        <icon class='iconfont icon-31fanhui2'></icon>
+      </view>
+    </view>
+    <view class="list pslist" catchtap="choosehave">
+      <text>是否配送：</text>
+      <view class="psbox">
+        <text>配送费￥1</text>
+        <view class="xian"></view>
+        <text>支持自取</text>
+      </view>
+      <image src="../../images/dianpu/xz2.png" wx:if="{{peisongtype}}"></image>
+      <image src="../../images/dianpu/xz1.png" wx:if="{{!peisongtype}}"></image>
+    </view>
+    <view class="list liuyanlist" wx:if="{{!peisongtype}}">
+      <text>取货电话：</text>
+      <input type="number" placeholder="必填，填写去取货电话"></input>
+    </view>
+    <view class="list tixinglist">
+      <text>商家提醒：</text>
+      <view>暂无提醒!!!</view>
+    </view>
+    <view class="list liuyanlist">
+      <text>买家留言：</text>
+      <input type="text" placeholder="选填，填写自己的要求"></input>
+    </view>
+  </view>
+  <view class="foot">
+    <text class="need">需支付：</text>
+    <view class="money">￥70.90</view>
+    <view class="psmoney">配送费￥1</view>
+    <view class="btn">提交订单</view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/searchend/searchend.wxml-->
+<view class="Search">
+  <view class="headbox">
+    <!-- 搜索框 -->
+    <view class="searchbox">
+      <input placeholder="搜索您想要的宝贝"></input>
+      <icon type='search' size='36rpx'></icon>
+    </view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="list" wx:for="{{5}}" wx:key="i">
+      <image src="../../images/index/banner.png"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="biaoqian">2人拼</text>
+          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text>￥6565.0</text>
+            <text>/件</text>
+          </view>
+          <view class="juli">123m</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+
+
+</view>
+

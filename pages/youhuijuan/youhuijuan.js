@@ -7,7 +7,14 @@ Page({
   data: {
 
   },
+  //跳转商品详情
+  toxq() {
+    var _this = this;
 
+    wx.navigateTo({
+      url: '../youhuishopxq/youhuishopxq'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

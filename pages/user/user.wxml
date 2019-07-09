@@ -81,10 +81,10 @@
       <text>客服帮助</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
     </view>
-    <view class="list">
+    <navigator url="../share/share" class="list" hover-class="none">
       <image class="leftimg" src="../../images/user/ic_share_app.png"></image>
       <text>分享应用</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
-    </view>
+    </navigator>
   </view>
 </view>

@@ -2,8 +2,8 @@
 <view class="Near">
   <view class="headbox">
     <!-- 搜索框 -->
-    <view class="searchbox">
-      <input placeholder="搜索您想要的宝贝"></input>
+    <view class="searchbox" catchtap="tosearch">
+      <input placeholder="搜索您想要的宝贝" disabled></input>
       <icon type='search' size='36rpx'></icon>
     </view>
     <!-- 类别横向滚动框 -->

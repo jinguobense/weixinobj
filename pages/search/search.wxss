@@ -1,0 +1,75 @@
+/* pages/search/search.wxss */
+.Search{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.headbox{
+  width: 100%;
+  height: 110rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.headbox .searchbox{
+  width: 100%;
+  height: 66rpx;
+  background: #F4F4F4;
+  border-radius: 66rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} 
+.headbox .searchbox input{
+  font-size: 28rpx;
+  letter-spacing: 3rpx;
+  width: 530rpx;
+  margin-left: 50rpx;
+  margin-right: 10rpx;
+}
+.conbox{
+  width: 100%;
+  flex: 1;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  padding-top: 145rpx;
+}
+.conbox .tit{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22rpx;
+}
+.conbox .tit text{
+  font-size: 28rpx;
+  color: #333;
+
+}
+.conbox .tit image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.conbox .con{
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+
+}
+.conbox .con .conlist{
+  font-size: 26rpx;
+  color: #666;
+  padding: 17rpx 30rpx;
+  background: #f7f7f7;
+  border-radius: 60rpx;
+  margin: 22rpx 10rpx;
+}

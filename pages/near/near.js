@@ -7,6 +7,12 @@ Page({
   data: {
     tabindex: '1',    //分类索引
   },
+  //跳转到搜索
+  tosearch() {
+    wx.navigateTo({
+      url: '../search/search',
+    })
+  },
   // 分类tab切换
   changetab(e) {
     // console.log(e.currentTarget.dataset.current)

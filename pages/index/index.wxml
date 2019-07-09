@@ -5,9 +5,9 @@
   <view class="head start_C">
     <image src="../../images/index/loc.png" class="dingweiicon"></image>
     <text class="dingwei">郑州市</text>
-    <view class="sousuobox">
+    <view class="sousuobox" catchtap="tosearch">
       <icon type='search' size='28rpx'></icon>
-      <input placeholder="关键词搜索"></input>
+      <input placeholder="关键词搜索" disabled></input>
       <icon type='clear' size='22rpx'></icon>
     </view>
     <image src="../../images/index/msg.png" class="msgicon"></image>
@@ -59,7 +59,7 @@
     </view>
     <!-- 推荐好店内容 -->
     <view class="tuijiancon">
-      <view class="tuijianlist start">
+      <view class="tuijianlist start" wx:for="{{2}}" wx:key="i" catchtap="todianpu">
         <image src="../../images/index/down.png"></image>
         <view class="rightcon">
           <view class="toptit">
@@ -83,30 +83,7 @@
           </view>
         </view>
       </view>
-      <view class="tuijianlist start">
-        <image src="../../images/index/down.png"></image>
-        <view class="rightcon">
-          <view class="toptit">
-            <text>露露欢乐超市</text>
-            <view class="starbox">
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp2.png"></image>
-            </view>
-          </view>
-          <view class="centercon">
-            <text>满减</text>
-            <view>意大利进口阿萨德阿达大声道暗示打算打暗示打</view>
-          </view>
-          <view class="money">￥129.0</view>
-          <view class="bottomcon">
-            <view class="yishou">已售：162</view>
-            <view class="juli">1.62km</view>
-          </view>
-        </view>
-      </view>
+      
     </view>
   </view>
 

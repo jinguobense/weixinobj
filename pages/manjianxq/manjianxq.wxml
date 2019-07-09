@@ -214,7 +214,7 @@
       <view class="onebuy" catchtap="tanchusizebox">
         <text>加入购物车</text>
       </view>
-      <view class="tuanbuy">
+      <view class="tuanbuy" catchtap="tanchusizebox">
         <text>立即购买</text>
       </view>
     </view>

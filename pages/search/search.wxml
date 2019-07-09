@@ -1,0 +1,28 @@
+<!--pages/search/search.wxml-->
+<view class="Search">
+  <view class="headbox">
+    <!-- 搜索框 -->
+    <view class="searchbox">
+      <input placeholder="搜索您想要的宝贝"></input>
+      <icon type='search' size='36rpx' catchtap="tosearchend"></icon>
+    </view>
+  </view>
+  <!-- 历史搜索框 -->
+  <view class="conbox">
+    <view class="tit">
+      <text>搜索历史：</text> 
+      <image src="../../images/dianpu/cl.png"></image>
+    </view>
+    <view class="con">
+      <text class="conlist">食用油</text>
+      <text class="conlist">油</text>
+      <text class="conlist">食用油</text>
+      <text class="conlist">食用</text>
+      <text class="conlist">食用油</text>
+      <text class="conlist">食用啊油</text>
+      <text class="conlist">食用啊油</text>
+      <text class="conlist">食用啊油</text>
+      <text class="conlist">食用油</text>
+    </view>
+  </view>
+</view>
