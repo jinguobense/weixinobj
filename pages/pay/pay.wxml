@@ -1,0 +1,6 @@
+<!--pages/pay/pay.wxml-->
+<view class="Pay">
+  <view class="money">￥103.25</view>
+  <view class="tit">支付金额</view>
+  <view class="btn">微信支付</view>
+</view>

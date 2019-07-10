@@ -6,6 +6,12 @@ Page({
   data: {
     tabindex:'1',    //精选商品索引
   },
+  // 跳转到消息
+  tomsg(){
+    wx.navigateTo({
+      url: '../msg/msg',
+    })
+  },
   //跳转到搜索
   tosearch(){
     wx.navigateTo({

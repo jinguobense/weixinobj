@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/tongzhilist/tongzhilist.js
 Page({
 
   /**
@@ -7,10 +7,10 @@ Page({
   data: {
 
   },
-  // 跳转到消息
-  tomsg() {
+  //跳转到通知详情
+  totongzhi(){
     wx.navigateTo({
-      url: '../msg/msg',
+      url: '../tongzhi/tongzhi',
     })
   },
   /**

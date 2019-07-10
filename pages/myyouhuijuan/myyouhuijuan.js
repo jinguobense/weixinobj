@@ -1,17 +1,22 @@
-// pages/user/user.js
+// pages/myyouhuijuan/myyouhuijuan.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    headerindex:'1',      //头部index
   },
-  // 跳转到消息
-  tomsg() {
-    wx.navigateTo({
-      url: '../msg/msg',
-    })
+
+  tabchange(e){
+    var _this = this;
+    wx.showLoading({})
+    setTimeout(function () {
+      _this.setData({
+        headerindex: e.currentTarget.dataset.index
+      })
+      wx.hideLoading()
+    }, 300)
   },
   /**
    * 生命周期函数--监听页面加载

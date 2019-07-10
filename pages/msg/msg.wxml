@@ -1,0 +1,28 @@
+<!--pages/msg/msg.wxml-->
+<view class="Msg">
+  <view class="header">
+    <navigator url="../tongzhilist/tongzhilist" class="list" hover-class="none">
+      <image src="../../images/user/tongzhi.png"></image>
+      <text>通知</text>
+      <view class="biaoqian">99+</view>
+    </navigator>
+    <navigator url="../shensu/shensu" class="list" hover-class="none">
+      <image src="../../images/user/sensu.png"></image>
+      <text>申诉</text>
+    </navigator>
+    <navigator url="../fankui/fankui" class="list" hover-class="none">
+      <image src="../../images/user/yjfk.png"></image>
+      <text>意见反馈</text>
+    </navigator>
+  </view>
+  <view class="msglist" wx:for="{{10}}" wx:key="i">
+    <image src="../../images/index/down.png"></image>
+    <view class="listcon">
+      <view class="top">
+        <view class="name">小怪</view>
+        <view class="time">11:56</view>
+      </view>
+      <view class="bottom">我买的菜怎么还没我买的菜怎么还没我买的菜怎么还没我买的菜怎么还没我买的菜怎么还没我买的菜怎么还没</view>
+    </view>
+  </view>
+</view>

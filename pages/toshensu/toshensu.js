@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/toshensu/toshensu.js
 Page({
 
   /**
@@ -7,12 +7,7 @@ Page({
   data: {
 
   },
-  // 跳转到消息
-  tomsg() {
-    wx.navigateTo({
-      url: '../msg/msg',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

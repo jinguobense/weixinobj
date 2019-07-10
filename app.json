@@ -1,6 +1,16 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/toshensu/toshensu",
+    "pages/fankui/fankui",
+    "pages/shensuxq/shensuxq",
+    "pages/shensu/shensu",
+    "pages/tongzhilist/tongzhilist",
+    "pages/tongzhi/tongzhi",
+    "pages/msg/msg",
+    "pages/paysuccess/paysuccess",
+    "pages/pay/pay",
+    "pages/myyouhuijuan/myyouhuijuan",
     "pages/dianpu/dianpu",
     "pages/share/share",
     "pages/search/search",

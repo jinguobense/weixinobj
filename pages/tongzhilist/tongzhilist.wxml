@@ -1,0 +1,19 @@
+<!--pages/tongzhilist/tongzhilist.wxml-->
+<view class="tongzhilist">
+  <view class="list" wx:for="{{8}}" wx:key="i" catchtap="totongzhi">
+    <view class="top">
+      <view class="type">订单通知</view>
+      <view class="time">17:02</view>
+    </view>
+    <view class="conbox">
+      <image src="../../images/index/down.png"></image>
+      <view class="right">
+        <view class="tit">四川奥术大师大声道啊四川奥术大师大声道啊四川奥术大师大声道啊四川奥术大师大声道啊四川奥术大师大声道啊四川奥术大师大声道啊</view>
+        <view class="rbottom">
+          <view class="bianhao">订单编号：326541416543341544</view>
+          <view class="con">已发货</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

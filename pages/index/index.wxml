@@ -10,7 +10,7 @@
       <input placeholder="关键词搜索" disabled></input>
       <icon type='clear' size='22rpx'></icon>
     </view>
-    <image src="../../images/index/msg.png" class="msgicon"></image>
+    <image src="../../images/index/msg.png" class="msgicon" catchtap="tomsg"></image>
   </view>
   <!-- 轮播图 -->
   <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" class='banner'>

@@ -1,16 +1,30 @@
-// pages/user/user.js
+// pages/shensu/shensu.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    headindex:'0',
   },
-  // 跳转到消息
-  tomsg() {
+  //跳转申诉详情
+  toxq(){
     wx.navigateTo({
-      url: '../msg/msg',
+      url: '../shensuxq/shensuxq',
+    })
+  },
+  //左右滑动事件
+  huachange(e){
+    // console.log(e.detail.current)
+    this.setData({
+      headindex: e.detail.current
+    })
+  },
+  // 分类tab切换
+  tabchange(e) {
+    // console.log(e.currentTarget.dataset.current)
+    this.setData({
+      headindex: e.currentTarget.dataset.index
     })
   },
   /**

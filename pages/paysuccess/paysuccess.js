@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/paysuccess/paysuccess.js
 Page({
 
   /**
@@ -7,10 +7,10 @@ Page({
   data: {
 
   },
-  // 跳转到消息
-  tomsg() {
-    wx.navigateTo({
-      url: '../msg/msg',
+  //返回首页
+  tohome(){
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   /**

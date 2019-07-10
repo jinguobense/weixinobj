@@ -2,7 +2,7 @@
 <view class="User">
   <view class="header">
     <image class="bg" src="../../images/user/bg.png"></image>
-    <image class="msg" src="../../images/user/xx.png"></image>
+    <image class="msg" src="../../images/user/xx.png" catchtap="tomsg"></image>
     <view class="userxx">
       <image src="../../images/index/banner.png" class="touxiang"></image>
       <view class="right">
@@ -13,14 +13,14 @@
         <image src="../../images/user/lssj.png" class="ls"></image> -->
       </view>
     </view>
-    <view class="youhuibox">
+    <navigator url="../myyouhuijuan/myyouhuijuan" class="youhuibox" hover-class="none">
       <image class="youhuibg" src="../../images/user/kuang.png"></image>
       <view class="left">
         <image src="../../images/user/yhq.png"></image>
         <text>优惠券</text>
       </view>
       <view class="right"> <text>立即查看</text><icon class='iconfont icon-31fanhui2'></icon></view>
-    </view>
+    </navigator>
   </view>
   <!-- 订单 -->
   <view class="dingdanbox">

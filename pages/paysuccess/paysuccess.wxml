@@ -1,0 +1,33 @@
+<!--pages/paysuccess/paysuccess.wxml-->
+<view class="Paysuccess">
+  <view class="header">
+    <image src="../../images/user/duihao.png"></image>
+    <text>支付成功</text>
+    <view class="listbox">
+      <view>查看订单</view>
+      <view catchtap="tohome">返回首页</view>
+    </view>
+  </view>
+  <view class="tuijianbox">
+
+    <view class="tuijiantit">为您推荐</view>
+    <view class="listbox">
+      <view class="listcon">
+        <view class="list" wx:for="{{5}}" wx:key="i">
+          <image src="../../images/index/down.png" class="img"></image>
+          <view class="con">
+            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
+            <view class="moneybox">
+              <text>￥13.00</text>
+            </view>
+            <view class="pingji">
+              <text>已售：10000</text>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+
+  </view>
+</view>
