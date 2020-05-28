@@ -1,0 +1,160 @@
+<!--pages/myddxq/myddxq.wxml-->
+<view class="Myddxq">
+  <!-- 地址信息 -->
+  
+  <view class="dizhibox" wx:if="{{info.state != 9}}">
+     <image src="../../../images/dianpu/dizhi.png" class="dizhi" ></image>
+     <view class="zitibox" wx:if="{{info.delivType != 1}}" catchtap="lookmap">
+        <text class="tit">店铺地址：</text>
+        <text class="con">{{info.shopAddr}}</text> 
+     </view>
+     <view class="peisongbox" wx:if="{{info.delivType == 1}}">
+        <view class="top">
+          <view class="name">收货人：{{info.receName}}</view>
+          <view class="tel">{{info.recePhone}}</view>
+        </view>
+        <view class="bottom">收货地址：{{info.receAddr}}</view>
+        
+     </view>
+     <!-- <icon class='iconfont icon-31fanhui2' wx:if="{{peisongtype}}"></icon> -->
+  </view>
+  <view class="mapbox" wx:if="{{info.state == 2   &&  rfstate !== 0}}">
+    <map id="myMap"
+        markers="{{markers}}"
+        longitude="{{poi.longitude}}"
+        latitude="{{poi.latitude}}"
+        scale='13' show-location
+        wx:if="{{sizexzbox}}"
+        >
+    </map>
+  </view>
+  <!-- 店铺信息 -->
+  <view class="dianxx">
+    <image src="../../../images/dianpu/gdian.png" class="dianimg"></image>
+    <text>{{info.shopName}}</text>
+    <!-- <image src="../../../images/dianpu/dingwei.png" class="dwimg"></image> -->
+    <view class="quhuomabox" catchtap="tanchusizebox" wx:if="{{info.state == 2  &&  rfstate !== 0}}">
+      <text>取货码</text>
+      <image src="../../../images/user/hxm.png"></image>
+    </view>
+    
+  </view>
+  <view class="quhuobox" wx:if="{{info.deadline}}">
+    <image src="../../../images/dianpu/quhuo.png"></image>
+    <text>取货截止时间：{{info.deadline}}</text> 
+  </view>
+  <!-- 购买的商品信息 -->
+  <view class="listbox">
+    <block wx:for="{{info.goodsList}}" wx:key="i" >
+      <view class="list" catchtap="togoodsxq" data-type="{{info.orderType}}" data-goodsid="{{item.goodsId}}">
+        <image src="{{item.goodsImg}}"></image>
+        <view class="listright">
+          <view class="tit">{{item.goodsName}}</view>
+          <view class="guige">{{item.skuDesc}}</view>
+          <view class="bottom">
+            <view class="money">￥{{item.goodsCurPrice}}</view>
+            <view class="num">x{{item.goodsBuyNum}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 商品金额及活动 -->
+  <view class="huodongbox">
+    <view class="list">
+      <text class="tit">商品金额：</text>
+      <view class="money">￥{{info.gprice}}</view>
+    </view> 
+    <view class="list">
+      <text class="tit">配送费：</text>
+      <view class="no" wx:if="{{!info.delivCost}}">无</view>
+      <view class="no" wx:if="{{info.delivCost}}">{{info.delivCost}}</view>
+    </view> 
+    <view class="list">
+      <image src="../../../images/user/yh.png" wx:if="{{info.couponstate == 1}}"></image>
+      <text class="tit" wx:if="{{info.couponstate == 1}}">优惠券：</text>
+      <text class="tit" wx:if="{{info.couponstate == 0}}">满减：</text>
+      <text class="tit" wx:if="{{info.couponstate != 0 && info.couponstate != 1}}">优惠：</text>
+      <view class="no" wx:if="{{!info.freePrice}}">无</view>
+      <view class="no" wx:if="{{info.freePrice}}">-{{info.freePrice}}</view>
+    </view> 
+    <!-- <view class="list">
+      <text class="tit">店铺活动：</text>
+      <view class="manjian">满60元减10元</view>
+      <view class="no" wx:if="{{info.orderType == 0}}">无</view>
+    </view>   -->
+  </view>
+  <!-- 实付 -->
+  <view class="shifubox">
+    <view class="jiesheng">
+      <text>共节省:</text>
+      <view wx:if="{{info.freePrice}}">￥{{info.freePrice}}</view>
+      <view wx:if="{{!info.freePrice}}">￥0</view>
+    </view>
+    <view class="shifu">
+      <text>实付金额:</text>
+      <view>￥{{info.payCash}}</view>
+    </view>
+  </view>
+  <!-- 核销码 -->
+  <!-- <view class="hexiaocode"  catchtap="tanchusizebox" wx:if="{{info.state == 2  &&  rfstate !== 0}}">
+    <text>取货码:</text>
+    <image src="../../../images/user/hxm.gif"></image>
+  </view> -->
+  
+  <!-- <image src='{{imgsrc}}' style="display: block;margin:20rpx auto;width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;"></image> -->
+  <!-- 订单信息 -->
+  <view class="dingdanbox">
+    <view class="list">
+      <text>订单编号：{{info.orderNo}}</text>
+      <view catchtap="fuzhi">复制</view>
+    </view>
+    <view class="list">
+      <text>下单时间：{{info.genTime}}</text>
+    </view>
+    <view class="list">
+      <text>支付方式：{{info.payChannel}}</text>
+    </view>
+    <view class="list">
+      <text wx:if="{{!info.leaveMsg || info.leaveMsg == 'undefined' || info.leaveMsg==''}}">订单备注：暂无</text>
+      <text wx:else >订单备注：{{info.leaveMsg}}</text>
+      
+    </view>
+    <view class="list">
+      <text wx:if="{{info.state == 0}}">订单状态：待付款</text>
+      <text wx:if="{{info.state == 1}}">订单状态：拼团中</text>
+      <text wx:if="{{info.state == 2  &&  rfstate !== 0}}">订单状态：待取货</text>
+      <text wx:if="{{info.state == 3  &&  rfstate !== 0}}">订单状态：待配送</text>
+      <text wx:if="{{info.state == 4 && !rfstate &&  rfstate !== 0}}">订单状态：配送中</text>
+      <text wx:if="{{rfstate === 0}}">订单状态：申请退款中</text>
+      <text wx:if="{{info.state == 5}}">订单状态：待评价</text>
+      <text wx:if="{{info.state == 6}}">订单状态：已完成</text>
+      <text wx:if="{{info.state == 7}}">订单状态：已取消</text>
+      <text wx:if="{{info.state == 9}}">订单状态：已退款</text>
+    </view>
+    <view class="list" wx:if="{{rfstate == 2 && info.state != 9}}">
+      <text >退款状态：拒绝退款</text>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class="foot" wx:if="{{info.state!=9 && info.state!= 8 && info.state!= 7 && info.state!= 6 &&  rfstate !== 0}}">
+    <view class="huibox" wx:if="{{info.state == 0}}" catchtap="quxiao" data-orderid="{{info.orderId}}">取消订单</view>
+    <view class="redbox" wx:if="{{info.state == 0}}" catchtap="pay" data-money="{{info.orderSum}}" data-orderid="{{info.orderId}}" data-orderno="{{info.orderNo}}">去支付</view>
+    <view class="redbox" wx:if="{{info.state == 1 && info.orderType == 5}}" data-orderid="{{info.orderId}}" catchtap="toyaoqing" data-shopname="{{info.shopName}}">邀请好友</view>
+    <view class="redbox" wx:if="{{info.state == 1 && info.orderType == 1}}" data-goodsid="{{info.goodsList[0].goodsId}}" catchtap="toyaoqingdt">邀请好友</view>
+    <view class="huibox" wx:if="{{info.state == 2 &&  rfstate !== 0}}" data-orderid="{{info.orderId}}" catchtap="totuikuan" data-type="{{info.state}}">申请退款</view>
+    <!-- <view class="redbox" wx:if="{{info.state == 2}}">确认取货</view> -->
+    <view class="huibox" wx:if="{{info.state == 3 &&  rfstate !== 0 }}" data-orderid="{{info.orderId}}" catchtap="totuikuan" data-type="{{info.state}}">申请退款</view>
+    <!-- <view class="redbox" wx:if="{{info.state == 3}}">确认收货</view> -->
+    <!-- <view class="huibox" wx:if="{{info.state == 4 && !rfstate }}" data-orderid="{{info.orderId}}" catchtap="totuikuan" data-type="{{info.state}}">申请退款</view> -->
+    <view class="redbox" wx:if="{{info.state == 4 && !rfstate }}" catchtap="shouhuo" data-orderid="{{info.orderId}}">确认收货</view>
+    <view class="redbox" wx:if="{{info.state == 5}}" catchtap="topingjia" data-orderid="{{info.orderId}}">去评价</view>
+  </view>
+  <!-- 选规格 -->
+  <view class="tanbox" hidden="{{sizexzbox}}" catchtouchmove='true'>
+    <view class="black"  catchtap='closechoosebox'></view>
+    <view class="conbox"  id="tannbox">
+      <canvas class="canvas" style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+    </view>
+  </view>
+</view>

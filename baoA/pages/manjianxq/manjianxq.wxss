@@ -1,0 +1,846 @@
+/* pages/manjianxq/manjianxq.wxss */
+
+@import "../../../utils/public.wxss";/*引用图标*/
+
+.Manjianxq{
+  box-sizing: border-box;
+  padding-top: 100rpx;
+  padding-bottom: 100rpx;
+  overflow-y: auto;
+  height: 100%;
+}
+.canvasimg{
+  width: 500rpx; 
+  height: 400rpx;
+}
+/* 头部 */
+.header{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 190rpx;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 0 5px 2px rgba(144, 144, 144, 0.35);
+}
+.header .list{
+  font-size: 32rpx;
+  color: #333;
+  height: 100rpx;
+  line-height: 100rpx;
+  box-sizing: border-box;
+}
+.header .list.active{
+  color: #E31718;
+  border-bottom: 4rpx solid #E31718;
+}
+.header image{
+  position: absolute;
+  right: 30rpx;
+  top: 32rpx;
+  width: 42rpx;
+  height: 44rpx;
+}
+/* 轮播图 */
+.banner{
+  width: 750rpx;
+  height: 750rpx;
+  
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+}
+/* 商品信息 */ 
+.shopbox{
+  width: 100%;
+  height: 214rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
+  padding: 0 30rpx;
+  background: #fff;
+  overflow: hidden;
+}
+.shopbox .tit{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shopbox .tit .titleft{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.shopbox .tit .titleft .qian{
+  font-size: 24rpx;
+  color: #EC1D3B;
+}
+.shopbox .tit .titleft .money{
+  font-size: 48rpx;
+  color: #EC1D3B;
+}
+.shopbox .tit .titleft .danwei{
+  color: #999;
+  font-size: 22rpx;
+}
+.shopbox .tit .titleft .danmai{
+  color: #999;
+  font-size: 22rpx;
+  margin-left: 25rpx;
+
+}
+.shopbox .tit .titright{
+  display: flex;
+  justify-content: space-between;
+
+}
+.shopbox .tit .titright .list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80rpx;
+}
+.shopbox .tit .titright .list.fenxiangbox{
+  padding: 0;
+  background: none;
+  border: none;
+  line-height: 1;
+  overflow: visible;
+}
+.shopbox .tit .titright .list.fenxiangbox::after{
+  border: none;
+}
+.shopbox .tit .titright .list image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-bottom: 15rpx;
+}
+.shopbox .tit .titright .list text{
+  font-size: 20rpx;
+  color: #333;
+}
+.shopbox .con{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  box-sizing: border-box;
+  line-height: 42rpx;
+  min-height: 48rpx;
+}
+.shopbox .con .biaoqian{
+  padding: 4rpx 7rpx;
+  border: 1rpx solid #E9130D;
+  border-radius: 10rpx;
+  color: #E9130D;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  transform: rotateZ(360deg);
+}
+.shopbox .con .name{
+  color: #333;
+  letter-spacing: 2rpx;
+  font-size:28rpx;
+  line-height: 1;
+}
+/* 满减信息 */
+.manjianxx{
+  width: 100%;
+  height: 86rpx;
+  background: #fff;
+  border-top: 1rpx solid #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.manjianxx .biaoqian{
+  padding: 3rpx 8rpx;
+  border: 1rpx solid #FF002B;
+  border-radius: 7rpx;
+  color: #FF002B;
+  font-size: 24rpx;
+  margin-right: 16rpx;
+  transform: rotateZ(360deg);
+  display: inline;
+
+}
+.manjianxx .con{
+  font-size: 26rpx;
+  color: #FF002B;
+}
+.persong-box {
+  width: 100%;
+  height: 55rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  color: #F85F23;
+  font-size: 24rpx;
+  margin-top: 2rpx;
+}
+.lanse{
+  color:#1895FF;
+}
+/* 店铺信息 */
+.dianbox{
+  width: 100%;
+  height: 212rpx;
+  background: #fff;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+}
+.dianbox .top{
+  display: flex;
+  justify-content: flex-start;
+  height: 120rpx;
+  width: 100%;
+}
+.dianbox .top image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.dianbox .top .topright{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.dianbox .top .topright .tr{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dianbox .top .topright .tit{
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 10rpx;
+  margin-bottom: 15rpx;
+  width: 330rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.dianbox .top .topright .pingfen{
+  font-size: 24rpx;
+  color: #999;
+}
+.dianbox .top .topright .dizhi{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+}
+.dianbox .top .topright .dizhi image{
+  width: 27rpx;
+  height: 30rpx;
+  margin: 0;
+  margin-right: 10rpx;
+}
+.dianbox .top .topright .dizhi view{
+  color: #999;
+  font-size: 24rpx;
+  width: 320rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.dianbox .top .topright .juli{
+  color: #999;
+  font-size: 24rpx;
+}
+.dianbox .bottom{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.dianbox .bottom view{
+  font-size: 22rpx;
+  width: 148rpx;
+  height: 40rpx;
+  border: 1rpx solid #666;
+  border-radius: 40rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 57rpx;
+  color: #666;
+  transform: rotateZ(360deg);
+}
+.dianbox .bottom view text{
+  font-size: 22rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+.dianbox .bottom view .iconfont{
+  font-size: 22rpx;
+  color: #666;
+}
+/* 评价 */
+.pingjiabox{
+  width: 100%;
+  background: #fff;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.pingjiabox .pjhead{
+  width: 100%;
+  height: 64rpx;
+  box-sizing: border-box;
+  display: flex;
+  padding: 0 30rpx;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.pingjiabox .pjhead .redkuang{
+  width: 6rpx;
+  height: 32rpx;
+  background: #E4391B;
+  margin-right: 6rpx;
+}
+.pingjiabox .pjhead text{
+  font-size: 28rpx;
+  color: #333;
+}
+.pingjiabox .userxx{
+  width: 100%;
+  height: 94rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding:  0 30rpx;
+}
+.pingjiabox .userxx image{
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  margin-right: 8rpx;
+}
+.pingjiabox .userxx text{
+  font-size: 26rpx;
+  color: #333;
+
+}
+.pingjiabox .userxx .starbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 30rpx;
+}
+.pingjiabox .userxx .starbox image{
+  width: 26rpx;
+  height: 26rpx;
+  padding: 0;
+  display: block;
+  margin: 0 3rpx;
+}
+.pingjiabox .pingjiacon{
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.pingjiabox .pingjiacon text{
+  font-size: 26rpx;
+  color: #333;
+  line-height: 36rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  
+}
+.pingjiabox .pingjiacon .pingjiaimg{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 35rpx;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15rpx;
+}
+.pingjiabox .pingjiacon .pingjiaimg image{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+.pingjiabox .findmore{
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pingjiabox .findmore .more{
+  font-size: 22rpx;
+  width: 198rpx;
+  height: 44rpx;
+  border: 1rpx solid #666;
+  border-radius: 40rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+}
+.pingjiabox .findmore .more text{
+  font-size: 22rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+.pingjiabox .findmore .more .iconfont{
+  font-size: 22rpx;
+  color: #666;
+}
+/* 本店推荐 */
+.tuijianbox{
+  width: 100%;
+  background: #fff;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.tuijianbox .no{
+  font-display: 30rpx;
+  color: #333;
+  width: 100%;
+  text-align: center;
+  padding: 50rpx 0
+}
+.tuijianbox .tit{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.tuijianbox .tit .xian{
+  width: 46rpx;
+  height: 2rpx;
+  background: #EC1D3B;
+}
+.tuijianbox .tit text{
+  font-size: 32rpx;
+  color: #EC1D3B;
+  margin: 0 17rpx;
+}
+.tuijianbox .swipebox{
+  width: 100%;
+  height: 380rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+
+}
+.tuijianbox .swipebox .listbox{
+  width: 100%;
+  height: 330rpx;
+  display: flex;
+  justify-content: flex-start;
+
+}
+.tuijianbox .swipebox .listbox .list{
+  width: 230rpx;
+  height: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.tuijianbox .swipebox .listbox .list:nth-of-type(2){
+  margin: 0 15rpx;
+}
+.tuijianbox .swipebox .listbox .list image{
+  width: 230rpx;
+  height: 230rpx;
+  display: block;
+}
+.tuijianbox .swipebox .listbox .list .con{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  box-sizing: border-box;
+  line-height: 40rpx;
+  margin-top: 10rpx;
+  width: 100%;
+}
+.tuijianbox .swipebox .listbox .list .con .biaoqian{
+  padding: 8rpx 15rpx;
+  border-radius: 36rpx;
+  color: #fff;
+  font-size: 20rpx;
+  background: #FF7200;
+  text-align: center;
+  line-height: 36rpx;
+  margin-right: 10rpx;
+  transform: rotateZ(360deg);
+}
+.tuijianbox .swipebox .listbox .list .con .name{
+  color: #333;
+  letter-spacing: 1rpx;
+  font-size:24rpx;
+  line-height: 1;
+}
+.tuijianbox .findmore{
+  width: 100%;
+  height: 84rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tuijianbox .findmore .more{
+  font-size: 22rpx;
+  width: 152rpx;
+  height: 40rpx;
+  border: 1rpx solid #666;
+  border-radius: 40rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+}
+.tuijianbox .findmore .more text{
+  font-size: 22rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+.tuijianbox .findmore .more .iconfont{
+  font-size: 22rpx;
+  color: #666;
+}
+/* 商品详情 */
+.shopxq{
+  width: 100%;
+  background: #fff;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 200rpx;
+}
+.shopxq .tit{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shopxq .tit .xian{
+  width: 46rpx;
+  height: 2rpx;
+  background: #EC1D3B;
+}
+.shopxq .tit text{
+  font-size: 32rpx;
+  color: #EC1D3B;
+  margin: 0 17rpx;
+}
+.shopxq .con{
+  width: 750rpx;
+  
+}
+.shopxq .con image{
+  width: 100%;
+  display: block;
+}
+/* 底部购买框 */
+.footer{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+}
+.footer .kefubox{
+  width: 110rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer .kefubox image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-bottom: 10rpx;
+}
+.footer .kefubox text{
+  font-size: 24rpx;
+  color: #333;
+}
+.footer .onebuy{
+  width: 210rpx;
+  height: 100rpx;
+  background: #EE7F1C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer .onebuy view{
+  font-size: 28rpx;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+.footer .onebuy text{
+  font-size: 28rpx;
+  color: #fff;
+}
+.footer .tuanbuy{
+  flex: 1;
+  height: 100rpx;
+  background: #E22405;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer .tuanbuy view{
+  font-size: 28rpx;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+.footer .tuanbuy text{
+  font-size: 28rpx;
+  color: #fff;
+}
+
+/* 锚点 */
+.list-left{
+  width: 100%;
+}
+/* 弹出框 */
+.tanbox{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  left: 0;
+  top: 0;
+}
+.tanbox .black{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 101;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.tanbox .conbox{
+  width: 100%;
+  position: absolute;
+  height: 700rpx;
+  z-index: 110;
+  left: 0;
+  bottom: -700rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.conboxshow {
+  transform: translateY(-700rpx);
+  transition: all 0.5s;
+}
+
+.conboxhidden {
+  transform: translateY(700rpx);
+  transition: all 0.7s;
+}
+.blackshow {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.blackhidden {
+  opacity: 0;
+  transition: all 0.7s;
+}
+.tanbox .conbox .tanboxheader{
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.tanbox .conbox .tanboxheader image{
+  width: 208rpx;
+  height: 208rpx;
+  border-radius: 20rpx;
+  position: relative;
+  top: -20rpx;
+  margin-right: 20rpx;
+}
+.tanbox .conbox .tanboxheader .titbox{
+  flex: 1;
+  height:100%;
+  margin-top: 25rpx;
+
+}
+.tanbox .conbox .tanboxheader .titbox .tit{
+  font-size: 32rpx;
+  color: #333;
+  line-height: 44rpx;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.tanbox .conbox .tanboxheader .titbox .con{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.tanbox .conbox .tanboxheader .titbox view{
+  font-size: 34rpx;
+  color: #EE1E3E;
+}
+.tanbox .conbox .tanboxheader .titbox text{
+  font-size: 24rpx;
+  color: #333;
+}
+.tanbox .conbox .guigetit{
+  width: 100%;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  line-height: 80rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.tanbox .conbox .guigecon{
+  width: 100%;
+  height: 160rpx;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.tanbox .conbox .guigecon .list{
+  font-size: 26rpx;
+  color: #333;
+  padding: 11rpx 24rpx;
+  border-radius: 48rpx;
+  border:1rpx solid #fff;
+  margin-right: 20rpx;
+  margin-bottom: 15rpx;
+  display: inline-block;
+  transform: rotateZ(360deg);
+}
+.tanbox .conbox .guigecon .list.active{
+  border:1rpx solid #FF7C01;
+  color: #FF7C01;
+}
+.tanbox .conbox .numbox{
+  width: 100%;
+  height: 146rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.tanbox .conbox .numbox text{
+  color: #333;
+  font-size: 28rpx;
+}
+.tanbox .conbox .sure{
+  flex: 1;
+  background: linear-gradient(to right, #FF9503 , #FF7400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tanbox .conbox .sure text{
+  font-size: 40rpx;
+  color: #fff;
+  margin: 0 30rpx;
+}
+/* 数量改变样式 */
+.spinner_r{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width:220rpx;
+height:70rpx;
+border:1px solid rgba(216,216,216,1);
+border-radius:10rpx;
+overflow: hidden;
+margin-right: 20rpx;
+
+}
+.spinner_r text{
+  flex: 1;
+  text-align: center;
+  font-size: 50rpx!important;
+}
+.spinner_r input{
+  flex: 1;
+  text-align: center;
+  border-left: 1px solid #eee;
+   border-right: 1px solid #eee;
+   color: #212121;
+   font-size: 34rpx;
+}
+/* 下架信息 */
+.xiajia{
+  width: 100%;
+  height: 90rpx;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  bottom: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.xiajia image{
+  width: 34rpx;
+  height: 34rpx;
+  display: block;
+  margin-right: 10rpx;
+}
+.xiajia text{
+  font-size: 28rpx;
+  color: #fff;
+  letter-spacing: 2rpx;
+}

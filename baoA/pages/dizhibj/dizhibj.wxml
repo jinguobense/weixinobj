@@ -1,0 +1,29 @@
+<!--pages/dizhibj/dizhibj.wxml-->
+<view class="Adddizhi">
+  <view class="list">
+    <text>收货人：</text>
+    <input type="text" placeholder="请填写收货人姓名" value="{{name}}" bindinput="writename"></input>
+  </view>
+  <view class="list">
+    <text>联系电话：</text>
+    <input type="number" placeholder="请填写收货人电话" value="{{tel}}" bindinput="writetel"></input>
+  </view>
+  <view class="dwlist">
+    <text>收货地区：</text>
+    <view class="right" catchtap="getmap">
+      <input type="text" placeholder="点击选择地区" disabled value="{{mapdizhi}}"></input>
+      <text class='iconfont icon-youjiantou'></text>
+    </view>
+  </view>
+  <view class="list">
+    <text>详细地址：</text>
+    <input type="text" placeholder="请填写详细的收货地址" value="{{address}}" bindinput="writeaddress"></input>
+  </view>
+  <view class="morenlist" catchtap="changetype">
+    <image src="../../../images/dianpu/xz2.gif" wx:if="{{type}}"></image>
+    <image src="../../../images/dianpu/xz1.gif" wx:if="{{!type}}"></image>
+    <text>设为默认地址</text>
+  </view>
+  <view class="btn" catchtap="baocun">保存地址</view>
+</view>
+

@@ -1,0 +1,29 @@
+<!--pages/zhixiao/zhixiao.wxml-->
+<view class="Zhixiao">
+  
+  <!-- 内容框 -->
+  <view class="nogoods" wx:if='{{conlist.length==0 && isend == true}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂时没有商品</text>
+    </view>
+  <view class="listbox">
+    
+    <view class="list" wx:for="{{conlist}}" wx:key="i" catchtap="tozhixiaoxq" data-goodsid="{{item.goodsId}}" wx:if='{{conlist.length>0}}'>
+      <image src="{{item.goodsImg}}"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="biaoqian" wx:if="{{item.sellOffLimitFlag == 2}}">限时</text>
+          <text class="name">{{item.goodsName}}</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text wx:if="{{item.sellOffLimitFlag != 2}}">￥{{item.goodsCurPrice}}</text>
+            <text wx:if="{{item.sellOffLimitFlag == 2}}">￥{{item.goodsLimitPrice}}</text>
+          </view>
+          <!-- <view class="juli">123m</view> -->
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

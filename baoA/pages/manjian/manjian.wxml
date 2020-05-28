@@ -1,0 +1,49 @@
+<!--pages/manjian/manjian.wxml-->
+<view class="Manjian">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" class='banner' wx:if="{{bannerlist.length}}">
+    <block wx:for="{{bannerlist}}" wx:key="i">
+      <swiper-item>
+        <image src="{{item.adImg}}" />
+      </swiper-item>
+   </block>
+  </swiper>
+  <!-- 店铺列表 -->
+  <view class="shopbox">
+    <view class="nogoods" wx:if='{{list.length==0 && isend==true}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂时没有满减活动</text>
+    </view>
+    <block wx:for="{{list}}" wx:key="i" >
+      <view class="shoplist" wx:if='{{list.length>0}}'>
+        <view class="listheader">
+          <image src="{{item.shopLogo}}"></image>
+          <view class="center">
+            <view class="tit">{{item.shopName}}</view>
+            <view class="manjianxx">{{item.actDesc}}</view>
+          </view>
+          <navigator url="../manjianmore/manjianmore?shopid={{item.shopId}}" class="right" hover-class="none">
+              <text>更多</text>
+              <text class='iconfont icon-youjiantou'></text>
+          </navigator>
+        </view>
+        <!-- 内容框 -->
+        <view class="listbox">
+          <view class="list" wx:for="{{item.goodsList}}" wx:key="i" catchtap="toxq" wx:for-item="iitem" data-goodsid="{{iitem.goodsId}}">
+            <image src="{{iitem.goodsImg}}"></image>
+            <view class="listcon">
+              <view class="tit">
+                <text class="name">{{iitem.goodsName}}</text>
+              </view>
+              <view class="bottom">
+                <view class="qian">￥</view>
+                <view class="money">{{iitem.goodsCurPrice}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+</view>

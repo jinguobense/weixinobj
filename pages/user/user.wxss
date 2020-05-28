@@ -96,7 +96,7 @@
   margin-right: 20rpx;
 }
 .youhuibox .left text{
-  font-size: 26rpx;
+  font-size: 28rpx;
   color: #FFAE00;
 }
 .youhuibox .right{
@@ -111,7 +111,6 @@
   font-size: 24rpx;
   color: #fff;
   display: block;
-  padding-bottom: 20rpx;
 }
 /* 订单 */
 .dingdanbox{
@@ -130,7 +129,7 @@
   border-bottom: 1rpx solid #f5f5f5;
 }
 .dingdanbox .mydd .tit{
-  font-size: 26rpx;
+  font-size: 28rpx;
   color: #333;
 }
 .dingdanbox .mydd .right{
@@ -146,7 +145,6 @@
 .dingdanbox .mydd .right .iconfont{
   font-size: 24rpx;
   color: #333;
-  padding-bottom: 20rpx;
 }
 .dingdanbox .tabbox{
   width: 100%;
@@ -163,16 +161,42 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  position: relative;
 }
 .dingdanbox .tabbox .tablist image{
   width: 36rpx;
   height: 36rpx;
   margin-bottom: 15rpx;
 }
+.dingdanbox .tabbox .tablist:nth-of-type(5) image{
+  width: 36rpx;
+  height: 32rpx;
+  margin-bottom: 19rpx;
+}
+.dingdanbox .tabbox .tablist:nth-of-type(3) .num{
+  right: 30rpx;
+}
+.dingdanbox .tabbox .tablist:nth-of-type(5) .num{
+  right: 24rpx;
+}
 .dingdanbox .tabbox .tablist text{
   color: #333;
-  font-size: 26rpx;
+  font-size: 28rpx;
+}
+.dingdanbox .tabbox .tablist .num{
+  width: 26rpx;
+  height: 26rpx;
+  background: #fff;
+  border: 1rpx solid #E12001;
+  border-radius: 50%;
+  font-size: 16rpx;
+  color: #E12001;
+  position: absolute;
+  top: -10rpx;
+  right: 11rpx;
+  text-align: center;
+  line-height: 26rpx;
+  transform: rotateZ(360deg);
 }
 /* 列表 */
 .listbox{
@@ -204,25 +228,26 @@
 .listbox .list:nth-of-type(2) .leftimg{
   width: 27rpx;
   height: 38rpx;
+  margin-left: 5rpx;
 }
 .listbox .list:nth-of-type(3) .leftimg{
   width: 35rpx;
   height: 35rpx;
 }
-.listbox .list:nth-of-type(4) .leftimg{
+/* .listbox .list:nth-of-type(4) .leftimg{
   width: 36rpx;
   height: 32rpx;
-}
-.listbox .list:nth-of-type(5) .leftimg{
+} */
+.listbox .list:nth-of-type(4) .leftimg{
   width: 36rpx;
   height: 37rpx;
 }
-.listbox .list:nth-of-type(6) .leftimg{
+.listbox .list:nth-of-type(5) .leftimg{
   width: 36rpx;
   height: 32rpx;
 }
 .listbox .list text{
-  font-size: 26rpx;
+  font-size: 28rpx;
   color: #333;
   margin-right: 480rpx;
 }

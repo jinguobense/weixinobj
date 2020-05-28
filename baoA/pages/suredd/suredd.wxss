@@ -1,0 +1,367 @@
+/* pages/suredd/suredd.wxss */
+@import "../../../utils/public.wxss";/*引用图标*/
+.Suredd{
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 130rpx;
+}
+.Suredd.istop{
+  padding-top: 110rpx;
+}
+.header{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000!important;
+}
+.headlist{
+  width: 50%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.headlist .text{
+  font-size: 34rpx;
+  color: #333;
+  box-sizing: border-box;
+  line-height: 100rpx;
+}
+.headlist .botxian{
+  width: 136rpx;
+  height: 4rpx;
+  background: #fff;
+}
+.headlist.active .text{
+  color: #e63f1f;
+}
+.headlist .botxian.active{
+  background: #e63f1f;
+}
+.dizhibox{
+  width: 100%;
+  max-height: 200rpx;
+  background: #fff;
+  border-top: 1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 35rpx;
+}
+.dizhibox .dizhi{
+  width: 27rpx;
+  height: 39rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+.dizhibox .zitibox{
+  font-size: 26rpx;
+  line-height: 50rpx;
+  flex: 1;
+  padding: 30rpx 0;
+
+}
+.dizhibox .zitibox .tit{
+  color: #333;
+}
+.dizhibox .zitibox .con{
+  color: #666;
+}
+.dizhibox .peisongbox{
+  display: flex;
+  width: 560rpx;
+  height: 200rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+.dizhibox .peisongbox .top{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.dizhibox .peisongbox .top view{
+  font-size: 28rpx;
+  color: #333;
+}
+.dizhibox .peisongbox .bottom{
+   font-size: 28rpx;
+   line-height: 50rpx;
+   color: #666;
+   width: 560rpx;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.dizhibox .iconfont{
+  color: #E63F1F;
+  margin-left: auto;
+  font-size: 24rpx;
+}
+.mapbox{
+  width: 100%;
+  height: 330rpx;
+  position: relative;
+  background: #fff;
+}
+#myMap{
+  width: 670rpx;
+  height: 300rpx;
+  left: 40rpx;
+  z-index:10!important;
+}
+.quhuotime{
+  color: #e63f1f;
+  font-size: 30rpx;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  padding-bottom: 20rpx;
+}
+/* 店铺信息 */
+.dianxx{
+  border-bottom: 1rpx solid #f5f5f5;
+  width: 100%;
+  height: 84rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 35rpx;
+  background: #fff;
+  margin-top: 10rpx;
+}
+.dianxx image{
+  width: 31rpx;
+  height: 29rpx;
+  margin-right: 20rpx;
+}
+.dianxx text{
+  font-size: 28rpx;
+  color: #333;
+}
+.dianxx view{
+  font-size: 28rpx;
+  color: #fa943b;
+  margin-left: auto;
+}
+/* 购买商品信息 */
+.listbox{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8rpx;
+}
+.listbox .list{
+  width: 100%;
+  height: 226rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f5f5f5;
+  box-sizing: border-box;
+  padding: 0 35rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.listbox .list image{
+  width: 176rpx;
+  height: 176rpx;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+}
+.listbox .list .listright{
+  width: 480rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.listbox .list .listright .tit{
+  font-size: 28rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.listbox .list .listright .guige{
+  font-size: 24rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: 30rpx 0;
+}
+.listbox .list .listright .bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.listbox .list .listright .bottom .money{
+  font-size: 32rpx;
+  color: #DC2247;
+}
+.listbox .list .listright .bottom .num{
+  color: #666;
+  font-size: 28rpx;
+}
+/* 其他列表 */
+.otherbox{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+
+}
+.otherbox .list{
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 35rpx;
+}
+.otherbox .youhuilist>text{
+  font-size: 28rpx;
+  color: #666;
+}
+.otherbox .youhuilist .right{
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.otherbox .youhuilist .right text{
+  font-size: 24rpx;
+  color: #E63F1F;
+}
+.otherbox .dianhuodong text{
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+.otherbox .dianhuodong view{
+  display: inline-block;
+  padding: 3rpx 7rpx;
+  border: 1rpx solid #E63F1F;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #E63F1F;
+  margin-left: auto;
+}
+.otherbox .youhuilist .right .iconfont{
+  font-size: 26rpx;
+  color: #E63F1F;
+}
+.otherbox .youhuilist .right .gray{
+  color: #999;
+}
+.otherbox .pslist>text{
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+.otherbox .pslist .psbox{
+  display: flex;
+  align-items: center;
+  
+}
+.otherbox .pslist .psbox text{
+  font-size: 24rpx;
+  color: #999;
+}
+.otherbox .pslist .psbox view{
+  height: 28rpx;
+  width: 2rpx;
+  background: #999;
+  margin: 0 15rpx; 
+}
+.otherbox .pslist image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: auto;
+}
+.otherbox .psslist>text{
+  font-size: 28rpx;
+  /* color: #e1392c; */
+  margin-right: 20rpx;
+  color: #666;
+}
+.otherbox .psslist view{
+  font-size: 28rpx;
+  /* color: #e1392c; */
+  color: #666;
+}
+.otherbox .tixinglist>text{
+  font-size: 28rpx;
+  color: #FA943B;
+  margin-right: 20rpx;
+}
+.otherbox .tixinglist view{
+  font-size: 28rpx;
+  color: #FA943B;
+}
+.otherbox .liuyanlist>text{
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+.otherbox .liuyanlist input{
+  color: #666;
+  flex: 1;
+  height: 100%;
+  font-size: 26rpx;
+}
+.foot{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+.foot .need{
+  font-size: 26rpx;
+  color: #666;
+  margin-left: 35rpx;
+
+}
+.foot .money{
+  font-size:40rpx;
+  color: #E31717;
+  margin-right: 10rpx;
+}
+.foot .psmoney{
+  font-size: 24rpx;
+  color: #fa943b;
+}
+.foot .btn{
+  width: 240rpx;
+  height: 80rpx;
+  background: #E31717;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-left: auto;
+  margin-right: 30rpx;
+  border-radius: 80rpx;
+}

@@ -1,0 +1,68 @@
+<!--pages/myddxq/myddxq.wxml-->
+<view class="Myddxq">
+  <!-- 地址信息 -->
+  <view class="dizhibox">
+      <view class="top">清泉酒水超市</view>
+      <view class="bottom">
+        <image src="../../../images/dianpu/dingwei.png" class="dizhi"></image>
+        <view class="zitibox">
+            <text class="tit">店铺地址：</text>
+            <text class="con">河南省正在河南省正在河南省正在河南省正在河南省正在河南省正在</text> 
+        </view>
+        <image src="../../../images/user/phone.png" class="tel"></image>
+      </view>
+  </view>
+  <!-- 核销码 -->
+  <view class="hexiaobox">
+    <view>核销码：20190305156465416</view>
+    <text>待使用</text>
+  </view>
+  <!-- 购买的商品信息 -->
+  <view class="listbox">
+    <view class="list">
+      <image src="../../../images/index/banner.png"></image>
+      <view class="listright">
+        <view class="tit">创意新品营运被按时</view>
+        <view class="guige">规格：GXZ-J618</view>
+        <view class="bottom">
+          <view class="money">￥35.0</view>
+          <view class="num">x2</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 订单信息 -->
+  <view class="dingdanbox">
+    <view class="list">
+      <text>订单编号：64546561651</text>
+      <view>复制</view>
+    </view>
+    <view class="list">
+      <text>下单时间：2019-02-28 14:25:52</text>
+    </view>
+    <view class="list">
+      <text>支付方式：微信支付</text>
+    </view>
+    <view class="list">
+      <text>订单备注：暂无</text>
+    </view>
+  </view>
+  <!-- 退款信息 -->
+  <view class="dingdanbox">
+    <view class="list">
+      <text>退款原因：商品购买错误</text>
+    </view>
+    <view class="list">
+      <text>处理时间：2019-02-28 14:25:52</text>
+    </view>
+    <view class="list">
+      <text>处理结果：暂无</text>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class="foot">
+    <!-- <view class="huibox">取消订单</view> -->
+    <view class="redbox">确认收货</view>
+  </view>
+</view>

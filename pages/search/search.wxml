@@ -3,26 +3,33 @@
   <view class="headbox">
     <!-- 搜索框 -->
     <view class="searchbox">
-      <input placeholder="搜索您想要的宝贝"></input>
-      <icon type='search' size='36rpx' catchtap="tosearchend"></icon>
+      <input placeholder="搜索您想要的宝贝" bindinput='watch'></input>
+      <view catchtap="tosearchend"><icon type='search' size='36rpx'></icon></view>
+      
+    </view>
+  </view>
+  <!-- 推荐 -->
+  <view class="tuijianbox">
+    <view class="tit">
+      <text>推荐搜索：</text> 
+    </view>
+    <view class="con">
+      <block wx:for="{{tuijianlist}}" wx:key="index">
+        <text class="conlist" catchtap="tuijiansearch" data-index="{{index}}">{{item}}</text>
+      </block>
     </view>
   </view>
   <!-- 历史搜索框 -->
   <view class="conbox">
     <view class="tit">
       <text>搜索历史：</text> 
-      <image src="../../images/dianpu/cl.png"></image>
+      <image src="../../images/dianpu/cl.png" catchtap="clear"></image>
     </view>
     <view class="con">
-      <text class="conlist">食用油</text>
-      <text class="conlist">油</text>
-      <text class="conlist">食用油</text>
-      <text class="conlist">食用</text>
-      <text class="conlist">食用油</text>
-      <text class="conlist">食用啊油</text>
-      <text class="conlist">食用啊油</text>
-      <text class="conlist">食用啊油</text>
-      <text class="conlist">食用油</text>
+      <block wx:for="{{searchlishi}}" wx:key="index">
+        <text class="conlist" catchtap="lishisearch" data-index="{{index}}">{{item}}</text>
+      </block>
     </view>
   </view>
+  
 </view>

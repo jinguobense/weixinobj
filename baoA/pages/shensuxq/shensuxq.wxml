@@ -1,0 +1,22 @@
+<!--pages/shensuxq/shensuxq.wxml-->
+<view class="Shensuxq">
+  <view class="header">
+    <view class="top">
+      <view class="left">
+        <text class="tit">【{{con.appealType}}】</text>
+        <text class="titcon">{{con.appealTitle}}</text>
+      </view>
+      <view class="right" wx:if="{{con.state ==0}}">待处理</view>
+      <view class="right" wx:if="{{con.state ==1}}">已处理</view>
+    </view>
+    <view class="time">{{con.appealTime}}</view>
+  </view>
+  <view class="conbox">
+    <view class="tit">详细内容：</view>
+    <view class="con">{{con.appealContent}}</view>
+    <view class="conn">
+      <image src="{{item}}" wx:for="{{con.imgList}}" wx:key="i" catchtap="bigimg" data-url="{{item}}"></image>
+    </view>
+    
+  </view>
+</view>

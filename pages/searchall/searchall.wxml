@@ -1,0 +1,40 @@
+<!--pages/search/search.wxml-->
+<view class="Search">
+  <view class="headbox">
+    <!-- 搜索框 -->
+    <view class="changebox" catchtap="changetabindex">
+      <image src="../../images/index/change.png"></image>
+      <text wx:if="{{changeindex == 2}}" >搜索店铺</text>  
+      <text wx:if="{{changeindex == 1}}" >搜索宝贝</text>  
+    </view>
+    <view class="searchbox">
+      <input placeholder="输入您想搜索的店铺/宝贝" bindinput='watch'></input>
+      <view catchtap="tosearchend"><icon type='search' size='36rpx'></icon></view>
+    </view>
+    
+  </view>
+  <!-- 推荐 -->
+  <view class="tuijianbox">
+    <view class="tit">
+      <text>推荐搜索：</text> 
+    </view>
+    <view class="con">
+      <block wx:for="{{tuijianlist}}" wx:key="index">
+        <text class="conlist" catchtap="tuijiansearch" data-index="{{index}}">{{item}}</text>
+      </block>
+    </view>
+  </view>
+  <!-- 历史搜索框 -->
+  <view class="conbox">
+    <view class="tit">
+      <text>搜索历史：</text> 
+      <image src="../../images/dianpu/cl.png" catchtap="clear"></image>
+    </view>
+    <view class="con">
+      <block wx:for="{{searchlishi}}" wx:key="index">
+        <text class="conlist" catchtap="lishisearch" data-index="{{index}}">{{item}}</text>
+      </block>
+    </view>
+  </view>
+  
+</view>

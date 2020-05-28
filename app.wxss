@@ -14,8 +14,9 @@ color: transparent;
   box-sizing: border-box;
 } 
 page{
-  background: #f8f8f8;
+  background: #f2f2f2;
   height: 100%;
+  position: relative;
 }
 
 .h50{
@@ -102,4 +103,19 @@ page{
 }
 .f70{
   font-size: 70rpx;
+}
+.fade_in {
+    animation: fadeIn 0.3s both;
+}
+.fade_no{
+  opacity: 0;
+}
+image{height: auto;}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,9 +1,0 @@
-<!--pages/tongzhi/tongzhi.wxml-->
-<view class="Tongzhi">
-  <view class="header">
-    <text class="tit">系统通知</text>
-    <text class="time">22:22:22</text>
-  </view>
-  <image class="line" src="../../images/user/line.png"></image>
-  <view class="con">关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于关于</view>
-</view>

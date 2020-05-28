@@ -1,0 +1,282 @@
+<!--pages/mydd/mydd.wxml-->
+<view class="Mydd">
+  <view class="header">
+    <!-- 类别横向滚动框 -->
+    <scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+      <!-- <block wx:for="{{navList}}" wx:key="i">
+        <view class="recommend_hot_box f24 {{currentTab==index ? 'active' : ''}}" data-current="{{index}}" catchtap="swichNav" wx:key="*this">{{item.name}}</view>
+      </block> -->
+      <text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0">全部</text>
+      <text class="list recommend_hot_box {{tabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changetab" id="ele1">待付款</text>
+      <text class="list recommend_hot_box {{tabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changetab" id="ele2">拼团中</text>
+      <text class="list recommend_hot_box {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab" id="ele3">待取/收货</text>
+      <text class="list recommend_hot_box {{tabindex==4 ? 'active' : ''}}" data-current="4" catchtap="changetab" id="ele4">待评价</text>
+      <text class="list recommend_hot_box {{tabindex==5 ? 'active' : ''}}" data-current="5" catchtap="changetab" id="ele5">退款售后</text>
+    </scroll-view>
+  </view>
+    <!-- 全部 -->
+
+    <view class="conbox">
+      <view class="con" wx:if="{{tabindex == 0}}">
+        <view class="nogoods" wx:if='{{list.length==0 && isend== true}}'>
+          <image src="../../../images/tabbar/nodd.png" mode="widthFix"></image>
+          <text>暂无订单信息</text>
+        </view>
+        <view class="list" wx:for="{{list}}" wx:key="i" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" data-rfstate="{{item.rfstate}}" wx:if='{{list.length > 0}}'>
+          <view class="top">
+            <image src="../../../images/dianpu/gdian.png"></image>
+            <view class="tit">{{item.shopName}}</view>
+            <text wx:if="{{item.type == 0}}">待付款</text>
+            <text wx:if="{{item.type == 3}}">待配送</text>
+            <text wx:if="{{item.type == 6}}">已完成</text>
+            <text wx:if="{{item.type == 5}}">待评价</text>
+            <text wx:if="{{item.type == 1}}">拼团中</text>
+            <text wx:if="{{item.type == 2}}">待取货</text>
+            <text wx:if="{{item.type == 4 && !item.rfstate}}">配送中</text>
+            <text wx:if="{{item.type == 7}}">已取消</text>
+            <text wx:if="{{item.type == 8}}">已退款</text>
+            <text wx:if="{{item.rfstate == 0 && item.type != 8}}">申请退款中</text>
+          </view>
+          <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+            <view class="mid">
+              <image src="{{items.goodsImg}}"></image>
+              <view class="right">
+                <view class="tit">{{items.goodsName}}</view>
+                <view class="guige">
+                  <text>{{items.skuDesc}}</text>
+                </view>
+                <view class="moneyandnum">
+                  <view class="money">￥{{items.goodsCurPrice}}</view>
+                  <view class="num">x{{items.goodsBuyNum}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="hejibox">
+            <text class="heji">订单合计:</text>
+            <text class="money">￥{{item.orderSum}}</text>
+            <text class="psmoney" wx:if="{{item.delivCost}}">(含配送费{{item.delivCost}}元)</text>
+          </view>
+          <view class="bottombox">
+            <view class="huibox" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" data-rfstate="{{item.rfstate}}" wx:if="{{item.type != 2 }}">查看详情</view>
+            <view class="huibox" wx:if="{{item.type == 0}}" catchtap="quxiao" data-orderid="{{item.orderId}}">取消订单</view>
+            <view class="redbox" wx:if="{{item.type == 0}}" catchtap="pay" data-money="{{item.orderSum}}" data-orderid="{{item.orderId}}" data-orderno="{{item.orderNo}}">去支付</view>
+            <view class="redbox" wx:if="{{item.type == 1 && item.orderType == 5}}" data-orderid="{{item.orderId}}" data-shopname="{{item.shopName}}" catchtap="toyaoqing" >邀请好友</view>
+            <view class="redbox" wx:if="{{item.type == 1 && item.orderType == 1}}" data-goodsid="{{item.goodsId}}"  catchtap="toyaoqingdt" >邀请好友</view>
+            <view class="huibox" wx:if="{{item.type == 2 && item.receType != 1}}" data-orderid="{{item.orderId}}" catchtap="totuikuan" data-type="{{item.type}}">申请退款</view>
+            <view class="redboxx" wx:if="{{item.type == 2 && item.receType != 1}}"  catchtap="tanchusizebox" data-orderno="{{item.orderNo}}" data-verno="{{item.verno}}">取货码</view>
+            <!-- <view class="redbox" wx:if="{{item.type == 2}}">确认取货</view> -->
+            <view class="huibox" wx:if="{{item.type == 3 && item.receType != 1}}" data-orderid="{{item.orderId}}" catchtap="totuikuan" data-type="{{item.type}}">申请退款</view>
+            <!-- <view class="redbox" wx:if="{{item.type == 3}}">确认收货</view> -->
+            <!-- <view class="huibox" wx:if="{{item.type == 4 && item.receType != 1}}" data-orderid="{{item.orderId}}" catchtap="totuikuan" data-type="{{item.type}}">申请退款</view> -->
+            <view class="redbox" wx:if="{{item.type == 4}}" catchtap="shouhuo" data-orderid="{{item.orderId}}">确认收货</view>
+            <view class="redbox" wx:if="{{item.type == 5}}" catchtap="topingjia" data-orderid="{{item.orderId}}">去评价</view>
+          </view>
+        </view>
+      </view>
+      <view class="con" wx:if="{{tabindex == 1}}">
+        <view class="nogoods" wx:if='{{list1.length==0 && isend== true}}'>
+          <image src="../../../images/tabbar/nodd.png" mode="widthFix"></image>
+          <text>暂无订单信息</text>
+        </view>
+        <view class="list" wx:for="{{list1}}" wx:key="i" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" >
+          <view class="top">
+            <image src="../../../images/dianpu/gdian.png"></image>
+            <view class="tit">{{item.shopName}}</view>
+            <text>待付款</text>
+          </view>
+          <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+            <view class="mid">
+              <image src="{{items.goodsImg}}"></image>
+              <view class="right">
+                <view class="tit">{{items.goodsName}}</view>
+                <view class="guige">
+                  <text>{{items.skuDesc}}</text>
+                </view>
+                <view class="moneyandnum">
+                  <view class="money">￥{{items.goodsCurPrice}}</view>
+                  <view class="num">x{{items.goodsBuyNum}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="hejibox">
+            <text class="heji">订单合计:</text>
+            <text class="money">￥{{item.orderSum}}</text>
+            <text class="psmoney" wx:if="{{item.delivCost}}">(含配送费{{item.delivCost}}元)</text>
+          </view>
+          <view class="bottombox">
+            <view class="huibox" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq">查看详情</view>
+            <view class="huibox"  catchtap="quxiao" data-orderid="{{item.orderId}}">取消订单</view>
+            <view class="redbox" catchtap="pay" data-money="{{item.orderSum}}" data-orderid="{{item.orderId}}" data-orderno="{{item.orderNo}}">去支付</view>
+          </view>
+        </view>
+      </view>
+      <view class="con" wx:if="{{tabindex == 2}}">
+        <view class="nogoods" wx:if='{{list2.length==0 && isend== true}}'>
+          <image src="../../../images/tabbar/nodd.png" mode="widthFix"></image>
+          <text>暂无订单信息</text>
+        </view>
+        <view class="list" wx:for="{{list2}}" wx:key="i" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq">
+          <view class="top">
+            <image src="../../../images/dianpu/gdian.png"></image>
+            <view class="tit">{{item.shopName}}</view>
+            <text>拼团中</text>
+          </view>
+          <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+            <view class="mid">
+              <image src="{{items.goodsImg}}"></image>
+              <view class="right">
+                <view class="tit">{{items.goodsName}}</view>
+                <view class="guige">
+                  <text>{{items.skuDesc}}</text>
+                </view>
+                <view class="moneyandnum">
+                  <view class="money">￥{{items.goodsCurPrice}}</view>
+                  <view class="num">x{{items.goodsBuyNum}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="hejibox">
+            <text class="heji">订单合计:</text>
+            <text class="money">￥{{item.orderSum}}</text>
+            <text class="psmoney" wx:if="{{item.delivCost}}">(含配送费{{item.delivCost}}元)</text>
+          </view>
+          <view class="bottombox">
+            <view class="huibox" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq">查看详情</view>
+            <view class="redbox" catchtap="toyaoqing" wx:if="{{item.type == 1 && item.orderType == 5}}"  data-shopname="{{item.shopName}}" data-orderid="{{item.orderId}}">邀请好友</view>
+            <view class="redbox" wx:if="{{item.type == 1 && item.orderType == 1}}" data-goodsid="{{item.goodsList[0].goodsId}}"  catchtap="toyaoqingdt" >邀请好友</view>
+          </view>
+        </view>
+      </view>
+      <view class="con" wx:if="{{tabindex == 3}}">
+      <view class="nogoods" wx:if='{{list3.length==0 && isend== true}}'>
+          <image src="../../../images/tabbar/nodd.png" mode="widthFix"></image>
+          <text>暂无订单信息</text>
+        </view>
+        <view class="list" wx:for="{{list3}}" wx:key="i" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" data-rfstate="{{item.rfstate}}">
+          <view class="top">
+            <image src="../../../images/dianpu/gdian.png"></image>
+            <view class="tit">{{item.shopName}}</view>
+            <text wx:if="{{item.type == 2}}">待取货</text>
+            <text wx:if="{{item.type == 3}}">待配送</text>
+            <text wx:if="{{item.type == 4}}">配送中</text>
+          </view>
+          <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+            <view class="mid">
+              <image src="{{items.goodsImg}}"></image>
+              <view class="right">
+                <view class="tit">{{items.goodsName}}</view>
+                <view class="guige">
+                  <text>{{items.skuDesc}}</text>
+                </view>
+                <view class="moneyandnum">
+                  <view class="money">￥{{items.goodsCurPrice}}</view>
+                  <view class="num">x{{items.goodsBuyNum}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="hejibox">
+            <text class="heji">订单合计:</text>
+            <text class="money">￥{{item.orderSum}}</text>
+            <text class="psmoney" wx:if="{{item.delivCost}}">(含配送费{{item.delivCost}}元)</text>
+          </view>
+          <view class="bottombox">
+            <!-- <view class="huibox" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" >查看详情</view> -->
+            <view class="huibox" wx:if="{{item.type == 2 && item.receType != 1}}" data-orderid="{{item.orderId}}" catchtap="totuikuan" data-type="{{item.type}}">申请退款</view>
+            <!-- <view class="redbox" wx:if="{{item.type == 2}}">确认取货</view> -->
+            <view class="huibox" wx:if="{{item.type == 3 && item.receType != 1}}" data-orderid="{{item.orderId}}" catchtap="totuikuan" data-type="{{item.type}}">申请退款</view>
+            <!-- <view class="redbox" wx:if="{{item.type == 3}}">确认收货</view> -->
+            <!-- <view class="huibox" wx:if="{{item.type == 4 && item.receType != 1}}" data-orderid="{{item.orderId}}" catchtap="totuikuan" data-type="{{item.type}}">申请退款</view> -->
+            <view class="redbox" wx:if="{{item.type == 4}}"  catchtap="shouhuo" data-orderid="{{item.orderId}}">确认收货</view>
+            <view class="redboxx" wx:if="{{item.type == 2 && item.receType != 1}}"  catchtap="tanchusizebox" data-orderno="{{item.orderNo}}" data-verno="{{item.verno}}">取货码</view>
+          </view>
+        </view>
+      </view>
+     <view class="con" wx:if="{{tabindex == 4}}">
+     <view class="nogoods" wx:if='{{list4.length==0 && isend== true}}'>
+          <image src="../../../images/tabbar/nodd.png" mode="widthFix"></image>
+          <text>暂无订单信息</text>
+        </view>
+        <view class="list" wx:for="{{list4}}" wx:key="i" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq">
+          <view class="top">
+            <image src="../../../images/dianpu/gdian.png"></image>
+            <view class="tit">{{item.shopName}}</view>
+            <text>待评价</text>
+          </view>
+          <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+            <view class="mid">
+              <image src="{{items.goodsImg}}"></image>
+              <view class="right">
+                <view class="tit">{{items.goodsName}}</view>
+                <view class="guige">
+                  <text>{{items.skuDesc}}</text>
+                </view>
+                <view class="moneyandnum">
+                  <view class="money">￥{{items.goodsCurPrice}}</view>
+                  <view class="num">x{{items.goodsBuyNum}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="hejibox">
+            <text class="heji">订单合计:</text>
+            <text class="money">￥{{item.orderSum}}</text>
+            <text class="psmoney" wx:if="{{item.delivCost}}">(含配送费{{item.delivCost}}元)</text>
+          </view>
+          <view class="bottombox">
+            <view class="huibox" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq">查看详情</view>
+            <view class="redbox" catchtap="topingjia" data-orderid="{{item.orderId}}">去评价</view>
+          </view>
+        </view>
+      </view>
+      <view class="con" wx:if="{{tabindex == 5}}">
+      <view class="nogoods" wx:if='{{list5.length==0 && isend== true}}'>
+          <image src="../../../images/tabbar/nodd.png" mode="widthFix"></image>
+          <text>暂无订单信息</text>
+        </view>
+        <view class="list" wx:for="{{list5}}" wx:key="i" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" data-rfstate="{{item.rfstate}}">
+          <view class="top">
+            <image src="../../../images/dianpu/gdian.png"></image>
+            <view class="tit">{{item.shopName}}</view>
+            <text wx:if="{{item.type == 8 }}">已退款</text>
+            <text wx:if="{{item.rfstate == 0 && item.type != 8}}">申请退款中</text>
+            <text wx:if="{{item.rfstate == 2 && item.type != 8}}">拒绝退款</text>
+          </view>
+          <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+            <view class="mid">
+              <image src="{{items.goodsImg}}"></image>
+              <view class="right">
+                <view class="tit">{{items.goodsName}}</view>
+                <view class="guige">
+                  <text>{{items.skuDesc}}</text>
+                </view>
+                <view class="moneyandnum">
+                  <view class="money">￥{{items.goodsCurPrice}}</view>
+                  <view class="num">x{{items.goodsBuyNum}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <view class="hejibox">
+            <text class="heji">订单合计:</text>
+            <text class="money">￥{{item.orderSum}}</text>
+            <text class="psmoney" wx:if="{{item.delivCost}}">(含配送费{{item.delivCost}}元)</text>
+          </view>
+          <view class="bottombox">
+            <view class="huibox" data-orderid="{{item.orderId}}" data-type="{{item.type}}" catchtap="lookxq" data-rfstate="{{item.rfstate}}">查看详情</view>
+          </view>
+        </view>
+      </view>
+      </view>
+  
+</view>
+<!-- 选规格 -->
+  <view class="tanbox" hidden="{{sizexzbox}}" catchtouchmove='true'>
+    <view class="black"  catchtap='closechoosebox'></view>
+    <view class="conboxx"  id="tannbox">
+      <canvas class="canvas" style="width:{{qrcodeWidth}}px; height:{{qrcodeWidth}}px;" canvas-id='canvas' bindlongtap='save'></canvas>
+    </view>
+  </view>

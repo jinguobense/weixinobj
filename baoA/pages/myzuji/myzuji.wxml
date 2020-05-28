@@ -1,0 +1,31 @@
+<!--pages/myzuji/myzuji.wxml-->
+<view class="Myzuji">
+  <!-- 头部 -->
+  <view class="header">
+    <text catchtap="clear">清空</text>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox" wx:if="{{list.length > 0}}">
+    <block wx:for="{{list}}" wx:key="i">
+      <view class="list" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-goodstype="{{item.goodsType}}"  data-browid="{{item.browId}}" wx:if="{{item.goodsName != '' && item.goodsCurPrice != ''}}" bindtouchstart='bindTouchStart' bindtouchend='bindTouchEnd' data-index="{{index}}">
+        <image src="{{item.goodsImg}}" class="goodsimg"></image>
+        <image src="../../../images/user/yitingshou.png" class="tingshou" wx:if="{{item.goodsState == 1}}"></image>
+        <view class="con">
+          <view class="tit">{{item.goodsName}}</view>
+          <view class="prices">￥{{item.goodsCurPrice}}</view>
+          <view class="bottom">
+            <view class="time">{{item.browTime}}</view>
+            <view class="ziqubq" wx:if="{{item.distribut == 1 || item.distribut == null}}">[到店自取]</view>
+            <view class="peisongbq" wx:if="{{item.distribut == 0}}">[支持配送]</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+
+  </view>
+  <view class="nozuji" wx:if="{{list.length == 0 && isend == true}}" style="height:{{pageheight}}rpx">
+      <image src="../../../images/tabbar/nozuji.png" mode="widthFix"></image>
+      <text>暂无浏览足迹</text>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<!--pages/retuimore/retuimore.wxml-->
+<view class="Zhixiao">
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="list" wx:for="{{nearlist}}" wx:key="i" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.rtType}}">
+      <image src="{{item.goodsImg}}"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="biaoqian" wx:if="{{item.rtType == 6 }}">{{item.tourDesc}}</text>
+          <text class="biaoqian" wx:if="{{item.rtType == 3 }}">拼团</text>
+          <text class="name">{{item.goodsName}}</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text>￥{{item.goodsCurPrice}}</text>
+            <text>/{{item.goodsUnit}}</text>
+          </view>
+          <view class="juli">{{item.shopDistance}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

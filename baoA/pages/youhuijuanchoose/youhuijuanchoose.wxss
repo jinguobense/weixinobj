@@ -1,0 +1,103 @@
+/* pages/youhuijuanchoose/youhuijuanchoose.wxss */
+.con{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 30rpx 20rpx;
+  padding-bottom: 200rpx;
+}
+.nouser{
+  width: 500rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  background: #fe864a;
+  position: fixed;
+  bottom: 51rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.con .list{
+  width:710rpx;
+  box-sizing: border-box;
+  height: 185rpx;
+  border-radius: 10rpx;
+  background: linear-gradient(to right, #F87E6D , #FCA15C);
+  margin-bottom: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 23rpx 0;
+  padding-left: 25rpx;
+  overflow: hidden;
+}
+.list .listleft{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 450rpx;
+  height: 100%;
+  align-items: flex-start;
+  border-right: 1rpx dashed rgba(244, 244, 244, 0.3);
+}
+.list .listleft .top{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.list .listleft .top .money{
+  font-size: 42rpx;
+  color: #fff;
+  margin-right: 20rpx;
+}
+.list .listleft .top .xinxi{
+  font-size: 22rpx;
+  color: #fff;
+}
+.list .listleft .mid{
+  font-size: 22rpx;
+  color: #fff;
+}
+.list .listleft .bottom{ 
+  width: 450rpx;
+}
+.list .listleft .bottom text{
+  font-size: 18rpx;
+  color: #fff;
+}
+
+.list .listright{
+  position: relative;
+  width: 230rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list .listright .btn{
+  width: 178rpx;
+  height: 56rpx;
+  position: relative;
+  z-index: 10;
+  background: #F87E6D;
+  line-height: 56rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 56rpx;
+}
+.list .listright .btn.gray{
+  background: none;
+}
+.list .listright image{
+  position: absolute;
+  top: -20rpx;
+  left: 55rpx;
+  width: 113rpx;
+  height: 94rpx;
+}

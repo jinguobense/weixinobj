@@ -1,0 +1,7 @@
+<!--pages/shouquan/shouquan.wxml-->
+<view class="Shouquan">
+  <image class="logo" src="../../../images/index/gxlogo.png"></image>
+  <text class="name">众聚逛选</text>
+  <view class="con">您暂未授权众聚逛选小程序获取您的信息，将无法正常使用小程序的功能。如果需要正常使用，请点击“授权登录”按钮，进行头像、昵称等信息的授权。</view>
+  <button open-type="getUserInfo" hover-class="none" bindgetuserinfo="bindGetUserInfo" lang="zh_CN" class="btn">授权登录</button>
+</view>

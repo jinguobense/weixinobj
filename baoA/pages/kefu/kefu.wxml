@@ -1,0 +1,58 @@
+<!--pages/kefu/kefu.wxml-->
+<view class="Kefu">
+  
+  <scroll-view id="page" style='height: {{(windowHeight - 53)*2}}rpx' scroll-y="true" scroll-top="{{scrollTop}}" catchtap="choose" scroll-into-view="{{id}}" scroll-with-animation='true'>
+  
+    <block wx:for="{{msglist}}" wx:key="i">
+      <view class="list {{item.flow=='out'?'right':'left'}}">
+        <view class="time" >{{item.time}}</view>
+        <view class="conbox">
+          <image src="{{item.headimg}}" class="headimg"></image>
+          <view class="con">
+              <block wx:for="{{item.payload.text}}" wx:key="i" wx:for-index="indexs" wx:for-item="items">
+                <text wx:if="{{item.type =='TIMTextElem' && items.name == 'text'}}">{{items.text}}</text>
+                <image class="bqimg" src="{{items.src}}" wx:if="{{items.name == 'img' && item.type =='TIMTextElem'}}"></image>    
+                
+              </block>
+              <text wx:if="{{item.type =='TIMSoundElem'}}">{{item.payload.text}}</text>
+              <image class="sendimg" src="{{item.payload.imageInfoArray[0].imageUrl}}" wx:if="{{item.type == 'TIMImageElem'}}" mode="widthFix" catchtap="bigimg" data-url="{{item.payload.imageInfoArray[0].imageUrl}}"></image>     
+              <image class="bqimg" src="{{item.payload.text}}" wx:if="{{item.type =='TIMFaceElem'}}"></image>    
+          </view>
+        </view>
+      </view>
+    </block>
+    <view id="bottom"></view>
+  </scroll-view>
+  <view class="foot">
+    <view class="top">
+      <!-- <image src="../../images/car/say.png" class="say" catchtap="xuanimg"></image> -->
+      <input class="ipt" value="{{content}}" bindinput="getContent"></input>
+      <image src="../../../images/car/face.png" class="face" catchtap="tanbiaoqing"></image>
+      <image src="../../../images/car/add.png" class="add" wx:if="{{!type}}" catchtap="tanimg"></image>
+      <view class="sub" catchtap="onSendMsg" wx:if="{{type}}">发送</view>
+    </view>
+    <view class="biaoqingbox" hidden="{{bqtype}}">
+      <swiper indicator-dots="true" class="biaoqing" indicator-color="#999" indicator-active-color="#666">
+        <swiper-item wx:for="{{length}}" wx:key="i">
+          <view class="item" >
+            <image src="{{bqqlist[indexs+ index*21].img}}" data-text="{{bqqlist[indexs+ index*21].text}}" wx:for="{{21}}" wx:key="i" wx:for-index='indexs' catchtap="subbq"></image>
+          </view>
+        </swiper-item>
+        
+      </swiper>
+    </view>
+    <view class="imgbox" hidden="{{imgtype}}">
+      <view class="imgboxx">
+        <view class="imglist">
+          <image src="../../../images/car/pai.png" catchtap="xuanimgpai"></image>
+          <text>拍照</text>
+        </view>
+        <view class="imglist">
+          <image src="../../../images/car/img.png" catchtap="xuanimg"></image>
+          <text>图片</text>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>

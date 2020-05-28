@@ -1,0 +1,151 @@
+/* pages/totuikuan/totuikuan.wxss */
+.Box{
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 160rpx;
+}
+.headerbox{
+  width: 100%;
+  background: #fff;
+  margin-bottom: 12rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+  padding-bottom: 15rpx;
+}
+.headerbox .shoptit{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.headerbox .shoptit image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 15rpx;
+}
+.headerbox .shoptit text{
+  font-size: 32rpx;
+  color: #333;
+}
+.headerbox .list{
+  width: 100%;
+  box-sizing: border-box;
+  height: 206rpx;
+  margin-bottom: 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerbox .list image{
+  width: 206rpx;
+  height: 206rpx;
+  border-radius: 10rpx;
+
+}
+.headerbox .list .listright{
+  width: 455rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.headerbox .list .listright .name{
+  font-size: 32rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.headerbox .list .listright .guige{
+  font-size: 32rpx;
+  color: #999;
+}
+.headerbox .list .listright .bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerbox .list .listright .bottom .qian{
+  font-size: 26rpx;
+  color: #e9130d;
+}
+.headerbox .list .listright .bottom .money{
+  font-size: 34rpx;
+  color: #e9130d;
+  margin-right: auto;
+}
+.headerbox .list .listright .bottom .num{
+  font-size: 28rpx;
+  color: #999;
+}
+.pingjiabox{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding:0 32rpx;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.pingjiabox .tit{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.pingjiabox .tit .tleft{
+  font-size: 28rpx;
+  color: #333;
+
+}
+.pingjiabox .tit .tright{
+  font-size: 22rpx;
+  color: #999;
+
+}
+.pingjiabox textarea{
+  color: #333;
+  width: 600rpx;
+  height: 150rpx;
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+.pingjiabox .imgbox{
+  width: 100%;
+
+}
+.pingjiabox .upimg{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.sub{
+  width: 100%;
+  height: 160rpx;
+  background: #fff;
+  z-index: 100;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub view{
+  width: 500rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  background: #fe864a;
+  
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+}

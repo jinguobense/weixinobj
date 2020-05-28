@@ -1,32 +1,50 @@
 /**index.wxss**/
-.bg{
+
+.bg {
   width: 750rpx;
   height: 300rpx;
+  background: #e9130d;
 }
+
 /* 头部 */
-.head{
+
+.head {
   width: 100%;
   height: 96rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10;
-   
+  position: fixed;
+  z-index: 100;
+  bottom: auto;
+  background: #e9130d;
 }
-.dingweiicon{
+
+.head .left {
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.dingweiicon {
   height: 40rpx;
   width: 32rpx;
   margin-left: 26rpx;
   margin-right: 12rpx;
 }
-.dingwei{
-  font-size: 22rpx;
+
+.dingwei {
+  font-size: 24rpx;
   color: #fff;
   margin-right: 18rpx;
+  display: block;
+  width: 92rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.sousuobox{
-  width: 474rpx; 
-  height: 56rpx; 
+
+.sousuobox {
+  width: 454rpx;
+  height: 56rpx;
   background: #fff;
   border-radius: 10rpx;
   display: flex;
@@ -34,22 +52,26 @@
   align-items: center;
   margin-right: 24rpx;
 }
-.sousuobox icon:nth-of-type(1){
+
+.sousuobox icon:nth-of-type(1) {
   margin-left: 28rpx;
   margin-right: 18rpx;
 }
-.sousuobox input{
-  font-size: 22rpx;
-  width: 350rpx;
+
+.sousuobox input {
+  font-size: 24rpx;
+  width: 330rpx;
   margin-right: 10rpx;
 }
 
-.msgicon{
+.msgicon {
   height: 50rpx;
   width: 56rpx;
 }
+
 /* 轮播图 */
-.banner{
+
+.banner {
   width: 700rpx;
   height: 314rpx;
   border-radius: 10rpx;
@@ -57,74 +79,89 @@
   top: 96rpx;
   overflow: hidden;
   left: 25rpx;
-
 }
-.banner image{
+
+.banner image {
   width: 100%;
   height: 100%;
   border-radius: 10rpx;
 }
+
 /* 中间块 */
-.centerbox{
+
+.centerbox {
   width: 100%;
-  min-height: 800rpx;
+  min-height: 500rpx;
   background: #fff;
   box-sizing: border-box;
   padding-top: 135rpx;
 }
-.fenleicon{
+
+.fenleicon {
   width: 700rpx;
   margin: 0 25rpx;
-  height: 140rpx;
+  height: 150rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx;
 }
-.fenleicon .fenleilist{
-  width: 156rpx;
+
+.fenleicon .fenleilist {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
-.fenleicon .fenleilist image{
+
+.fenleicon .fenleilist image {
   width: 80rpx;
   height: 80rpx;
-
+  margin-bottom: 20rpx;
 }
-.fenleicon .fenleilist text{
-  font-size: 26rpx;
+
+.fenleicon .fenleilist text {
+  font-size: 28rpx;
   color: #333;
 }
+
 /* 参团图片 */
-.cantuan{
-  width:723rpx;
-  height: 187rpx;
+
+.cantuan {
+  width: 100%;
   margin-top: 20rpx;
+  margin-bottom: 30rpx;
 }
+
 /* 推荐好店标题 */
-.tuijiantitbox{
-  width: 750rpx;  
-  height: 88rpx; 
-  position: relative;
-  margin-top: 20rpx;
-  text-align: center;
-  line-height: 80rpx;
-  background: #fff;
-}
-.tuijiantitbox .xianbg{
+
+.tuijiantitbox {
   width: 750rpx;
   height: 88rpx;
-  position: absolute;
-  left: 0;
-  top: 0;
-
+  position: relative;
+  text-align: center;
+  line-height: 80rpx;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.tuijiantitbox>text{
-  font-size: 34rpx; 
+
+.tuijiantitbox>text {
+  font-size: 36rpx;
   color: #333;
   font-weight: 700;
   letter-spacing: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
 }
-.tuijiantitbox .right{
+
+.tuijiantitbox .xian {
+  width: 50rpx;
+  height: 2rpx;
+  background: #333;
+}
+
+.tuijiantitbox .right {
   position: absolute;
   width: 80rpx;
   height: 100%;
@@ -135,115 +172,168 @@
   align-items: center;
   justify-content: flex-end;
 }
-.tuijiantitbox .right text{
-  font-size: 22rpx;
+
+.tuijiantitbox .right text {
+  font-size: 24rpx;
   color: #333;
   margin-right: 8rpx;
 }
-.tuijiantitbox .right image{
+
+.tuijiantitbox .right image {
   width: 8rpx;
   height: 22rpx;
 }
+
 /* 推荐好店内容 */
-.tuijiancon{
+
+.tuijiancon {
   width: 100%;
   min-height: 300rpx;
   box-sizing: border-box;
-  padding: 0 25rpx;
+  padding: 0 26rpx;
+  background: #f6f6f6;
 }
-.tuijianlist{
+
+.tuijianlist {
   width: 100%;
-  height: 194rpx;
-  padding: 30rpx 0;
+  height: 254rpx;
+  box-sizing: border-box;
+  padding: 30rpx 19rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  display: flex;
+  margin-bottom: 10rpx;
 }
-.tuijianlist image{
-  width: 194rpx; 
+
+.tuijianlist:last-child {
+  margin-bottom: 0;
+}
+
+.tuijianlist image {
+  width: 194rpx;
   height: 194rpx;
   border-radius: 10rpx;
   margin-right: 20rpx;
 }
-.tuijianlist .rightcon{
-  width: 486rpx;
+
+.tuijianlist .rightcon {
+  width: 440rpx;
   height: 194rpx;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.tuijianlist .rightcon .toptit{
+
+.tuijianlist .rightcon .toptit {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.tuijianlist .rightcon .toptit text{
-  font-size: 26rpx;
+
+.tuijianlist .rightcon .toptit text {
+  font-size: 28rpx;
   color: #333;
+  display: block;
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
 }
-.tuijianlist .rightcon .toptit .starbox{
+
+.tuijianlist .rightcon .toptit .starbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.tuijianlist .rightcon .toptit .starbox image{
+
+.tuijianlist .rightcon .toptit .starbox image {
   width: 21rpx;
-  height: 20rpx;
+  height: 21rpx;
   padding: 0;
   display: block;
   margin: 0 2rpx;
 }
-.tuijianlist .rightcon .centercon{
+
+.tuijianlist .rightcon .centercon {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 15rpx;
 }
-.tuijianlist .rightcon .centercon text{
-  display: block;
-  width: 46rpx;
-  height: 24rpx;
-  text-align: center;
-  line-height: 24rpx;
+
+.tuijianlist .rightcon .centercon text {
+  padding: 3rpx 5rpx;
   color: #fff;
-  background: #E21111;
-  border-radius: 5rpx;
+  background: #e21111;
+  border-radius: 7rpx;
   margin-right: 10rpx;
-  font-size: 16rpx;
+  font-size: 18rpx;
+  transform: rotateZ(360deg);
 }
-.tuijianlist .rightcon .centercon view{
+
+.tuijianlist .rightcon .centercon view {
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 24rpx;
   color: #333;
+  flex: 1;
 }
-.tuijianlist .rightcon .money{
-  font-size: 28rpx;
-  color: #E21111;
-  margin-top: 25rpx;
-  margin-bottom: 20rpx;
+
+.tuijianlist .rightcon .moneybox {
+  display: flex;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
-.tuijianlist .rightcon .bottomcon{
+
+.tuijianlist .rightcon .moneybox .qian {
+  font-size: 22rpx;
+  color: #e43030;
+}
+
+.tuijianlist .rightcon .moneybox .money {
+  font-size: 36rpx;
+  color: #e43030;
+  line-height: 1;
+}
+
+.tuijianlist .rightcon .bottomcon {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.tuijianlist .rightcon .bottomcon .yishou{
-  font-size: 20rpx;
-  color: #666666;
 
+.tuijianlist .rightcon .bottomcon .yishou {
+  font-size: 22rpx;
+  color: #666;
 }
-.tuijianlist .rightcon .bottomcon .juli{
-  font-size: 20rpx;
-  color: #666666;
-  
+
+.tuijianlist .rightcon .bottomcon .juli {
+  font-size: 22rpx;
+  color: #666;
 }
+
 /* 推荐商品 */
-.tuijianshop{
+
+.tuijianshop {
   width: 100%;
   min-height: 600rpx;
-  margin-top: 10rpx;
 }
-.tabbox{
+
+.tabboxx {
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+}
+
+.tabbox {
   display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
   justify-content: space-between;
   width: 100%;
   height: 100rpx;
@@ -252,39 +342,62 @@
   padding: 0 25rpx;
   background: #fff;
 }
-.tabbox .tablist{
+
+.tabbox.tabboxguding {
+  position: fixed;
+  top: 96rpx;
+  left: 0;
+  z-index: 80;
+  box-shadow: 0 0 5px 2px rgba(144, 144, 144, 0.35);
+}
+
+.tabbox.tabboxold {
+  position: relative;
+  top: 0;
+  left: 0;
+  box-shadow: none;
+}
+
+.tabbox .tablist {
   width: 25%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.tabbox .tablist text{
+
+.tabbox .tablist text {
   font-size: 32rpx;
-  padding: 12rpx 0;
+  padding: 25rpx 0;
   color: #333;
   border-bottom: 5rpx solid #fff;
 }
-.tabbox .tablist .active{
-  color: #E9130D;
-  border-bottom: 5rpx solid #E9130D;
+
+.tabbox .tablist .active {
+  color: #e9130d;
+  border-bottom: 5rpx solid #e9130d;
 }
-.listbox{
+
+.listbox {
   width: 100%;
   min-height: 550rpx;
   box-sizing: border-box;
-  padding: 0 25rpx;
+  padding: 0 26rpx;
   padding-bottom: 20rpx;
 }
-.listcon{
+
+.listcon {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  
 }
-.listcon .list{
+
+.listcon .listpubu {
+  width: 345rpx;
+}
+
+.listcon .list {
   width: 345rpx;
   background: #fff;
   margin-top: 10rpx;
@@ -292,17 +405,60 @@
   display: flex;
   flex-direction: column;
 }
-.listcon .list .img{
+
+.listcon .list .imgbox {
+  width: 345rpx;
+  height: 345rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.listcon .list .imgbox .peisongimg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 146rpx;
+  height: 42rpx;
+}
+
+.listcon .list .imgbox .img {
   width: 345rpx;
   height: 345rpx;
 }
-.listcon .list .con{
+
+.listcon .list .imgbox .shopnamebg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 42rpx;
+  box-sizing: border-box;
+  padding: 0 12rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+}
+.listcon .list .imgbox .shopnamebg>view{
+  width: 100%;
+  height: 42rpx;
+  line-height: 42rpx;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  font-size: 20rpx;
+  color: #FFFFFF;
+}
+
+.listcon .list .con {
   width: 100%;
   box-sizing: border-box;
   padding: 0 12rpx;
   padding-bottom: 20rpx;
 }
-.listcon .list .tit{
+
+.listcon .list .tit {
   font-size: 24rpx;
   color: #333;
   line-height: 38rpx;
@@ -312,64 +468,345 @@
   overflow: hidden;
   margin-top: 10rpx;
 }
-.listcon .list .moneybox{
+
+.listcon .list .moneybox {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   margin-top: 15rpx;
   margin-bottom: 15rpx;
 }
-.listcon .list .moneybox .biaoqian{
-  color: #FF002B;
+
+.listcon .list .moneybox .biaoqian {
+  display: inline;
+  color: #ff002b;
   font-size: 24rpx;
-  width: 60rpx;
-  height: 32rpx;
-  text-align: center;
-  line-height: 32rpx;
-  border: 1px solid #FF002B;
-  border-radius: 5rpx;
+  padding: 3rpx 5rpx;
+  border: 1px solid #ff002b;
+  border-radius: 7rpx;
   margin-right: 5rpx;
+  transform: rotateZ(360deg);
 }
-.listcon .list .moneybox text{
-  color: #FF002B;
-  font-size: 26rpx;
+
+.listcon .list .moneybox .qian {
+  color: #ff002b;
+  font-size: 24rpx;
 }
-.listcon .list .moneybox view:nth-of-type(2){
-  color: #9D9D9D;
-  font-size: 26rpx;
+
+.listcon .list .moneybox .money {
+  color: #ff002b;
+  font-size: 32rpx;
+  line-height: 1;
 }
-.listcon .list .danmai{
-  font-size:20rpx;
+
+.listcon .list .moneybox .danwei {
+  color: #9d9d9d;
+  font-size: 24rpx;
+}
+
+.listcon .list .danmai {
+  font-size: 22rpx;
   color: #999;
   margin-bottom: 15rpx;
 }
-.listcon .list .yuanjia{
-  font-size:20rpx;
+
+.listcon .list .yuanjia {
+  font-size: 22rpx;
   color: #999;
   margin-bottom: 15rpx;
   text-decoration: line-through;
 }
 
-.listcon .list .pingji{
+.listcon .list .pingji {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-top: 20rpx;
 }
-.listcon .list .pingji text{
+
+.listcon .list .pingji text {
   color: #999;
-  font-size: 20rpx;
+  font-size: 22rpx;
   margin-right: 5rpx;
 }
-.listcon .list .pingji .starbox{
+
+.listcon .list .pingji .starbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.listcon .list .pingji .starbox image{
+
+.listcon .list .pingji .starbox image {
   width: 21rpx;
-  height: 20rpx;
+  height: 21rpx;
   padding: 0;
   display: block;
   margin: 0 2rpx;
-} 
+}
+
+/*--授权登录-- 弹框 */
+
+.pop-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  text-align: center;
+}
+
+.pop-con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 602rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  transform: translate(-50%, -50%);
+  padding: 30rpx;
+}
+
+.icon {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.use {
+  color: #444;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  margin: 20rpx 0 10rpx 0;
+}
+
+.pop-con text {
+  color: #aaa;
+  font-size: 20rpx;
+}
+
+.pop-con text::before {
+  content: "●";
+  padding-right: 10rpx;
+  color: #cecece;
+}
+
+.authorize {
+  display: block;
+  margin-top: 70rpx;
+  padding: 0 20rpx;
+}
+
+.authorize button {
+  height: 88rpx;
+  color: #fff;
+  font-size: 32rpx;
+  background: #04be01;
+  -moz-border-radius: 10rpx;
+  -webkit-border-radius: 10rpx;
+  border-radius: 10rpx;
+}
+
+/* 福袋 */
+
+.fudai {
+  position: fixed;
+  right: 20rpx;
+  bottom: 200rpx;
+  width: 120rpx;
+  height: 120rpx;
+  z-index: 100;
+}
+
+/* 新人专享 */
+
+.newuser {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  opacity: 0;
+}
+
+.newshow {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.newhidden {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.shareshow {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.sharehidden {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.newuser .black {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+}
+
+.newuser .newimg {
+  width: 750rpx;
+  height: 568rpx;
+  position: absolute;
+  z-index: 1002;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.newuser .sharebox {
+  width: 600rpx;
+  height: 600rpx;
+  position: absolute;
+  z-index: 1002;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newuser .sharebox .sharecon {
+  width: 600rpx;
+  height: 600rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.newuser .sharebox .close {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.newuser .sharebox .sharecon .stop {
+  width: 600rpx;
+  height: 300rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newuser .sharebox .sharecon .stop image {
+  width: 600rpx;
+  height: 600rpx;
+}
+
+.newuser .sharebox .sharecon .smid {
+  width: 600rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.newuser .sharebox .sharecon .smid .userxx {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+}
+
+.newuser .sharebox .sharecon .smid .userxx .userimg {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  border-radius: 50rpx;
+}
+
+.newuser .sharebox .sharecon .smid .userxx .username {
+  font-size: 24rpx;
+  color: #333;
+  margin-right: 5rpx;
+}
+
+.newuser .sharebox .sharecon .smid .userxx .usermsg {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.newuser .sharebox .sharecon .smid .goodsxx {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.newuser .sharebox .sharecon .smid .goodsxx .goodsimg {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.newuser .sharebox .sharecon .smid .goodsxx .goodsmsg {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.newuser .sharebox .sharecon .sbot {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.newuser .sharebox .sharecon .sbot .btn {
+  width: 100%;
+  height: 80rpx;
+  color: #fff;
+  background: linear-gradient(to right, #f87e6d, #fca15c);
+  font-size: 30rpx;
+  border-radius: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.nogoods {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 40rpx;
+}
+
+.nogoods image {
+  width: 340rpx;
+  margin-bottom: 20rpx;
+}
+
+.nogoods text {
+  font-size: 26rpx;
+  color: #666;
+}

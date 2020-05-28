@@ -1,0 +1,73 @@
+<!--pages/xianshibuy/xianshibuy.wxml-->
+<view class="Xianshibuy">
+  <view class="header">
+    <view class="headtabbox">
+      <view class="{{headtabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changeheadtab">正在抢购</view>
+      <view class="{{headtabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changeheadtab">即将开始</view>
+    </view>
+    <!-- 类别横向滚动框 -->
+    <scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+      <text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0" >全部</text>
+      <block wx:for="{{headlist}}" wx:key="i">
+        <text class="list recommend_hot_box {{tabindex==index+1 ? 'active' : ''}}" data-current="{{index+1}}" catchtap="changetab" id="ele{{index+1}}" data-idr="{{item.pfgTypeId1}}">{{item.pfgTypeName1}}</text>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="nogoods" wx:if='{{conlist.length==0 && isend == true}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂时没有商品</text>
+    </view>
+    <block wx:for="{{conlist}}" wx:key="i">
+      <view class="list"  catchtap="toxq" data-goodsid="{{item.goodsId}}" wx:if='{{conlist.length>0}}'>
+        <image src="{{item.goodsImg}}"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text class="name">{{item.goodsName}}</text>
+          </view>
+          <view class="bottom">
+            <view class="money">
+              <text>￥</text>
+              <text>{{item.goodsCurPrice}}</text>
+              <text>/{{item.goodsUnit}}</text>
+            </view>
+            <view class="yishou">已售：{{item.goodsSales}}</view>
+          </view>
+          <view class="redtimebox" wx:if="{{headtabindex == 1}}">
+            <view>距离结束:</view>
+            <text class="redbox" wx:if="{{countDownList[index].day}}">{{countDownList[index].day}}</text>
+            <text class="redbox" wx:if="{{!countDownList[index].day}}">00</text>
+            <text class="redtext">天</text>
+            <text class="redbox" wx:if="{{countDownList[index].hou}}">{{countDownList[index].hou}}</text>
+            <text class="redbox" wx:if="{{!countDownList[index].hou}}">00</text>
+            <text class="redtext">:</text>
+            <text class="redbox" wx:if="{{countDownList[index].min}}">{{countDownList[index].min}}</text>
+            <text class="redbox" wx:if="{{!countDownList[index].min}}">00</text>
+            <text class="redtext">:</text>
+            <text class="redbox" wx:if="{{countDownList[index].sec}}">{{countDownList[index].sec}}</text>
+            <text class="redbox" wx:if="{{!countDownList[index].sec}}">00</text>
+          </view>
+          
+          <view class="graytimebox" wx:if="{{headtabindex == 2}}">
+            <view>距离开始:</view>
+            <text class="graybox" wx:if="{{countDownList[index].day}}">{{countDownList[index].day}}</text>
+            <text class="graybox" wx:if="{{!countDownList[index].day}}">00</text>
+            <text class="graytext">天</text>
+            <text class="graybox" wx:if="{{countDownList[index].hou}}">{{countDownList[index].hou}}</text>
+            <text class="graybox" wx:if="{{!countDownList[index].hou}}">00</text>
+            <text class="graytext">:</text>
+            <text class="graybox" wx:if="{{countDownList[index].min}}">{{countDownList[index].min}}</text>
+            <text class="graybox" wx:if="{{!countDownList[index].min}}">00</text>
+            <text class="graytext">:</text>
+            <text class="graybox" wx:if="{{countDownList[index].sec}}">{{countDownList[index].sec}}</text>
+            <text class="graybox" wx:if="{{!countDownList[index].sec}}">00</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+
+  </view>
+
+</view>

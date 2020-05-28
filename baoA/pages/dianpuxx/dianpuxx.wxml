@@ -1,0 +1,29 @@
+<!--pages/dianpuxx/dianpuxx.wxml-->
+<view class="Dianpuxx">
+  <view class="header">
+    <view class="headerlist">
+      <image src="../../../images/dianpu/sp.png"></image>
+      <text>店铺名称：</text>
+      <view>{{obj.name}}</view>
+    </view>
+    <view class="headerlist">
+      <image src="../../../images/dianpu/time.png"></image>
+      <text>营业时间：</text>
+      <view>{{obj.time}}</view>
+    </view>
+    <view class="headerlist">
+      <image src="../../../images/dianpu/dz.png"></image>
+      <text>店铺地址：</text>
+      <view>{{obj.addr}}</view>
+    </view> 
+  </view>
+  <view class="conbox">
+    <view class="tit">营业资质：</view>
+    <view class="con">
+      <block wx:for="{{obj.img}}" wx:key="i">
+        <image src="{{item.img}}" mode="widthFix"/>
+      </block>
+      
+    </view>
+  </view>
+</view>

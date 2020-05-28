@@ -1,0 +1,25 @@
+<!--pages/pingjialist/pingjialist.wxml-->
+<view class="Pingjialist">
+  <view class="list" wx:for="{{pingjialist}}" wx:key="i">
+    <view class="top">
+      <image class="head" src="{{item.userIcon}}"></image>
+      <view class="topcon">
+        <view class="namebox">
+          <view class="name">{{item.nickName}}</view>
+          <text class="time">{{item.commentTime}}</text>
+        </view>
+        <view class="starbox">
+          <image src="../../../images/index/dp1.png" wx:for="{{item.star}}" wx:key="index"></image>
+          <image src="../../../images/index/dp2.png" wx:for="{{5-item.star}}" wx:key="index"></image>
+        </view>
+      </view>
+    </view>
+    <view class="mid">{{item.commentContent}}</view>
+    <view class="bottom">
+      <block wx:for="{{item.imgList}}" wx:key="i" wx:for-item="items" wx:for-index="indexs">
+        <image src="{{items}}" catchtap="bigimg" data-index="{{index}}" data-url="{{items}}"></image>
+      </block>
+      
+    </view>
+  </view>
+</view>

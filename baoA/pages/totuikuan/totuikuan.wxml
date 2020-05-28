@@ -1,0 +1,36 @@
+<!--pages/totuikuan/totuikuan.wxml-->
+<view class="Box">
+  <view class="headerbox">
+    <view class="shoptit">
+      <image src="../../../images/index/dp.png"></image>
+      <text>{{info.shopName}}</text>
+    </view>
+    <view class="list" wx:for="{{info.goodsList}}" wx:key="i">
+      <image src="{{item.goodsImg}}"></image>
+      <view class="listright">
+        <view class="name">{{item.goodsName}}</view>
+        <view class="guige">{{item.skuDesc}}</view>
+        <view class="bottom">
+          <text class="qian">￥</text>
+          <text class="money">{{item.goodsCurPrice}}</text>
+          <text class="num">x{{item.goodsBuyNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pingjiabox">
+    <view class="tit">
+      <text class="tleft">退款原因:</text>
+      <text class="tright">{{con.length}}/100字</text>
+    </view>
+    <textarea placeholder="请描述退款原因" maxlength="100" bindinput="conwatch"></textarea>
+    <view class="imgbox">
+      <block wx:for="{{imglist}}" wx:key="i">
+        <image src="{{item}}" class="upimg"  catchlongtap="del" data-index="{{index}}"></image>
+      </block>
+      <image src="{{upimg}}" catchtap="chuanImg" class="upimg"></image>
+    </view>
+    
+  </view>
+  <view class="sub"> <view catchtap="sub">提交申请</view> </view>
+</view>

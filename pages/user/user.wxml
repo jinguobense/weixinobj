@@ -1,90 +1,97 @@
 <!--pages/user/user.wxml-->
 <view class="User">
   <view class="header">
-    <image class="bg" src="../../images/user/bg.png"></image>
+    <image class="bg" src="../../images/user/bg.gif"></image>
     <image class="msg" src="../../images/user/xx.png" catchtap="tomsg"></image>
-    <view class="userxx">
-      <image src="../../images/index/banner.png" class="touxiang"></image>
+    <view class="userxx" catchtap="tologin">
+      <image src="{{userinfo.userIcon}}" class="touxiang" wx:if="{{userinfo.userIcon}}"></image>
+      <image src="../../images/index/morenhead.png" class="touxiang" wx:if="{{!userinfo.userIcon}}"></image>
       <view class="right">
-        <view class="name">邻家小猫</view>
-        <image src="../../images/user/gxyh.png" class="gx"></image>
-        <!-- <image src="../../images/user/dshsj.png"  class="dsh"></image>
-        <image src="../../images/user/hysj.png" class="hy"></image>
-        <image src="../../images/user/lssj.png" class="ls"></image> -->
+        <view class="name" wx:if="{{userinfo.nickName}}">{{userinfo.nickName}}</view>
+        <view class="name" wx:if="{{!userinfo.nickName}}" style="margin-left:30rpx;">登录/注册<text class='iconfont icon-youjiantou' style="margin-left:10rpx"></text></view>
+        <image src="../../images/user/gxyh.png" class="gx" wx:if="{{userinfo.userType == 0 && userinfo.nickName}}"></image>
+        <image src="../../images/user/dshsj.png"  class="dsh" wx:if="{{userinfo.userType == 3&& userinfo.nickName}}"></image>
+        <image src="../../images/user/hysj.png" class="hy" wx:if="{{userinfo.userType == 2&& userinfo.nickName}}"></image>
+        <image src="../../images/user/lssj.png" class="ls" wx:if="{{userinfo.userType == 1&& userinfo.nickName}}"></image>
       </view>
     </view>
-    <navigator url="../myyouhuijuan/myyouhuijuan" class="youhuibox" hover-class="none">
+    <view class="youhuibox" catchtap="toyouhuijuan">
       <image class="youhuibg" src="../../images/user/kuang.png"></image>
       <view class="left">
         <image src="../../images/user/yhq.png"></image>
         <text>优惠券</text>
       </view>
-      <view class="right"> <text>立即查看</text><icon class='iconfont icon-31fanhui2'></icon></view>
-    </navigator>
+      <view class="right"> <text>立即查看</text><text class='iconfont icon-youjiantou'></text></view>
+    </view>
   </view>
   <!-- 订单 -->
   <view class="dingdanbox">
     <view class="mydd">
       <text class="tit">我的订单</text>
-      <view class="right">
+      <view class="right" catchtap="tomydd" data-index="0">
         <text>全部订单</text>
-        <icon class='iconfont icon-31fanhui2'></icon>
+        <text class='iconfont icon-youjiantou'></text>
       </view>
     </view>
     <view class="tabbox">
-       <view class="tablist">
+       <view class="tablist" data-index="1" catchtap="tomydd">
           <image src="../../images/user/dfk.png"></image>
           <text>待付款</text>
+          <view class="num" wx:if="{{userinfo.cst0Num >0}}">{{userinfo.cst0Num}}</view>
        </view>
-       <view class="tablist">
+       <view class="tablist" data-index="2" catchtap="tomydd">
           <image src="../../images/user/ptz.png"></image>
           <text>拼团中</text>
+          <view class="num" wx:if="{{userinfo.cst1Num > 0}}">{{userinfo.cst1Num}}</view>
        </view>
-       <view class="tablist">
+       <view class="tablist" data-index="3" catchtap="tomydd">
           <image src="../../images/user/dsh.png"></image>
           <text>待取/收货</text>
+          <view class="num"  wx:if="{{userinfo.cst2Num > 0 || userinfo.cst3Num > 0}}">{{userinfo.cst3Num }}</view>
        </view>
-       <view class="tablist">
+       <view class="tablist" data-index="4" catchtap="tomydd">
           <image src="../../images/user/dpj.png"></image>
           <text>待评价</text>
+          <view class="num" wx:if="{{userinfo.cst4Num > 0}}">{{userinfo.cst4Num}}</view>
        </view>
-       <view class="tablist">
+       <view class="tablist" data-index="5" catchtap="tomydd">
           <image src="../../images/user/tksh.png"></image>
           <text>退款售后</text>
+          <view class="num" wx:if="{{userinfo.cstrNum > 0}}">{{userinfo.cstrNum}}</view>
        </view>
     </view>
   </view>
   <!-- 列表 -->
   <view class="listbox">
-    <view class="list">
+    <view class="list" catchtap="tomyshoucang">
       <image class="leftimg" src="../../images/user/ic_sc_mine.png"></image>
       <text>我的收藏</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
     </view>
-    <navigator url="../myzuji/myzuji" class="list" hover-class="none">
+    <view class="list" catchtap="tomyzuji">
       <image class="leftimg" src="../../images/user/ic_zj_mine.png"></image>
       <text>我的足迹</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
-    </navigator>
-    <view class="list">
+    </view>
+    <view class="list" catchtap="todizhi">
       <image class="leftimg" src="../../images/user/ic_dzgl_mine.png"></image>
       <text>地址管理</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
     </view>
-    <view class="list">
+    <!-- <view class="list">
       <image class="leftimg" src="../../images/user/ic_sqkt_mine.png"></image>
       <text>申请开店</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
-    </view>
-    <view class="list">
+    </view> -->
+    <view class="list" catchtap="tokefuhelp">
       <image class="leftimg" src="../../images/user/ic_kf_mine.png"></image>
       <text>客服帮助</text>
       <image class="rightimg" src="../../images/user/jr.png" ></image>
     </view>
-    <navigator url="../share/share" class="list" hover-class="none">
+    <view class="list" catchtap="toshare">
       <image class="leftimg" src="../../images/user/ic_share_app.png"></image>
       <text>分享应用</text>
-      <image class="rightimg" src="../../images/user/jr.png" ></image>
-    </navigator>
+      <image class="rightimg" src="../../images/user/jr.png" ></image> 
+    </view> 
   </view>
 </view>

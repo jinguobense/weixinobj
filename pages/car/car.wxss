@@ -1,12 +1,50 @@
-/* pages/car/car.wxss */
+ /* pages/car/car.wxss */
 /* 头部 */
+.Car{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 80rpx;
+}
 .header{
   width: 100%;
   height: 80rpx;
   background: #fff;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+.header .left{
+  display: flex;
+  align-items: center;
+  margin-left: 26rpx;
+  
+}
+.header .left image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 14rpx;
+}
+.header .left text{
+  color: #666;
+  font-size: 28rpx;
+}
+.header .center{
+  margin-left: auto;
+  margin-right: 70rpx;
+}
+.header .center image{
+  width: 34rpx;
+  height: 34rpx;
+  
+}
+.header .end{
+  font-size: 28rpx;
+  color: #333;
+  margin-right: 50rpx;
 }
 .guanlibox{
   display: flex;
@@ -15,6 +53,7 @@
   box-sizing: border-box;
   padding-left: 20rpx;
   height: 100%;
+  margin-left: auto;
 }
 .guanlibox image{
   width: 26rpx;
@@ -28,16 +67,31 @@
 }
 /* 购物车列表块 */
 .carbox{
+  box-sizing: border-box;
+  
+}
+.carbox .no{
+  width: 100%;
+  height: 400rpx;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.carbox .no image{
+  width: 348rpx;
+  margin: 0 auto;
 }
 .carbox .carlist{
-  margin-top: 20rpx;
+  margin-bottom: 20rpx;
   width: 100%;
   min-height: 400rpx;
   background: #fff;
   display: flex;
   flex-direction: column;
+}
+.carbox .carlist:first-child{
+  margin-top: 20rpx;
 }
 .carlist .listtop{
   width: 100%;
@@ -107,7 +161,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  flex: 1;
+  width: 456rpx;
 }
 .carlist .listcenter .listcon .conright .contit{
   font-size: 26rpx;
@@ -125,6 +179,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 .carlist .listcenter .listcon .conright .conbottom .guige{
   color: #666;
@@ -132,8 +187,14 @@
   font-size: 24rpx;
 }
 .carlist .listcenter .listcon .conright .conbottom .money{
+  display: flex;
+  align-items: center;
   color: #D32C44;
-  font-size: 20rpx;
+  font-size: 24rpx;
+}
+.carlist .listcenter .listcon .conright .conbottom .money .peisong{
+  font-size: 19rpx;
+  margin-left: 23rpx;
 }
 .carlist .listbottom{
   width: 100%;
@@ -151,11 +212,11 @@
   height: 110rpx;
 }
 .carlist .listbottom .left .heji{
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #333;
 }
 .carlist .listbottom .left .money{
-  font-size: 26rpx;
+  font-size: 32rpx;
   color: #D32C44;
 }
 .carlist .listbottom .right{
@@ -163,25 +224,50 @@
   height: 70rpx;
   border-radius: 70rpx;
   line-height: 70rpx;
-  font-size: 28rpx;
-  color: #666666;
+  font-size: 30rpx;
+  color: #fff;
   
   text-align: center;
-  background: #EDEDED;
+  background: #ededed;
 }
 .carlist .listbottom .right.active{
   color: #fff;
   background: linear-gradient(to right, #F9B623 , #EF8321);
 }
+.carlist .pSmore{
+  width: 100%;
+  height: 49rpx;
+  display: flex;
+  align-items: center;
+	background-color: #f7ffde; 
+}
+.carlist .pSmore .pSmorecont{
+  height: 49rpx;
+  margin-left: 109rpx;
+  display: flex;
+  align-items: center;
+  font-size: 21rpx;
+}
+.carlist .pSmore .pSmorecont image{
+  width: 28rpx;
+	height: 28rpx;
+}
+.carlist .pSmore .pSmorecont text{
+  margin: 0rpx 15rpx;
+}
+
 /* 猜你喜欢标题 */
 .tuijiantitbox{
   width: 750rpx;  
   height: 88rpx; 
   position: relative;
-  margin-top: 20rpx;
+  
   text-align: center;
   line-height: 80rpx;
   background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .tuijiantitbox .xianbg{
   width: 750rpx;
@@ -191,11 +277,19 @@
   top: 0;
 
 }
+.tuijiantitbox .xian{
+  width: 50rpx;
+  height: 2rpx;
+  background: #333;
+}
 .tuijiantitbox>text{
   font-size: 34rpx; 
   color: #333;
   font-weight: 700;
   letter-spacing: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+
 }
 .tuijiantitbox .right{
   position: absolute;
@@ -210,19 +304,19 @@
 }
 .tuijiantitbox .right text{
   font-size: 24rpx;
-  color: #feae31;
+  color: #0E9F62;
   
 }
 .tuijiantitbox .right image{
-  width: 28rpx;
-  height: 25rpx;
+  width: 26rpx;
+  height: 26rpx;
   margin-right: 5rpx;
 }
 /* 内容框 */
 .listbox{
   width: 100%;
   box-sizing: border-box;
-  padding: 0 15rpx;
+  padding: 0 16rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -230,13 +324,14 @@
 }
 .listbox .list{
   width: 350rpx;
-  height: 540rpx;
   display: flex;
   flex-direction: column;
   border-radius: 10rpx;
   background: #fff;
   overflow: hidden;
   margin-top: 10rpx;
+  box-sizing: border-box;
+  padding-bottom: 15rpx;
 }
 .listbox .list image{
   width: 350rpx;
@@ -247,6 +342,8 @@
   height: 150rpx;
   box-sizing: border-box;
   padding: 0 15rpx;
+  display: flex;
+  flex-direction: column;
 }
 .listbox .list .listcon .tit{
   display: -webkit-box;
@@ -264,6 +361,7 @@
   color: #E9130D;
   font-size: 22rpx;
   margin-right: 10rpx;
+  transform: rotateZ(360deg);
 }
 .listbox .list .listcon .tit .name{
   color: #333;
@@ -274,18 +372,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 5rpx;
+  margin-top: auto;
 }
 .listbox .list .listcon .bottom .money text:nth-of-type(1){
-  font-size: 26rpx;
+  font-size: 24rpx;
   color: #E9130D;
 }
 .listbox .list .listcon .bottom .money text:nth-of-type(2){
-  font-size: 22rpx;
-  color: #999;
+  font-size: 32rpx;
+  color: #E9130D;
 }
 .listbox .list .listcon .bottom .juli{
-  font-size: 20rpx;
+  font-size: 22rpx;
   color: #999;
 }
 /* 购物车数量改变样式 */

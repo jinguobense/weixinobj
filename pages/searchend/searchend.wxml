@@ -3,29 +3,41 @@
   <view class="headbox">
     <!-- 搜索框 -->
     <view class="searchbox">
-      <input placeholder="搜索您想要的宝贝"></input>
-      <icon type='search' size='36rpx'></icon>
+      <input placeholder="搜索您想要的宝贝" bindinput='watch' value="{{searchcon}}"></input>
+      <view catchtap="tosearch"><icon type='search' size='36rpx'></icon></view>
+      
     </view>
   </view>
   <!-- 内容框 -->
   <view class="listbox">
-    <view class="list" wx:for="{{5}}" wx:key="i">
-      <image src="../../images/index/banner.png"></image>
-      <view class="listcon">
-        <view class="tit">
-          <text class="biaoqian">2人拼</text>
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-        </view>
-        <view class="bottom">
-          <view class="money">
-            <text>￥6565.0</text>
-            <text>/件</text>
+    <view class="nogoods" wx:if='{{goodsList.length==0 && isend==true}}'>
+      <image src="../../images/tabbar/nosearchgoods.png" mode="widthFix"></image>
+      <text>很抱歉！</text>
+      <text>未搜索到相关商品</text>
+    </view>
+    <block wx:for="{{goodsList}}" wx:key="index">
+      <view class="list" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.shopType}}" data-isdaixiao="{{item.agtstate}}" wx:if='{{goodsList.length>0}}' data-rttype="{{item.rtType}}">
+        <image src="{{item.goodsImg}}"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text wx:if="{{item.shopType == 1 }}" class="biaoqian">拼团</text>
+            <text wx:if="{{item.shopType == 2 || item.rtType == 1}}" class="biaoqian">满减</text>
+            <text wx:if="{{item.shopType == 3 || item.rtType == 2}}" class="biaoqian">抢购</text>
+            <text wx:if="{{item.shopType == 4}}" class="biaoqian">直销</text>
+            <text wx:if="{{item.shopType == 5}}" class="biaoqian">{{item.tourDesc}}</text>
+            <text class="name">{{item.goodsName}}</text>
           </view>
-          <view class="juli">123m</view>
+          <view class="bottom">
+            <view class="money">
+              <text>￥</text>
+              <text>{{item.goodsCurPrice}}</text>
+              <text>/{{item.goodsUnit}}</text>
+            </view>
+            <view class="juli">{{item.shopDistance}}</view>
+          </view>
         </view>
       </view>
-    </view>
-    
+    </block>
   </view>
 
 

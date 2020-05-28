@@ -1,0 +1,201 @@
+/* pages/xianshibuy/xianshibuy.wxss */
+/* 头部 */
+.Xianshibuy{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 182rpx;
+}
+.header{
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 5px 2px rgba(144, 144, 144, 0.35);
+}
+.header .headtabbox{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 25rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.header .headtabbox view{
+  width: 50%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.header .headtabbox view.active{
+  color: #ec1d3b;
+}
+.recommend_scroll_x_box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25rpx;
+  height: 80rpx;
+  white-space: nowrap; 
+  display: flex; 
+  margin-top: 3rpx;
+   
+}
+::-webkit-scrollbar{width: 0; height: 0; color: transparent;}
+.recommend_hot_box{height: 80rpx; box-sizing: border-box; line-height: 80rpx; margin-right: 15rpx; display: inline-block; color: #333;font-size: 30rpx;padding: 0 25rpx;}
+.recommend_hot_box.active{ color: #ec1d3b;border-bottom: 4rpx solid #ec1d3b;}
+/* 内容框 */
+.listbox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 5rpx;
+  padding-top: 15rpx;
+}
+.listbox .list{
+  width: 345rpx;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10rpx;
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 15rpx;
+  box-sizing: border-box;
+  padding-bottom: 15rpx;
+  height: 562rpx;
+}
+.listbox .list image{
+  width: 345rpx;
+  height: 345rpx;
+}
+.listbox .list .listcon{
+  width: 345rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.listbox .list .listcon .tit{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-top: 10rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 5rpx 0;
+}
+
+.listbox .list .listcon .tit .name{
+  color: #333;
+  letter-spacing: 2rpx;
+  font-size: 26rpx;
+  line-height: 1;
+}
+.listbox .list .listcon .bottom{  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.listbox .list .listcon .bottom .money{
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+}
+.listbox .list .listcon .bottom .yishou{
+  font-size: 26rpx;
+  color: #999;
+}
+
+.listbox .list .listcon .bottom .money text:nth-of-type(1){
+  font-size: 24rpx;
+  color: #ff4564;
+}
+.listbox .list .listcon .bottom .money text:nth-of-type(2){
+  font-size: 32rpx;
+  color: #ff4564;
+  line-height: 1;
+}
+.listbox .list .listcon .bottom .money text:nth-of-type(3){
+  font-size: 24rpx;
+  color: #999;
+}
+.listbox .list .listcon .danmai{
+  font-size: 22rpx;
+  color: #999;
+  margin: 10rpx 0;
+}
+.listbox .list .listcon .yipin{
+  font-size: 22rpx;
+  color: #999;
+}
+.listbox .list .listcon .redtimebox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.listbox .list .listcon .redtimebox view{
+  font-size: 24rpx;
+  color: #ec1d3b;
+  margin-right: auto;
+}
+.listbox .list .listcon .redtimebox .redbox{
+  font-size: 24rpx;
+  color: #fff;
+  padding: 3rpx 5rpx;
+  background: #ec1d3b;
+}
+.listbox .list .listcon .redtimebox .redtext{
+  color: #ec1d3b;
+  font-size: 24rpx;
+  margin: 0 2rpx;
+}
+
+.listbox .list .listcon .graytimebox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.listbox .list .listcon .graytimebox view{
+  font-size: 24rpx;
+  color: #848484;
+  margin-right: auto;
+}
+.listbox .list .listcon .graytimebox .graybox{
+  font-size: 24rpx;
+  color: #fff;
+  padding: 3rpx 5rpx;
+  background: #ccc;
+}
+.listbox .list .listcon .graytimebox .graytext{
+  color: #ccc;
+  font-size: 24rpx;
+  margin: 0 2rpx;
+}
+.nogoods{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 200rpx;
+}
+.nogoods image{
+  width: 340rpx;
+  margin-bottom: 55rpx;
+}
+.nogoods text{
+  font-size: 30rpx;
+  color: #333;
+}

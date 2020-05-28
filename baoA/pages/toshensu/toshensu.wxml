@@ -1,0 +1,37 @@
+<!--pages/toshensu/toshensu.wxml-->
+<view class="Toshensu">
+  <view class="header">
+    <view class="tit">{{obj.shopname}}</view>
+    <view class="conbox">
+      <image src="{{obj.goodsimg}}"></image>
+      <view class="conright">
+        <view class="name">{{obj.goodsname}}</view>
+        <view class="money" wx:if="{{type != 1}}">￥{{obj.money}}</view>
+        <view class="money" wx:if="{{type == 1}}">￥{{obj.newmoney}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="box">
+    <view class="sslist">
+      <view class="left">申诉类型:</view>
+      <Select prop-array='{{list}}' class='ipt'  bindmyevent="onMyEvent"></Select>
+    </view>
+    <view class="ztlist">
+      <view class="left">主题:</view>
+      <input type="text" placeholder="请输入主题" bindinput="titwatch"></input>
+    </view>
+    <view class="nrlist">
+      <view class="left">内容:</view>
+      <textarea placeholder="请输入内容" placeholder-style="line-height: 40rpx;" bindinput="conwatch"></textarea>
+    </view>
+    <view class="tplist" >
+      <view class="left">图片:</view>
+      <block wx:for="{{imglist}}" wx:key="i">
+        <image src="{{item}}" catchlongtap="del" data-index="{{index}}"></image>
+      </block>
+      
+      <image src="{{upimg}}" catchtap="chuanImg"></image>
+    </view>
+  </view>
+  <view class="btn" catchtap="sub">提交审核</view>
+</view>

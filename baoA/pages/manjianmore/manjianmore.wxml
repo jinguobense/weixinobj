@@ -1,0 +1,28 @@
+<!--pages/manjianmore/manjianmore.wxml-->
+<view class="Manjianmore">
+  <view class="header">
+    <image src="{{info.shopLogo}}"></image>
+    <view class="center">
+      <view class="tit">{{info.shopName}}</view>
+      <view class="manjianxx">{{info.actDesc}}</view>
+    </view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="list" wx:for="{{list}}" wx:key="i" catchtap="toxq" data-goodsid="{{item.goodsId}}">
+      <image src="{{item.goodsImg}}"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="name">{{item.goodsName}}</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text>￥</text>
+            <text>{{item.goodsCurPrice}}</text>
+            <view>/{{item.goodsUnit}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

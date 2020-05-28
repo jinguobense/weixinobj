@@ -1,0 +1,189 @@
+/* pages/kefu/kefu.wxss */
+
+#page{
+  box-sizing: border-box;
+  padding-top: 20rpx;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+#bottom{
+  width: 750rpx;
+  height: 1rpx;
+  
+}
+.list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.list .time{
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  background: #d2d5dc;
+  /* width: 150rpx; */
+  margin: 0 auto;
+  border-radius: 35rpx;
+  margin-bottom: 40rpx;
+  padding: 5rpx 20rpx;
+
+}
+.list .conbox{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.list.right .conbox{
+  flex-direction: row-reverse;
+}
+.list .conbox .headimg{
+  display: block;
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+.list .conbox .con{
+  font-size: 32rpx;
+  color: #333;
+  background: #fff;
+  margin: 0 20rpx;
+  letter-spacing: 3rpx;
+  padding: 15rpx 22rpx;
+  text-align: left;
+  border-radius: 10rpx;
+  word-break: break-all;
+  max-width: 500rpx
+}
+.list .conbox .con .bqimg{
+  width: 56rpx;
+  height: 56rpx;
+  
+}
+.list .conbox .con .sendimg{
+  width: 270rpx;
+
+}
+.Kefu{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 106rpx;
+  background: #EBEBEB;
+  overflow-y: auto;
+
+}
+.Kefu .foot{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #F4F4F6;
+
+}
+.Kefu .foot .top{
+  width: 100%;
+  height: 106rpx;
+  background: #F4F4F6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.Kefu .foot .top .ipt{
+  width: 515rpx;
+  height: 66rpx;
+  font-size: 30rpx;
+  color: #333;
+  background: #fff;
+  margin-right: 20rpx;
+  margin-left: 23rpx;
+  border-radius: 10rpx;
+}
+.Kefu .foot .top .say{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  margin-left: 23rpx;
+  margin-right: 10rpx;
+}
+.Kefu .foot .top .add{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Kefu .foot .top .face{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.Kefu .foot .top .sub{
+  font-size: 28rpx;
+  color: #fff;
+  background: green;
+  width: 96rpx;
+  height: 56rpx;
+  text-align: center;
+  line-height: 56rpx;
+  border-radius: 10rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Kefu .foot .biaoqingbox{
+  width: 100%;
+  height: 400rpx;
+  
+}
+.Kefu .foot .biaoqingbox .biaoqing{
+  width: 100%;
+  height: 100%;
+  background: #F4F4F6;
+
+}
+.Kefu .foot .biaoqingbox .item{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}
+.Kefu .foot .biaoqingbox .item image{
+  width: 56rpx;
+  height: 56rpx;
+  padding: 24rpx;
+  
+}
+.Kefu .foot .imgbox{
+  width: 100%;
+  height: 400rpx;
+
+}
+.Kefu .foot .imgbox .imgboxx{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+}
+.Kefu .foot .imgbox .imglist{
+  width: 120rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 30rpx;
+  align-items: center;
+  height: 170rpx;
+}
+.Kefu .foot .imgbox .imglist image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 10rpx;
+}
+.Kefu .foot .imgbox .imglist text{
+  font-size: 24rpx;
+  color: #333;
+}

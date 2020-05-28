@@ -31,9 +31,16 @@
   align-items: center;
 
 } 
+.headbox .searchbox view{
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 .headbox .searchbox input{
   font-size: 28rpx;
-  width: 530rpx;
+  width: 500rpx;
   margin-left: 50rpx;
   margin-right: 10rpx;
 }
@@ -41,7 +48,7 @@
 .listbox{
   width: 100%;
   box-sizing: border-box;
-  padding: 0 25rpx;
+  padding: 0 26rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -50,13 +57,14 @@
 }
 .listbox .list{
   width: 345rpx;
-  height: 510rpx;
   display: flex;
   flex-direction: column;
   border-radius: 10rpx;
   background: #fff;
   overflow: hidden;
   margin-top: 10rpx;
+  box-sizing: border-box;
+  padding-bottom: 16rpx;
 }
 .listbox .list image{
   width: 345rpx;
@@ -64,47 +72,75 @@
 }
 .listbox .list .listcon{
   width: 345rpx;
-  height: 150rpx;
   box-sizing: border-box;
   padding: 0 15rpx;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
 }
 .listbox .list .listcon .tit{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   overflow: hidden;
   box-sizing: border-box;
   padding: 5rpx 0;
 }
 .listbox .list .listcon .tit .biaoqian{
-  padding: 5rpx 10rpx;
+  padding: 3rpx 7rpx;
   border: 1rpx solid #E9130D;
   border-radius: 10rpx;
   color: #E9130D;
-  font-size: 22rpx;
+  font-size: 24rpx;
   margin-right: 10rpx;
+  transform: rotateZ(360deg);
 }
 .listbox .list .listcon .tit .name{
   color: #333;
-  letter-spacing: 4rpx;
-  font-size: 26rpx;
+  letter-spacing: 2rpx;
+  font-size: 28rpx;
   line-height: 1;
 }
 .listbox .list .listcon .bottom{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 .listbox .list .listcon .bottom .money text:nth-of-type(1){
-  font-size: 26rpx;
+  font-size: 24rpx;
   color: #E9130D;
 }
 .listbox .list .listcon .bottom .money text:nth-of-type(2){
+  font-size: 32rpx;
+  color: #E9130D;
+}
+.listbox .list .listcon .bottom .money text:nth-of-type(3){
   font-size: 22rpx;
   color: #999;
 }
 .listbox .list .listcon .bottom .juli{
-  font-size: 18rpx;
+  font-size: 22rpx;
   color: #999;
+}
+.nogoods{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 200rpx;
+}
+.nogoods image{
+  width: 280rpx;
+  margin-bottom: 55rpx;
+}
+.nogoods text{
+  font-size: 30rpx;
+  color: #333;
+  margin: 10rpx 0;
 }

@@ -1,0 +1,13 @@
+<!--pages/wenti/wenti.wxml-->
+<view class="Wenti">
+  <view class="list">
+    <image src="../../../images/user/q.png"></image>
+    <text>退款退到哪里？</text>
+    <text class='iconfont icon-youjiantou'></text>
+  </view>
+  <view class="list">
+    <image src="../../../images/user/q.png"></image>
+    <text>如何成功众聚逛选的用户？</text>
+    <text class='iconfont icon-youjiantou'></text>
+  </view>
+</view>

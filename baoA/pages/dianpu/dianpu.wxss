@@ -1,0 +1,1000 @@
+/* pages/dianpu/dianpu.wxss */
+@import "../../../utils/public.wxss";
+
+/*引用图标*/
+
+.Dianpu {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.allcon {
+  width: 100%;
+  height: 100%;
+}
+
+.banner {
+  width: 100%;
+  height: 292rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 评级框 */
+
+.pingjibox {
+  width: 100%;
+  height: 90rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.pingjibox .left {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pingjibox .left .haoping {
+  font-size: 28rpx;
+}
+
+.pingjibox .left .starbox {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 25rpx;
+}
+
+.pingjibox .left .starbox image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.pingjibox .left text {
+  font-size: 24rpx;
+  color: #333;
+  margin-left: 25rpx;
+}
+
+.pingjibox .shoucang {
+  font-size: 24rpx;
+  color: #ffa310;
+  padding: 6rpx 14rpx;
+  border: 2rpx solid #ffa310;
+  border-radius: 36rpx;
+  transform: rotateZ(360deg);
+  margin-left: auto;
+  margin-right: 20rpx;
+}
+
+.pingjibox .shoucang.active {
+  color: #666;
+  border: 2rpx solid #666;
+}
+
+.pingjibox .right {
+  display: flex;
+  align-items: center;
+}
+
+.pingjibox .right text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.pingjibox .right .iconfont {
+  font-size: 26rpx;
+  color: #333;
+  display: block;
+}
+
+/* 店信息框 */
+
+.dianxxbox {
+  width: 100%;
+  height: 232rpx;
+  background: #fff;
+  margin-bottom: 10rpx;
+  box-sizing: border-box;
+  padding: 25rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.dianxxbox .top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dianxxbox .top>image {
+  width: 21rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+
+.dianxxbox .top .dizhi {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 36rpx;
+  width: 550rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.dianxxbox .top .fenxiangbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 15rpx;
+  padding: 0;
+  background: none;
+  border: none;
+  line-height: 1;
+  overflow: visible;
+}
+
+.dianxxbox .top .fenxiangbox::after {
+  border: none;
+}
+
+.dianxxbox .top .fenxiangbox image {
+  width: 31rpx;
+  height: 36rpx;
+  margin-bottom: 10rpx;
+}
+
+.dianxxbox .top .fenxiangbox text {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.dianxxbox .bottom {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.dianxxbox .bottom .bleft {
+  display: flex;
+  flex-direction: column;
+}
+
+.dianxxbox .bottom .bleft .timebox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.dianxxbox .bottom .bleft .timebox image {
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 20rpx;
+}
+
+.dianxxbox .bottom .bleft .timebox text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.dianxxbox .bottom .bleft .tishi {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 44rpx;
+}
+
+.dianxxbox .bottom .bright {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.dianxxbox .bottom .bright .rlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15rpx;
+}
+
+.dianxxbox .bottom .bright .rlist image {
+  margin-bottom: 10rpx;
+}
+
+.dianxxbox .bottom .bright .rlist:nth-of-type(1) image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.dianxxbox .bottom .bright .rlist:nth-of-type(2) image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.dianxxbox .bottom .bright .rlist text {
+  color: #666;
+  font-size: 24rpx;
+}
+
+/* 活动专区 */
+
+.huodongbox {
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 200rpx;
+}
+
+.huodongbox .list {
+  width: 25%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.huodongbox .list image {
+  width: 78rpx;
+  height: 78rpx;
+  margin-bottom: 30rpx;
+}
+
+.huodongbox .list text {
+  font-size: 26rpx;
+  color: #333;
+}
+
+/* 底部大框 */
+
+.Foot {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 50;
+}
+
+.Foot.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Foot .headbox {
+  width: 100%;
+  height: 124rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.Foot .headbox .searchbox {
+  width: 100%;
+  height: 70rpx;
+  background: #f4f4f4;
+  border-radius: 70rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 50rpx;
+}
+
+.Foot .headbox .searchbox input {
+  font-size: 28rpx;
+  width: 530rpx;
+  margin-left: 10rpx;
+}
+
+.Foot .conbox {
+  width: 100%;
+  position: relative;
+}
+
+.Foot .conbox .kongimg {
+  width: 440rpx;
+  margin-top: 175rpx;
+  margin-left: 172rpx;
+  margin-bottom: 50rpx;
+}
+
+.Foot .conbox .kongtext {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+
+/* 左部tab切换 */
+
+.Foot .conbox .lefttab {
+  width: 180rpx;
+  height: 100%;
+  background: #f6f6f6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 100rpx;
+}
+
+.Foot .conbox .lefttab .list {
+  width: 100%;
+  height: 100rpx;
+  background: #f6f6f6;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+  border-left: 4rpx solid #f6f6f6;
+  letter-spacing: 2rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  border-top: 1rpx solid #f4f4f4;
+}
+
+.Foot .conbox .lefttab .active {
+  color: #ec1d3b;
+  box-sizing: border-box;
+  border-left: 4rpx solid #ec1d3b;
+  background: #fff;
+}
+
+.Foot .conbox .rightcon {
+  width: 570rpx;
+  height: 100%;
+  background: #f6f6f6;
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  background: #fff;
+  padding-bottom: 100rpx;
+}
+
+.Foot .conbox .rightcon .list {
+  width: 100%;
+  height: 208rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f5f5f5;
+  box-sizing: border-box;
+  padding: 15rpx 10rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Foot .conbox .rightcon .list image {
+  width: 154rpx;
+  height: 154rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.Foot .conbox .rightcon .list .listcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.Foot .conbox .rightcon .list .listcon .tit {
+  width: 356rpx;
+  font-size: 24rpx;
+  color: #333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 36rpx;
+  margin-bottom: 10rpx;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .left {
+  display: flex;
+  align-items: center;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .left .money {
+  font-size: 32rpx;
+  color: #ec1d3b;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .left .xiaoliang {
+  color: #999;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .footers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .footers .ziqu {
+  font-size: 22rpx;
+  color: #1895ff;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .footers .prisong {
+  font-size: 22rpx;
+  color: #ff8d42;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .footers .btn {
+  width: 130rpx;
+  height: 42rpx;
+  color: #fff;
+  background-color: #f45013;
+  border-radius: 42rpx;
+  line-height: 42rpx;
+  text-align: center;
+  font-size: 22rpx;
+  transform: rotateZ(360deg);
+  margin-right: 20rpx;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .footers .addgouwuche {
+  width: 58rpx;
+  height: 58rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+}
+
+.Foot .conbox .rightcon .list .listcon .bottom .footers .addgouwuche>image {
+  width: 58rpx;
+  height: 58rpx;
+}
+
+/* 回到顶部图片 */
+
+.up {
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  bottom: 240rpx;
+  right: -80rpx;
+  z-index: 100;
+}
+
+.upshow {
+  transform: translateX(-80rpx);
+  transition: all 0.5s;
+}
+
+.uphidden {
+  transform: translateX(80rpx);
+  transition: all 0.7s;
+}
+
+/* 购物车结算框 */
+
+.footerbox {
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 202;
+}
+
+.footerboxshow {
+  transform: translateY(-100rpx);
+  transition: all 0.5s;
+}
+
+.footerboxhidden {
+  transform: translateY(100rpx);
+  transition: all 0.7s;
+}
+
+.footerbox .gwcbox {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+  position: relative;
+  top: -20rpx;
+}
+
+.footerbox .gwcbox image {
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.footerbox .gwcbox .biaoqian {
+  padding: 5rpx 18rpx;
+  color: #fff;
+  font-size: 22rpx;
+  border-radius: 24rpx;
+  background: #fb3839;
+  position: absolute;
+  right: -15rpx;
+  top: 0;
+}
+
+.footerbox .gwcbox .biaoqian.gray {
+  background: #828282;
+}
+
+.footerbox  .heji {
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footerbox  .heji .hjtop {
+  display: flex;
+  align-items: baseline;
+}
+
+.footerbox  .heji .hjtop text {
+  font-size: 26rpx;
+  color: #fb3839;
+}
+
+.footerbox  .heji .hjtop view {
+  font-size: 40rpx;
+  color: #fb3839;
+}
+
+.footerbox  .heji .hjbottom {
+  display: flex;
+  align-items: center;
+}
+
+.footerbox  .heji .hjbottom text {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.footerbox  .heji .hjbottom view {
+  font-size: 24rpx;
+  color: #f6813a;
+  margin-left: 10rpx;
+}
+
+.footerbox  .btn {
+  width: 250rpx;
+  height: 100rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  background: #fb3839;
+  font-size: 34rpx;
+  margin-left: auto;
+}
+
+/* 购物车商品列表弹框 */
+
+.gwclistbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  left: 0;
+  top: 0;
+}
+
+.gwclistbox .black {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 201;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.gwclistbox .gwccon {
+  width: 100%;
+  /* position: absolute; */
+  max-height:464rpx;
+  z-index: 202;
+  /* left: 0;
+  bottom: -500rpx; */
+  box-sizing: border-box;
+  margin-top: 54rpx;
+  margin-bottom: 82rpx;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.newgwcbox {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  /* max-height: 594rpx; */
+  overflow:hidden;
+  bottom: -500rpx;
+  z-index: 202;
+  background-color: #EDEDED;
+}
+
+.gwctoubu {
+  width: 100%;
+  height: 54rpx;
+  font-size: 20rpx;
+  color: #333;
+  position: absolute;
+  z-index: 500;
+  background-color: #EDEDED;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+}
+
+.gwctoubu .shanchuImg {
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+
+.gwclistbox .gwccon .gwclist {
+  width: 100%;
+  height: 116rpx;
+  background: #fff;
+  /* margin-bottom: 6rpx; */
+  border-bottom: 2rpx solid #ededed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  position: relative;
+}
+.huise{
+  background-color: #EEEEEE;
+}
+.gwclistbox .gwccon .gwclist .biaoqianziqu {
+  position: absolute;
+  width: 92rpx;
+  height: 22rpx;
+  line-height: 22rpx;
+  font-size: 14rpx;
+  background-color: #1895ff;
+  color: #fff;
+  text-align: center;
+  left: 30rpx;
+  top: 0;
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+}
+
+.gwclistbox .gwccon .gwclist .tit {
+  font-size: 24rpx;
+  color: #333;
+  width: 250rpx;
+  /* overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap; */
+  margin-right: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.gwclistbox .gwccon .gwclist .guige {
+  width: 146rpx;
+  color: #666;
+  font-size: 22rpx;
+  /* overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.gwclistbox .gwccon .gwclist .money {
+  font-size: 30rpx;
+  color: #df234c;
+}
+
+.gwclistbox .gwccon .gwclist .numbox {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gwclistbox .gwccon .gwclist .numbox image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.gwclistbox .gwccon .gwclist .numbox view {
+  display: inline-block;
+  padding: 0 5rpx;
+  text-align: center;
+  color: #333;
+  margin: 0 10rpx;
+  font-size: 30rpx;
+}
+
+.gwclistbox .conboxshow {
+  transform: translateY(-520rpx);
+  transition: all 0.5s;
+}
+
+.gwclistbox .conboxhidden {
+  transform: translateY(520rpx);
+  transition: all 0.7s;
+}
+
+.gwclistbox .blackshow {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.gwclistbox .blackhidden {
+  opacity: 0;
+  transition: all 0.7s;
+}
+
+/* 弹出框 */
+
+.tanbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  left: 0;
+  top: 0;
+}
+
+.tanbox .black {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 101;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.tanbox .conbox {
+  width: 680rpx;
+  position: absolute;
+  z-index: 110;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  height: 700rpx;
+}
+
+.tanbox .conboxshow {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.tanbox .conboxhidden {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.tanbox .blackshow {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.tanbox .blackhidden {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.tanbox .conbox .tanboxheader {
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tanbox .conbox .tanboxheader image {
+  width: 208rpx;
+  height: 208rpx;
+  border-radius: 20rpx;
+  position: relative;
+  top: -20rpx;
+  margin-right: 20rpx;
+}
+
+.tanbox .conbox .tanboxheader .titbox {
+  flex: 1;
+  height: 100%;
+  margin-top: 25rpx;
+}
+
+.tanbox .conbox .tanboxheader .titbox .tit {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 44rpx;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+
+.tanbox .conbox .tanboxheader .titbox .con {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tanbox .conbox .tanboxheader .titbox view {
+  font-size: 34rpx;
+  color: #ee1e3e;
+}
+
+.tanbox .conbox .tanboxheader .titbox text {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.tanbox .conbox .guigetit {
+  width: 100%;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  line-height: 80rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.tanbox .conbox .guigecon {
+  width: 100%;
+  height: 160rpx;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.tanbox .conbox .guigecon .list {
+  font-size: 26rpx;
+  color: #333;
+  padding: 11rpx 24rpx;
+  border-radius: 48rpx;
+  margin-right: 20rpx;
+  margin-bottom: 15rpx;
+  display: inline-block;
+  transform: rotateZ(360deg);
+}
+
+.tanbox .conbox .guigecon .list.active {
+  background: #ee1e3e;
+  color: #fff;
+}
+
+.tanbox .conbox .numbox {
+  width: 100%;
+  height: 146rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tanbox .conbox .numbox>text {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.tanbox .conbox .sure {
+  flex: 1;
+  background: linear-gradient(to right, #ff9503, #ff7400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tanbox .conbox .sure text {
+  font-size: 34rpx;
+  color: #fff;
+  margin: 0 30rpx;
+}
+
+/* 数量改变样式 */
+
+.spinner_r {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 220rpx;
+  height: 70rpx;
+  border: 1px solid rgba(216, 216, 216, 1);
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.spinner_r text {
+  flex: 1;
+  text-align: center;
+  font-size: 50rpx !important;
+}
+
+.spinner_r input {
+  flex: 1;
+  text-align: center;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  color: #212121;
+  font-size: 34rpx;
+}
+
+.headerbox {
+  width: 100%;
+  position: fixed;
+  z-index: 40;
+  overflow: hidden;
+  background: #fff;
+}

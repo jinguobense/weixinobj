@@ -1,0 +1,47 @@
+<!--pages/newuser/newuser.wxml-->
+<view class="Newuser">
+  <!-- 轮播图 -->
+  <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" class='banner' wx:if="{{imglist.length > 0}}">
+    <block wx:for="{{imglist}}" wx:key="i"> 
+      <swiper-item>
+        <image src="{{item}}" />
+      </swiper-item>
+    </block> 
+  </swiper>
+  <!-- 类别横向滚动框 -->
+  <scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+    <text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0" >全部</text>
+      <block wx:for="{{headlist}}" wx:key="i">
+        <text class="list recommend_hot_box {{tabindex==index+1 ? 'active' : ''}}" data-current="{{index+1}}" catchtap="changetab" id="ele{{index+1}}" data-idr="{{item.pfgTypeId1}}">{{item.pfgTypeName1}}</text>
+      </block>
+  </scroll-view>
+  <!-- 内容框 -->
+  <view class="conbox">
+    <view class="nogoods" wx:if='{{list.length==0 && isend==true}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂时没有商品</text>
+    </view>
+    <block wx:for="{{list}}" wx:key="i">
+      <view class="list" catchtap="toxq" data-goodsid="{{item.goodsId}}" wx:if='{{list.length>0}}'>
+        <image src="{{item.goodsImg}}" class="shopimg"></image>
+        <view class="con">
+          <view class="top">
+            <image src="../../../images/index/dp.png"></image>
+            <view>{{item.shopName}}</view>
+            <text>{{item.shopDistance}}</text>
+          </view>
+          <view class="mid">{{item.goodsName}}</view>
+          <view class="bottom">
+            <view class="bleft">
+              <view class="qian">￥</view>
+              <view class="money">{{item.goodsLimitPrice}}</view>
+              <view class="yuanjia">￥{{item.goodsCurPrice}}</view>
+            </view>
+            <text class="bright">仅限1{{item.goodsUnit}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+</view>

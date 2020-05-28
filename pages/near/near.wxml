@@ -2,73 +2,101 @@
 <view class="Near">
   <view class="headbox">
     <!-- 搜索框 -->
-    <view class="searchbox" catchtap="tosearch">
-      <input placeholder="搜索您想要的宝贝" disabled></input>
-      <icon type='search' size='36rpx'></icon>
+    <view class="searchbox">
+      <input placeholder="搜索您想要的宝贝" bindinput='watch' value="{{searchcon}}"></input>
+      <view catchtap="tosearchend">
+        <icon type='search' size='36rpx'></icon>
+      </view>
     </view>
     <!-- 类别横向滚动框 -->
-    <scroll-view class="recommend_scroll_x_box" scroll-x="true">
+    <scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
       <!-- <block wx:for="{{navList}}" wx:key="i">
         <view class="recommend_hot_box f24 {{currentTab==index ? 'active' : ''}}" data-current="{{index}}" catchtap="swichNav" wx:key="*this">{{item.name}}</view>
       </block> -->
-      <text class="list recommend_hot_box {{tabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changetab">全部</text>
-      <text class="list recommend_hot_box {{tabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changetab">酒水饮料</text>
-      <text class="list recommend_hot_box {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab">酒水饮料1</text>
-      <text class="list recommend_hot_box {{tabindex==4 ? 'active' : ''}}" data-current="4" catchtap="changetab">酒水饮料2</text>
-      <text class="list recommend_hot_box {{tabindex==5 ? 'active' : ''}}" data-current="5" catchtap="changetab">酒水饮料3</text>
-      <text class="list recommend_hot_box {{tabindex==6 ? 'active' : ''}}" data-current="6" catchtap="changetab">酒水饮料4</text>
-      <text class="list recommend_hot_box {{tabindex==7 ? 'active' : ''}}" data-current="7" catchtap="changetab">酒水饮料5</text>
+      <text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0">全部</text>
+      <block wx:for="{{headlist}}" wx:key="i">
+
+        <text class="list recommend_hot_box {{tabindex==index+1 ? 'active' : ''}}" data-current="{{index+1}}" catchtap="changetab" id="ele{{index+1}}" data-idr="{{item.pfgTypeId1}}">{{item.pfgTypeName1}}</text>
+      </block>
     </scroll-view>
   </view>
   <!-- 内容框 -->
   <view class="listbox">
-    <view class="list">
-      <image src="../../images/index/banner.png"></image>
-      <view class="listcon">
-        <view class="tit">
-          <text class="biaoqian">2人拼</text>
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-        </view>
-        <view class="bottom">
-          <view class="money">
-            <text>￥6565.0</text>
-            <text>/件</text>
-          </view>
-          <view class="juli">123m</view>
-        </view>
-      </view>
+    <view class="nogoods" wx:if='{{conlist.length==0 && isend == true}}'>
+      <image src="../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>附近暂无商品</text>
     </view>
-    <view class="list">
-      <image src="../../images/index/banner.png"></image>
-      <view class="listcon">
-        <view class="tit">
-          <text class="biaoqian">抢购</text>
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-        </view>
-        <view class="bottom">
-          <view class="money">
-            <text>￥6565.0</text>
-            <text>/件</text>
+    <view class="listpubu" wx:if='{{conlist.length>0}}'>
+      <block wx:for="{{conlist}}" wx:key="i">
+        <view class="list" catchtap="toxq" wx:if="{{index%2==0}}" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.rtType}}" data-shopid="{{item.shopId}}">
+          <view class="imgbox" data-index="{{index}}">
+            <image src="../../images/index/peisong.png" class="peisongimg" wx:if="{{item.distribut == 0}}"></image>
+            <image src="../../images/index/ziqu.png" class="peisongimg" wx:if="{{item.distribut == 1 || item.distribut == null}}"></image>
+            <!-- <image src="../../images/index/ziqu.png"  class="peisongimg"></image> -->
+            <image src="{{item.goodsImg}}" class="img"></image>
+            <view class="shopnamebg">
+              <view>{{item.shopName}}</view>
+            </view>
           </view>
-          <view class="juli">123m</view>
-        </view>
-      </view>
-    </view>
-    <view class="list">
-      <image src="../../images/index/banner.png"></image>
-      <view class="listcon">
-        <view class="tit">
-          <text class="biaoqian">2人拼</text>
-          <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-        </view>
-        <view class="bottom">
-          <view class="money">
-            <text>￥6565.0</text>
-            <text>/件</text>
+          <view class="listcon">
+            <view class="tit">
+              <text wx:if="{{item.rtType == 1}}" class="biaoqian">满减</text>
+              <text wx:if="{{item.rtType == 2}}" class="biaoqian">抢购</text>
+              <text wx:if="{{item.rtType == 3}}" class="biaoqian">拼团</text>
+              <text wx:if="{{item.rtType == 4}}" class="biaoqian">直销</text>
+              <text wx:if="{{item.rtType == 6}}" class="biaoqian">{{item.tourDesc}}</text>
+              <text class="name">{{item.goodsName}}</text>
+            </view>
+            <view class="danmai" wx:if="{{item.rtType == 6}}">单买价￥{{item.goodsCurPrice}}</view>
+            <view class="bottom">
+              <view class="money">
+                <text>￥</text>
+                <text wx:if="{{item.rtType != 6}}">{{item.goodsCurPrice}}</text>
+                <text wx:if="{{item.rtType == 6}}">{{item.goodsCostPrice}}</text>
+                <text>/{{item.goodsUnit}}</text>
+              </view>
+              <view class="juli">{{item.shopDistance}}</view>
+            </view>
           </view>
-          <view class="juli">123m</view>
         </view>
-      </view>
+      </block>
     </view>
+    <view class="listpubu" wx:if='{{conlist.length>0}}'>
+      <block wx:for="{{conlist}}" wx:key="i">
+        <view class="list" catchtap="toxq" wx:if="{{index%2==1}}" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.rtType}}" data-shopid="{{item.shopId}}">
+                    <view class="imgbox" data-index="{{index}}">
+            <image src="../../images/index/peisong.png" class="peisongimg" wx:if="{{item.distribut == 0}}"></image>
+            <image src="../../images/index/ziqu.png" class="peisongimg" wx:if="{{item.distribut == 1 || item.distribut == null}}"></image>
+            <!-- <image src="../../images/index/ziqu.png"  class="peisongimg"></image> -->
+            <image src="{{item.goodsImg}}" class="img"></image>
+            <view class="shopnamebg">
+              <view>{{item.shopName}}</view>
+            </view>
+          </view>
+          <view class="listcon">
+            <view class="tit">
+              <text wx:if="{{item.rtType == 1}}" class="biaoqian">满减</text>
+              <text wx:if="{{item.rtType == 2}}" class="biaoqian">抢购</text>
+              <text wx:if="{{item.rtType == 3}}" class="biaoqian">拼团</text>
+              <text wx:if="{{item.rtType == 4}}" class="biaoqian">直销</text>
+              <text wx:if="{{item.rtType == 6}}" class="biaoqian">{{item.tourDesc}}</text>
+              <text class="name">{{item.goodsName}}</text>
+            </view>
+            <view class="danmai" wx:if="{{item.rtType == 6}}">单买价￥{{item.goodsCurPrice}}</view>
+            <view class="bottom">
+              <view class="money">
+                <text>￥</text>
+                <text wx:if="{{item.rtType != 6}}">{{item.goodsCurPrice}}</text>
+                <text wx:if="{{item.rtType == 6}}">{{item.goodsCostPrice}}</text>
+                <text>/{{item.goodsUnit}}</text>
+              </view>
+              <view class="juli">{{item.shopDistance}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+
   </view>
 </view>

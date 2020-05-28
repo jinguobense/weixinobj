@@ -1,0 +1,32 @@
+<!--pages/dizhi/dizhi.wxml-->
+<view class="Dizhi">
+  <view class="nogoods" wx:if='{{list.length==0 && isend==true}}'>
+      <image src="../../../images/tabbar/nodizhi.png" mode="widthFix"></image>
+      <text>暂时没有任何地址</text>
+    </view>
+  <block wx:for="{{list}}" wx:key="i">
+    <view class="list" catchtap="choosedizhi" data-index="{{index}}" wx:if='{{list.length>0}}'>
+      <view class="top">
+        <view class="name">收货人：{{item.addrName}}</view>
+        <view class="tel">{{item.addrPhone}}</view>
+      </view>
+      <view class="mid">收货地址：{{item.localaddr}}{{item.detailedAddr}}</view>
+      <view class="bottom">
+        <view class="leftdizhi" catchtap="setmoren" data-id="{{item.addrId}}">
+          <image src="../../../images/dianpu/xz2.gif" wx:if="{{item.isDefault == 0}}"></image>
+          <image src="../../../images/dianpu/xz1.gif" wx:if="{{item.isDefault == 1}}"></image>
+          <text>设为默认地址</text>
+        </view>
+        <view class="bianji" catchtap="todizhibj" data-index="{{index}}">
+          <image src="../../../images/dianpu/bj.png"></image>
+          <text>编辑</text>
+        </view>
+        <view class="del" catchtap="deladdress" data-id="{{item.addrId}}">删除</view>
+      </view>
+    </view>
+  </block>
+  <!-- <view class="no">没有了</view> -->
+  <view class="foot">
+    <view class="btn" catchtap="toadddizhi">新建地址</view>
+  </view>
+</view>

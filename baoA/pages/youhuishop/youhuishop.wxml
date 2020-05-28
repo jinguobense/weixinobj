@@ -1,0 +1,42 @@
+<!--pages/youhuishop/youhuishop.wxml-->
+<view class="Youhuishop">
+  <view class="headbox">
+    <!-- 搜索框 -->
+    <view class="searchbox">
+      <input placeholder="搜索您想要的宝贝" bindinput='watch' value="{{searchcon}}"></input>
+      <view catchtap="tosearchend"><icon type='search' size='36rpx'></icon></view>
+    </view>
+    <!-- 类别横向滚动框 -->
+    <scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+      <text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0" >全部</text>
+      <block wx:for="{{headlist}}" wx:key="i">
+        
+        <text class="list recommend_hot_box {{tabindex==index+1 ? 'active' : ''}}" data-current="{{index+1}}" catchtap="changetab" id="ele{{index+1}}" data-idr="{{item.pfgTypeId1}}">{{item.pfgTypeName1}}</text>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="nogoods" wx:if='{{conlist.length==0}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂时没有商品</text>
+    </view>
+    <view class="list" wx:for="{{conlist}}" wx:key="i" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-type="{{item.csType}}" wx:if='{{conlist.length>0}}'>
+      <image src="{{item.goodsImg}}"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="name">{{item.goodsName}}</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text>￥{{item.goodsCurPrice}}</text>
+            <text>/{{item.goodsUnit}}</text>
+          </view>
+          <view class="juli">已售:{{item.goodsSales}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>
+

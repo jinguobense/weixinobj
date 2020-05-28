@@ -1,0 +1,34 @@
+<!--pages/pingjia/pingjia.wxml-->
+<view class="Pingjia">
+  <view class="goodslist" wx:for="{{info.goodsList}}" wx:key="i">
+    <view class="header">
+      <image src="{{item.goodsImg}}" ></image>
+      <view class="headercon">
+        <view class="goodsname">{{item.goodsName}}</view>
+        <view class="money">￥{{item.goodsCurPrice}}</view>
+      </view>
+    </view>
+    <view class="dafen">
+      <text>打分:</text>
+      <view class="starbox">
+        <image src="../../../images/index/dp1.png" wx:for="{{goodslist[index].star}}" wx:key="index" catchtap="changestar" data-type='1' data-index="{{index}}" data-indexs="{{indexs}}" wx:for-index="indexs"></image>
+        <image src="../../../images/index/dp2.png" wx:for="{{5-goodslist[index].star}}" wx:key="index" catchtap="changestar" data-type='0' data-index="{{index}}" data-indexs="{{indexs}}" wx:for-index="indexs"></image>
+      </view>
+    </view>
+    <view class="pingjiabox">
+      <view class="tit">
+        <text class="tleft">商品评价:</text>
+        <text class="tright">{{goodslist[index].content.length}}/100字</text>
+      </view>
+      <textarea placeholder="请描述您对商品的评价吧" maxlength="100" bindinput="watch" data-index="{{index}}"></textarea>
+      <view class="imgbox">
+        <block wx:for="{{imglist[index].img}}" wx:key="i" wx:for-item="itemss" wx:for-index="indexss">
+          <image src="{{itemss}}" class="upimg" catchlongtap="del" data-indexss="{{indexss}}" data-index="{{index}}"></image>
+        </block>
+        <image src="../../../images/index/pic.png" class="upimg" catchtap="chuanImg" data-index="{{index}}"></image>
+      </view>
+      
+    </view>
+  </view>
+  <view class="sub" catchtap="sub">提交评价</view>
+</view>

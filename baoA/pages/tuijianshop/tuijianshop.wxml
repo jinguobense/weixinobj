@@ -1,0 +1,44 @@
+<!--pages/tuijianshop/tuijianshop.wxml-->
+<view class="Tuijian">
+  <!-- 搜索框 -->
+  <view class="headbox">
+    <view class="searchbox">
+      <input placeholder="搜索您想要的好店" bindinput='watch' value="{{con}}"></input>
+      <view catchtap="tosearchend"><icon type='search' size='36rpx'></icon></view>
+    </view>
+  </view>
+  <!-- 内容 -->
+  <view class="tuijiancon">
+    <block wx:for="{{shopList}}" wx:key="i">
+      <view class="tuijianlist" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.shopType}}" data-shopid="{{item.shopId}}">
+        <image src="{{item.shopLogo}}"></image>
+        <view class="rightcon">
+          <view class="toptit">
+            <text>{{item.shopName}}</text>
+            <view class="starbox">
+              <image src="../../../images/index/dp1.png" wx:for="{{item.shopScore}}" wx:key="index"></image>
+                  <image src="../../../images/index/dp2.png" wx:for="{{5-item.shopScore}}" wx:key="index"></image>
+            </view>
+          </view>
+          <view class="centercon">
+            <text wx:if="{{item.shopType == 1}}">拼团</text>
+            <text wx:if="{{item.shopType == 2}}">满减</text>
+            <text wx:if="{{item.shopType == 3}}">抢购</text>
+            <text wx:if="{{item.shopType == 4}}">直销</text>
+            <text wx:if="{{item.shopType == 5}}">{{item.pnum}}</text>
+            <view>{{item.goodsName}}</view>
+          </view>
+          <view class="moneybox">
+            <text class="qian">￥</text>
+            <text class="money">{{item.minPrice}}</text>
+            
+          </view>
+          <view class="bottomcon">
+            <view class="yishou">已售：{{item.shopSales}}单</view>
+            <view class="juli">{{item.shopDistance}}</view>
+          </view>
+        </view>
+      </view>
+    </block> 
+  </view>
+</view>

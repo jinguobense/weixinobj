@@ -95,3 +95,20 @@
   text-overflow:ellipsis;
   white-space: nowrap;
 }
+.nogoods{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 200rpx;
+}
+.nogoods image{
+  width: 485rpx;
+  margin-bottom: 55rpx;
+}
+.nogoods text{
+  font-size: 30rpx;
+  color: #666;
+}

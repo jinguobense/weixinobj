@@ -1,0 +1,26 @@
+<!--pages/tongzhilist/tongzhilist.wxml-->
+<view class="nogoods" wx:if='{{list.length==0}}'>
+  <image src="../../../images/tabbar/nomsg.png" mode="widthFix"></image>
+  <text>暂无通知信息</text>
+</view>
+<view class="tongzhilist" wx:if='{{list.length>0}}'>
+  <block wx:for="{{list}}" wx:key="i" >
+    <view class="list" catchtap="totongzhi" data-type="{{item.titleState}}" data-flag="{{item.orderState}}" data-orderid="{{item.orderId}}" data-state="{{item.state}}" data-msgid="{{item.messageId}}" >
+      <view class="redtishi" wx:if="{{item.state == 0}}"></view>
+      <view class="top">
+        <view class="type">{{item.messageTitle}}</view>
+        <view class="time">{{item.messageTime}}</view>
+      </view>
+      <view class="conbox">
+        <image src="{{item.orderGoods[0].goodsimg}}" wx:if="{{item.titleState == 1}}"></image>
+        <view class="right">
+          <view class="tit">{{item.messageContent}}</view>
+          <view class="rbottom">
+            <view class="bianhao" wx:if="{{item.titleState == 1}}">订单编号：{{item.orderNo}}</view>
+            <!-- <view class="con">已发货</view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

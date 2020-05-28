@@ -1,0 +1,158 @@
+/* pages/tuijianshop/tuijianshop.wxss */
+.Tuijian{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 100rpx;
+  background: #f6f6f6;
+}
+.headbox{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 5px 2px rgba(144, 144, 144, 0.35);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headbox .searchbox{
+  width: 674rpx;
+  height: 66rpx;
+  background: #F4F4F4;
+  border-radius: 66rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} 
+.headbox .searchbox view{
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.headbox .searchbox input{
+  font-size: 28rpx;
+  width: 500rpx;
+  margin-left: 50rpx;
+  margin-right: 10rpx;
+}
+/* 推荐好店内容 */
+.tuijiancon{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+  background: #f6f6f6;
+  padding-top: 15rpx;
+}
+.tuijianlist{
+  width: 100%;
+  height: 254rpx;
+  box-sizing: border-box;
+  padding: 30rpx 19rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  display: flex;
+  margin-bottom: 10rpx;
+}
+.tuijianlist:last-child{
+  margin-bottom: 0;
+}
+.tuijianlist image{
+  width: 194rpx; 
+  height: 194rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.tuijianlist .rightcon{
+  width: 440rpx;
+  height: 194rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.tuijianlist .rightcon .toptit{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tuijianlist .rightcon .toptit text{
+  font-size: 26rpx;
+  color: #333;
+  display: block;
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.tuijianlist .rightcon .toptit .starbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tuijianlist .rightcon .toptit .starbox image{
+  width: 21rpx;
+  height: 21rpx;
+  padding: 0;
+  display: block;
+  margin: 0 2rpx;
+}
+.tuijianlist .rightcon .centercon{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15rpx;
+}
+.tuijianlist .rightcon .centercon text{
+  padding: 3rpx 5rpx;
+  color: #fff;
+  background: #E21111;
+  border-radius: 7rpx;
+  margin-right: 10rpx;
+  font-size: 18rpx;
+}
+.tuijianlist .rightcon .centercon view{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size: 24rpx;
+  color: #333;
+  flex: 1;
+}
+.tuijianlist .rightcon .moneybox{
+  
+  display: flex;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.tuijianlist .rightcon .moneybox .qian{
+  font-size: 22rpx;
+  color: #e43030;
+}
+.tuijianlist .rightcon .moneybox .money{
+  font-size: 36rpx;
+  color: #e43030;
+  line-height: 1;
+}
+.tuijianlist .rightcon .bottomcon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.tuijianlist .rightcon .bottomcon .yishou{
+  font-size: 22rpx;
+  color: #666666;
+
+}
+.tuijianlist .rightcon .bottomcon .juli{
+  font-size: 22rpx;
+  color: #666666;
+  
+}

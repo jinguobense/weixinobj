@@ -1,0 +1,53 @@
+/* pages/fankui/fankui.wxss */
+.Fankui{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.tit{
+  width: 100%;
+  height: 90rpx;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 90rpx;
+}
+input{
+  width: 100%;
+  height: 84rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background: #FAFAFA;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+}
+textarea{
+  width: 100%;
+  height: 380rpx;
+  background: #FAFAFA;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+}
+.btnbox{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnbox .btn{
+  width: 100%;
+  height: 100rpx;
+  border-radius: 10rpx;
+  background: #E31718;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 100rpx;
+}

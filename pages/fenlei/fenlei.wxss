@@ -1,8 +1,59 @@
 /* pages/fenlei/fenlei.wxss */
+page{
+  background: #fff;
+}
 .Fenlei{
   background: #fff;
   width: 100%;
+  box-sizing: border-box;
   height: 100%;
+  padding-top: 100rpx;
+}
+.conbox{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+
+}
+.headbox{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1111;
+  box-shadow: 0 0 5px 2px rgba(144, 144, 144, 0.35);
+}
+.headbox .searchbox{
+  width: 100%;
+  height: 66rpx;
+  background: #F4F4F4;
+  border-radius: 66rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+} 
+.headbox .searchbox view{
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.headbox .searchbox input{
+  font-size: 28rpx;
+  width: 500rpx;
+  margin-left: 50rpx;
+  margin-right: 10rpx;
 }
 /* 左部tab切换 */
 .lefttab{
@@ -11,10 +62,13 @@
   background: #F6F6F6;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 100rpx;
   display: flex;
   overflow-y: auto;
   flex-direction: column;
+  z-index: 1000;
+  box-sizing: border-box;
+  padding-bottom: 100rpx;
 }
 .lefttab .list{
   width: 100%;
@@ -22,7 +76,7 @@
   background: #F6F6F6;
   text-align: center;
   line-height: 90rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #333;
   box-sizing: border-box;
   border-left: 4rpx solid #F6F6F6;
@@ -38,16 +92,14 @@
 }
 /* 右部内容 */
 .rightcon{
-  position: fixed;
-  right: 0;
-  top: 0;
   width: 580rpx;
-  height: 100%;
-  overflow-y: auto;
   /* background: yellow; */
   box-sizing: border-box;
   padding: 0 15rpx;
   padding-bottom: 20rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .rightcon .banner{
   width: 100%;
@@ -69,7 +121,7 @@
   height: 395rpx;
   border-radius: 10rpx;
   overflow: hidden;
-  box-shadow: 0rpx 3rpx 5rpx #999;
+  box-shadow: 0rpx 3rpx 5rpx  rgba(9, 9, 9, 0.2);
   background: #fff;
   margin-top: 20rpx;
   display: flex;
@@ -84,17 +136,17 @@
   width: 100%;
   height: 135rpx;
   box-sizing: border-box;
-  padding: 0 20rpx;
+  padding: 0 15rpx;
 }
 .rightcon .listbox .list .con .tit{
-  font-size: 26rpx;
+  font-size: 30rpx;
   color: #333;
   width: 100%;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
-  margin-top: 20rpx;
-  margin-bottom: 32rpx;
+  margin-top: 15rpx;
+  margin-bottom: 30rpx;
 }
 .rightcon .listbox .list .con .bottom{
   display: flex;
@@ -104,9 +156,29 @@
 }
 .rightcon .listbox .list .con .bottom .haoping{
   color: #D21F22;
-  font-size: 20rpx;
+  font-size: 22rpx;
 }
 .rightcon .listbox .list .con .bottom .juli{
   color: #636363;
-  font-size: 18rpx;
+  font-size: 22rpx;
+}
+.nogoods{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding:230rpx 0;
+}
+.nogoods image{
+  width: 340rpx;
+  margin-bottom: 20rpx;
+}
+.nogoods text{
+  font-size: 26rpx;
+  color: #666;
 }

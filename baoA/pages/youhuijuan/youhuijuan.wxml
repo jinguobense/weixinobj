@@ -1,0 +1,73 @@
+<!--pages/youhuijuan/youhuijuan.wxml-->
+<view class="Youhuijuan">
+  <view class="nogoods" wx:if='{{list.length==0 && isend == true}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂无优惠券</text>
+    </view>
+  <block wx:for="{{list}}" wx:key="i" >
+    <view class="shoplist" wx:if="{{shoptype == 1 && list.length>0}}" >
+      <view class="header">
+        <view class="top">
+          <view class="tit">{{item.shopName}}</view>
+          <view class="starbox">
+
+            <image src="../../../images/index/dp1.png" wx:for="{{item.shopScore}}" wx:key="i"></image>
+            <image src="../../../images/index/dp2.png" wx:for="{{5 - item.shopScore}}" wx:key="i"></image>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="left">
+            <text class='iconfont icon-ding_wei'></text>
+            <text>{{item.shopAddr}}</text>
+          </view>
+          <view class="juli">{{item.shopDistance}}</view>
+        </view>
+      </view>
+      <!-- 劵列表 -->
+      <view class="list {{items.mcstate == 1 || items.mcstate == 2 ?'gray':''}}" wx:for="{{item.freeCouponList}}" wx:key="i" wx:for-index="indexs" wx:for-item="items">
+        <view class="listleft">
+          <view class="top">
+            <text class="money">￥{{items.freeCouponPrice}}</text>
+            <text class="xinxi">满{{items.fullSubPrice}}可使用</text>
+          </view>
+          <view class="mid">{{items.freeCouponDesc}}</view>
+          <view class="bottom">
+            <text>有效期: {{items.freeCouponTime}}</text>
+          </view>
+        </view>
+        <view class="listright">
+          <view class="btn" wx:if="{{items.state == 0}}" data-juanid="{{items.freeCouponId}}" catchtap="lingjuan">立即领取</view>
+          <view class="btn" catchtap="toxq" wx:if="{{items.state == 1 && items.mcstate == 0}}" data-goodsid="{{items.goodsId}}" data-type="{{items.type}}" data-shopid="{{item.shopId}}" data-goodstype="{{items.goodsType}}" data-isshop="0" data-juanid="{{items.freeCouponId}}">立即使用</view>
+          <view class="btn {{items.mcstate == 1 ?'gray':''}}" wx:if="{{items.state == 1 && items.mcstate == 1}}">已使用</view>
+          <view class="btn {{items.mcstate == 2 ?'gray':''}}" wx:if="{{items.state == 1 && items.mcstate == 2}}">已过期</view>
+          <image src="../../../images/index/ylq.png" wx:if="{{items.state == 1 && items.mcstate == 0}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="shoplist" wx:if="{{shoptype == 2 && list.length>0}}">
+      <view wx:if="{{list.length == 0}}">暂无可领优惠券</view>
+      <!-- 劵列表 -->
+      <view class="list {{items.mcstate == 1 || items.mcstate == 2 ?'gray':''}}" wx:for="{{list}}" wx:key="i" wx:for-index="indexs" wx:for-item="items">
+        <view class="listleft">
+          <view class="top">
+            <text class="money">￥{{items.freeCouponPrice}}</text>
+            <text class="xinxi">满{{items.fullSubPrice}}可使用</text>
+          </view>
+          <view class="mid">{{items.freeCouponDesc}}</view>
+          <view class="bottom">
+            <text>有效期: {{items.freeCouponTime}}</text>
+          </view>
+        </view>
+        <view class="listright">
+          <view class="btn" wx:if="{{items.state == 0}}" data-juanid="{{items.freeCouponId}}" catchtap="lingjuan">立即领取</view>
+          <view class="btn" catchtap="toxq" wx:if="{{items.state == 1 && items.mcstate == 0}}" data-goodsid="{{items.goodsId}}" data-type="{{items.type}}" data-shopid="{{shopid}}" data-goodstype="{{items.goodsType}}" data-juanid="{{items.freeCouponId}}" data-isshop="1">立即使用</view>
+          <view class="btn {{items.mcstate == 1 ?'gray':''}}" wx:if="{{items.state == 1 && items.mcstate == 1}}">已使用</view>
+          <view class="btn {{items.mcstate == 2 ?'gray':''}}" wx:if="{{items.state == 1 && items.mcstate == 2}}">已过期</view>
+          <image src="../../../images/index/ylq.png" wx:if="{{items.state == 1 && items.mcstate == 0}}"></image>
+        </view>
+      </view>
+  </view>
+
+
+</view>

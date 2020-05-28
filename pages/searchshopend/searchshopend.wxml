@@ -1,0 +1,57 @@
+<!--pages/searchend/searchend.wxml-->
+<view class="Search">
+  <view class="headbox">
+    <!-- 搜索框 -->
+    <view class="searchbox">
+      <input placeholder="搜索您想查找的店铺" bindinput='watch' value="{{searchcon}}"></input>
+      <view catchtap="tosearch"><icon type='search' size='36rpx'></icon></view>
+      
+    </view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="nogoods" wx:if='{{goodsList.length==0 && isend==true}}'>
+      <image src="../../images/tabbar/nosearchgoods.png" mode="widthFix"></image>
+      <text>很抱歉！</text>
+      <text>未搜索到相关店铺</text>
+    </view>
+    <block wx:for="{{goodsList}}" wx:key="index">
+      <view class="list" catchtap="toxq" data-shopid="{{item.shopId}}"  wx:if='{{goodsList.length>0}}' >
+        <image src="{{item.shopLogo}}"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text class="name">{{item.shopName}}</text>
+          </view>
+          <view class="bottom">
+            <view class="money">
+              <text>好评率:{{item.shopScore}}%</text>
+            </view>
+            <view class="juli">{{item.shopDistance}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

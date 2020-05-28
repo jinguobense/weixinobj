@@ -1,0 +1,304 @@
+<!--pages/pintuanxq/pintuanxq.wxml-->
+<view class="Pintuanxq">
+  <view style='width:0px;height:0px;overflow:hidden;position:fixed;top:-10000rpx;'>
+     <canvas canvas-id="shareimg" class="canvasimg" ></canvas>
+  </view>
+  <!-- 头部 -->
+  <view class="header">
+    <view class="list {{tabindex==1 ? 'active' : ''}}" catchtap="changetab" data-current="1" data-idr="maodian1">商品</view>
+    <view class="list {{tabindex==2 ? 'active' : ''}}" catchtap="changetab" data-current="2" data-idr="maodian2">评价</view>
+    <view class="list {{tabindex==3 ? 'active' : ''}}" catchtap="changetab" data-current="3" data-idr="maodian3">推荐</view>
+    <view class="list {{tabindex==4 ? 'active' : ''}}" catchtap="changetab" data-current="4" data-idr="maodian4">详情</view>
+    <image src="../../../images/index/ic_shensu_goods.png" catchtap="toshensu"></image>
+  </view>
+  <scroll-view class='list-left' scroll-into-view="{{id}}" scroll-y='true' scroll-with-animation='true' bindscroll="pagescroll" style="height: {{pageheight}}rpx;">
+    <!-- 轮播图 -->
+    <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" class='banner' id="maodian1">
+      <block wx:for="{{info.goodsImg}}" wx:key="i">
+        <swiper-item>
+          <image src="{{item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- 商品信息表 -->
+    <view class="shopbox">
+      <view class="tit">
+        <view class="titleft">
+          <text class="qian">￥</text>
+          <view class="money">{{info.goodsCostPrice}}</view>
+          <text class="danwei">/{{info.goodsUnit}}</text>
+          <text class="danmai">单买价:￥{{info.goodsCurPrice}}</text>
+        </view>
+        <view class="titright">
+          <view class="list" catchtap="shoucanggoods">
+            <image src="../../../images/index/sc.png" wx:if="{{!goodstype}}"></image>
+            <image src="../../../images/index/sc2.png" wx:if="{{goodstype}}"></image>
+            <text wx:if="{{!goodstype}}">收藏</text>
+            <text wx:if="{{goodstype}}">已收藏</text>
+          </view>
+          <view class="list fenxiangbox" wx:if="{{info.goodsState != 1 && !shareimg}}">
+            <image src="../../images/emoji/timg.gif"></image>
+            <text>分享</text>
+          </view>
+          <button class="list fenxiangbox" open-type="share" aria-disabled="false" role="button" wx:if="{{info.goodsState != 1 && shareimg}}">
+            <image src="../../../images/index/fx.png"></image>
+            <text>分享</text>
+          </button>
+        </view>
+      </view>
+      <view class="con">
+        <text class="biaoqian">{{info.tourNum}}人团</text>
+        <text class="name">{{info.goodsName}}</text>
+      </view>
+    </view>
+    <view class="persong-box" wx:if="{{ info.allowNo == 0 }}">
+      满￥{{info.disfee}}可享受配送到家服务 | 支持自取
+      <!-- 可享受配送到家服务 | 支持自取 -->
+    </view>
+    <view class="persong-box lanse" wx:if="{{ info.allowNo == 1 }}">
+      满￥{{info.disfee}}该商品不支持配送到家服务 | 支持自取
+    </view>
+    <!-- 拼团信息 -->
+    <view class="conboxx">
+      <view class="tishicon">
+        <view class="left">
+          <text>仅剩</text>
+          <text class="red">{{info.missNum}}</text>
+          <text>个名额</text>
+        </view>
+        <view class="right">
+          <view class="time">{{countDownList[0].hou}}:{{countDownList[0].min}}:{{countDownList[0].sec}}</view>
+          <text>后结束</text>
+        </view>
+      </view>
+      <view class="imgbox">
+        <image wx:for="{{info.tourMemList}}" wx:key="i" src="{{item.memberIcon}}"></image>
+        <image wx:for="{{info.missNum}}" wx:key="i" src="../../../images/user/wenhao.png"></image>
+      </view>
+    </view>
+    <!-- 店铺信息 -->
+    <view class="dianbox">
+      <view class="top">
+        <image src="{{info.shopLogo}}"></image>
+        <view class="topright">
+          <view class="tr">
+            <view class="tit">{{info.shopName}}</view>
+            <view class="pingfen" wx:if="{{info.shopRate}}">店铺好评率：{{hpl}}%</view>
+            <view class="pingfen" wx:if="{{!info.shopRate}}">店铺好评率：0%</view>
+          </view>
+          <view class="tr">
+            <view class="dizhi" catchtap="lookmap">
+              <image src="../../../images/index/xqdw.png"></image>
+              <view>{{info.shopAddr}}</view>
+            </view>
+            <!-- <view class="juli">{{info.shopDistance}}</view> -->
+          </view>
+        </view>
+      </view>
+      <view class="bottom">
+        <view catchtap="shoucangshop" wx:if="{{!shoptype}}">收藏店铺</view>
+        <view catchtap="shoucangshop" wx:if="{{shoptype}}">已收藏店铺</view>
+        <view catchtap="todianpu" data-shopid="{{info.shopId}}">
+          <text>进入店铺</text>
+          <text class='iconfont icon-youjiantou'></text>
+        </view>
+      </view>
+    </view>
+    <!-- 评价 -->
+    <view class="pingjiabox" id="maodian2">
+      <view class="pjhead">
+        <view class="redkuang"></view>
+        <text wx:if="{{pingjialist.length}}">评价</text>
+        <text wx:if="{{!pingjialist.length}}">暂无评价</text>
+      </view>
+      <!-- 用户信息 -->
+      <view class="userxx" wx:if="{{pingjialist.length}}">
+        <image src="{{pingjialist[0].userIcon}}" class="touxiang"></image>
+        <text>{{pingjialist[0].nickName}}</text>
+        <view class="starbox">
+          <image src="../../../images/index/dp1.png" wx:for="{{pingjialist[0].star}}" wx:key="i"></image>
+          <image src="../../../images/index/dp2.png" wx:for="{{5 - pingjialist[0].star}}" wx:key="i"></image>
+        </view>
+      </view>
+      <!-- 评价内容 -->
+      <view class="pingjiacon" wx:if="{{pingjialist.length}}">
+        <text>{{pingjialist[0].commentContent}}</text>
+        <view class="pingjiaimg">
+          <image src="{{item}}" wx:for="{{pingjialist[0].imgList}}" wx:key="i"></image>
+        </view>
+      </view>
+      <!-- 查看更多 -->
+      <view class="findmore" wx:if="{{pingjialist.length}}">
+        <view class="more" catchtap="topingjialist">
+          <text>查看更多评价</text>
+          <text class='iconfont icon-youjiantou'></text>
+        </view>
+      </view>
+    </view>
+    <!-- 本店推荐 -->
+    <view class="tuijianbox" id="maodian3">
+      <view class="tit">
+        <view class="xian"></view>
+        <text>本店推荐</text>
+        <view class="xian"></view>
+      </view>
+      <view wx:if="{{!tuijianlist.length}}" class="no">暂无推荐商品</view>
+      <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="#EBEBEB" indicator-active-color="#E31718" class='swipebox' wx:if="{{tuijianlist.length}}">
+        <block wx:for="{{tuijianpage}}" wx:key="i">
+          <swiper-item>
+            <view class="listbox">
+              <view class="list" catchtap="toxq1" data-goodsid="{{tuijianlist[3*index].goodsId}}" data-shopid="{{tuijianlist[3*index].shopId}}" data-shoptype="{{tuijianlist[3*index].rtType}}">
+                <image src="{{tuijianlist[3*index].goodsImg}}" />
+                <view class="con">
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index].rtType == 6}}">{{tuijianlist[3*index].tourDesc}}</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index].rtType == 1}}">满减</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index].rtType == 2}}">抢购</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index].rtType == 3}}">拼团</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index].rtType == 5}}">直销</text>
+                  <text class="name">{{tuijianlist[3*index].goodsName}}</text>
+                </view>
+              </view>
+              <view class="list" wx:if="{{(3*index+1) < tuijianlist.length }}" catchtap="toxq1" data-goodsid="{{tuijianlist[3*index+1].goodsId}}" data-shopid="{{tuijianlist[3*index+1].shopId}}" data-shoptype="{{tuijianlist[3*index+1].rtType}}">
+                <image src="{{tuijianlist[3*index +1].goodsImg}}" />
+                <view class="con">
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+1].rtType == 6}}">{{tuijianlist[3*index+1].tourDesc}}</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+1].rtType == 1}}">满减</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+1].rtType == 2}}">抢购</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+1].rtType == 3}}">拼团</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+1].rtType == 5}}">直销</text>
+                  <text class="name">{{tuijianlist[3*index+1].goodsName}}</text>
+                </view>
+              </view>
+              <view class="list" wx:if="{{(3*index+2) < tuijianlist.length }}" catchtap="toxq1" data-goodsid="{{tuijianlist[3*index+2].goodsId}}" data-shopid="{{tuijianlist[3*index+2].shopId}}" data-shoptype="{{tuijianlist[3*index+2].rtType}}">
+                <image src="{{tuijianlist[3*index +2].goodsImg}}" />
+                <view class="con">
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+2].rtType == 6}}">{{tuijianlist[3*index+2].tourDesc}}</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+2].rtType == 1}}">满减</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+2].rtType == 2}}">抢购</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+2].rtType == 3}}">拼团</text>
+                  <text class="biaoqian" wx:if="{{tuijianlist[3*index+2].rtType == 5}}">直销</text>
+                  <text class="name">{{tuijianlist[3*index+2].goodsName}}</text>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 查看更多 -->
+      <view class="findmore" wx:if="{{tuijianlist.length}}">
+        <view class="more" catchtap="totuijian">
+          <text>查看更多</text>
+          <text class='iconfont icon-youjiantou'></text>
+        </view>
+      </view>
+    </view>
+    <!-- 附近热推 -->
+    <view class="tuijianbox">
+      <view class="tit">
+        <view class="xian"></view>
+        <text>附近热推</text>
+        <view class="xian"></view>
+      </view>
+      <view wx:if="{{!nearlist.length}}" class="no">暂无热推商品</view>
+      <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="#EBEBEB" indicator-active-color="#E31718" class='swipebox' wx:if="{{nearlist.length}}">
+        <block wx:for="{{nearpage}}" wx:key="i">
+          <swiper-item>
+            <view class="listbox">
+              <view class="list" catchtap="toxq" data-goodsid="{{nearlist[3*index].goodsId}}" data-shopid="{{nearlist[3*index].shopId}}">
+                <image src="{{nearlist[3*index].goodsImg}}" />
+                <view class="con">
+                  <text class="biaoqian">{{nearlist[3*index].tourDesc}}</text>
+                  <text class="name">{{nearlist[3*index].goodsName}}</text>
+                </view>
+              </view>
+              <view class="list" wx:if="{{(3*index+1) < nearlist.length }}" catchtap="toxq" data-goodsid="{{nearlist[3*index+1].goodsId}}" data-shopid="{{nearlist[3*index+1].shopId}}">
+                <image src="{{nearlist[3*index +1].goodsImg}}" />
+                <view class="con">
+                  <text class="biaoqian">{{nearlist[3*index+1].tourDesc}}</text>
+                  <text class="name">{{nearlist[3*index+1].goodsName}}</text>
+                </view>
+              </view>
+              <view class="list" wx:if="{{(3*index+2) < nearlist.length }}" catchtap="toxq" data-goodsid="{{nearlist[3*index+2].goodsId}}" data-shopid="{{nearlist[3*index+2].shopId}}">
+                <image src="{{nearlist[3*index +2].goodsImg}}" />
+                <view class="con">
+                  <text class="biaoqian">{{nearlist[3*index+2].tourDesc}}</text>
+                  <text class="name">{{nearlist[3*index+2].goodsName}}</text>
+                </view>
+              </view>
+            </view>
+
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 查看更多 -->
+      <view class="findmore" wx:if="{{nearlist.length}}">
+        <view class="more" catchtap="toretui">
+          <text>查看更多</text>
+          <text class='iconfont icon-youjiantou'></text>
+        </view>
+      </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="shopxq" id="maodian4">
+      <view class="tit">
+        <view class="xian"></view>
+        <text>商品详情</text>
+        <view class="xian"></view>
+      </view>
+      <view class="con">
+        <image src="{{info.goodsDesc}}" mode="widthFix" />
+
+      </view>
+
+    </view>
+  </scroll-view>
+
+  <!-- 底部购买框 -->
+  <view class="footer">
+    <view class="kefubox" catchtap="tokefu">
+      <image src="../../../images/index/kf.png"></image>
+      <text>客服</text>
+    </view>
+    <view class="kefubox" catchtap="todianpu" data-shopid="{{info.shopId}}">
+      <image src="../../../images/index/dp.png"></image>
+      <text>店铺</text>
+    </view>
+    <view class="tuanbuy" catchtap="tanchusizebox">
+      <text>立即参团</text>
+    </view>
+  </view>
+  <!-- 加入购物车or购买 -->
+  <view class="tanbox" style='display:{{blackzt}}'>
+    <view class="black {{sizexzbox?'blackshow':'blackhidden'}}" catchtap='closechoosebox'></view>
+    <view class="conbox  {{sizexzbox?'conboxshow':'conboxhidden'}}">
+      <view class="tanboxheader">
+        <image src="{{guigelist[guigeindex].goodsImg}}"></image>
+        <view class="titbox">
+          <view class="tit">{{info.goodsName}}</view>
+          <view class="con">
+            <view class="money">￥{{guigelist[guigeindex].goodsCostPrice}}</view>
+            <text>/{{info.goodsUnit}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="guigetit">规格：</view>
+      <view class="guigecon">
+        <block wx:for="{{guigelist}}" wx:key="i">
+          <text class="list {{guigeindex==index ? 'active' : ''}}" data-index="{{index}}" catchtap="changeguige">{{item.skuValue1}}</text>
+        </block>
+      </view>
+      <view class="numbox">
+        <text>购买数量：</text>
+        <view class='spinner_r'>
+          <text catchtap='spinnerJian'>-</text>
+          <input value='{{num}}' type="number" bindinput="watch"></input>
+          <text catchtap='spinnerJia'>+</text>
+        </view>
+      </view>
+      <view class="sure" catchtap="suredd">
+        <text>确</text>
+        <text>定</text>
+      </view>
+    </view>
+  </view>
+</view>

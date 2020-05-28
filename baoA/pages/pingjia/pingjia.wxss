@@ -1,0 +1,137 @@
+/* pages/pingjia/pingjia.wxss */
+.Pingjia{
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 140rpx;
+}
+.goodslist{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.goodslist .header{
+  width: 100%;
+  height: 150rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 37rpx;
+  padding-right: 27rpx;
+  margin-bottom: 6rpx;
+}
+.goodslist .header image{
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 10rpx;
+}
+.goodslist .header .headercon{
+  width: 550rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.goodslist .header .headercon .goodsname{
+  font-size: 24rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-bottom: 30rpx;
+}
+.goodslist .header .headercon .money{
+  color: #cd2b43;
+  font-size: 24rpx;
+}
+.goodslist .dafen{
+  width: 100%;
+  height: 70rpx;
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 37rpx;
+  padding-right: 27rpx;
+  margin-bottom: 6rpx;
+}
+.goodslist .dafen text{
+  font-size: 28rpx;
+  color: #333;
+  margin-right: 70rpx;
+}
+.goodslist .dafen .starbox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.goodslist .dafen .starbox image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 6rpx;
+}
+.goodslist .pingjiabox{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-left: 37rpx;
+  padding-right: 27rpx;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.goodslist .pingjiabox .tit{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.goodslist .pingjiabox .tit .tleft{
+  font-size: 28rpx;
+  color: #333;
+
+}
+.goodslist .pingjiabox .tit .tright{
+  font-size: 22rpx;
+  color: #999;
+
+}
+.goodslist .pingjiabox textarea{
+  color: #333;
+  width: 600rpx;
+  height: 150rpx;
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  
+}
+.goodslist .pingjiabox .imgbox{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.goodslist .pingjiabox .upimg{
+  width: 160rpx;
+  height: 160rpx;
+  margin: 10rpx;
+}
+.sub{
+  width: 500rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  background: #fe864a;
+  position: fixed;
+  bottom: 51rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+}

@@ -1,0 +1,27 @@
+<!--pages/mytuijian/mytuijian.wxml-->
+<view class="Zhixiao">
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="list" wx:for="{{tuijianlist}}" wx:key="i" catchtap="toxq1" data-goodsid="{{item.goodsId}}" data-shopid="{{item.shopId}}" data-shoptype="{{item.rtType}}">
+      <image src="{{item.goodsImg}}"></image>
+      <view class="listcon">
+        <view class="tit">
+          <text class="biaoqian" wx:if="{{item.rtType == 6}}">{{item.tourDesc}}</text>
+          <text class="biaoqian" wx:if="{{item.rtType == 1}}">满减</text>
+          <text class="biaoqian" wx:if="{{item.rtType == 2}}">抢购</text>
+          <text class="biaoqian" wx:if="{{item.rtType == 3}}">拼团</text>
+          <text class="biaoqian" wx:if="{{item.rtType == 5}}">直销</text>
+          <text class="name">{{item.goodsName}}</text>
+        </view>
+        <view class="bottom">
+          <view class="money">
+            <text>￥{{item.goodsMinPrice}}</text>
+            <text>/件</text>
+          </view>
+          <view class="juli">已售：{{item.goodsSales}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

@@ -1,168 +1,137 @@
 <!--pages/car/car.wxml-->
+<view class="header">
+  <view class="guanlibox" catchtap="guanli" wx:if="{{guanlitype == false}}">
+    <image src="../../images/car/guanli.png"></image>
+    <view>管理商品</view>
+  </view>
+  <view class="left" wx:if="{{guanlitype == true}}" catchtap="quanxuan">
+    <image src="../../images/car/xz01.png" wx:if="{{qxtype == false}}"></image>
+    <image src="../../images/car/xz02.png" wx:if="{{qxtype == true}}"></image>
+    <text>全选</text>
+  </view>
+  <view class="center" wx:if="{{guanlitype == true}}" catchtap="del">
+    <image src="../../images/dianpu/cl.png"></image>
+  </view>
+  <view class="end" wx:if="{{guanlitype == true}}" catchtap="guanli">完成</view>
+</view>
 <view class="Car">
   <!-- 头部 -->
-  <view class="header">
-    <view class="guanlibox">
-      <image src="../../images/car/guanli.png"></image>
-      <view>管理商品</view>
-    </view>
-  </view>
+
+
   <!-- 购物车信息块 -->
   <view class="carbox">
-    <view class="carlist">
-      <view class="listtop">
-         <view class="left"><image src="../../images/car/xz01.png"></image></view>
-         <view class="right">
-          <image src="../../images/car/dian.png"></image>
-          <text>一家生活超市</text>
-         </view>
-      </view>
-      <view class="listcenter">
-        <view class="left"><image src="../../images/car/xz01.png"></image></view>
-        <view class="listcon">
-          <image src="../../images/index/banner.png"></image>
-          <view class="conright">
-            <view class="contit">20猴菇饼干猴奥术大师多按时打算菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干</view>
-            <view class="conbottom">
-              <view class="bleft">
-                <view class="guige">规格：原味</view>
-                <view class="money">￥256.44</view>
-              </view> 
-              <view class="bright">
-                <view class='spinner_r'>
-                  <text catchtap='spinnerJian'>-</text>
-                  <input value='{{num}}' disabled></input>
-                  <text catchtap='spinnerJia'>+</text>
-                </view>
-              </view>
-            </view>
+    <view class="no" wx:if="{{listtype == 2}}">
+      <image src="../../images/car/nocar.png" mode="widthFix"></image>
+    </view>
+    <block wx:for="{{list}}" wx:key="i" wx:if="{{listtype == 1}}" wx:for-index="index">
+      <view class="carlist">
+        <view class="listtop">
+          <view class="left">
+            <image src="../../images/car/xz01.png" catchtap="dpchange" wx:if="{{chooselist[index].type == 0}}" data-index="{{index}}"></image>
+            <image src="../../images/car/xz02.png" catchtap="dpchange" wx:if="{{chooselist[index].type == 1}}" data-index="{{index}}"></image>
+          </view>
+          <view class="right">
+            <image src="../../images/car/dian.png"></image>
+            <text>{{item.shopName}}</text>
           </view>
         </view>
-      </view>
-      <view class="listbottom">
-        <view class="left">
-          <text class="heji">合计：</text>
-          <text class="money">￥265.43</text> 
-        </view>
-        <view class="right active">去结算</view>
-      </view>
-    </view>
+        <block wx:for="{{item.goodsList}}" wx:key="i" wx:for-index="indexs" wx:for-item="items">
+          <view class="listcenter">
+            <view class="left">
+              <image src="../../images/car/xz01.png" catchtap="spchange" wx:if="{{chooselist[index].list[indexs].type == 0}}" data-index="{{index}}" data-indexs="{{indexs}}"></image>
+              <image src="../../images/car/xz02.png" catchtap="spchange" wx:if="{{chooselist[index].list[indexs].type == 1}}" data-index="{{index}}" data-indexs="{{indexs}}"></image>
+            </view>
+            <!-- catchtap="carxq" -->
+            <view class="listcon" data-cstype="{{items.csType}}" data-goodsid="{{items.goodsId}}">
+              <image src="{{items.goodsImg}}" catchtap="carxq" data-cstype="{{items.csType}}" data-goodsid="{{items.goodsId}}" data-index="{{index}}" data-indexs="{{indexs}}"></image>
+              <view class="conright">
+                <view class="contit" catchtap="carxq" data-cstype="{{items.csType}}" data-goodsid="{{items.goodsId}}">{{items.goodsName}}</view>
+                <view class="conbottom">
+                  <view class="bleft">
+                    <view class="guige">{{items.skuDesc}}</view>
+                    <view class="money">
+                      <text>￥{{items.goodsCurPrice}}</text>
+                      <text class="peisong" wx:if="{{items.distribut == 0 && item.disfee}}" style="color: #ff8d42;">[ 支持配送 ]</text>
+                      <text class="peisong" wx:if="{{items.distribut == 1 || items.distribut == null || item.disfee == null}}" style="color: #1895ff;">[ 到店自取 ]</text>
 
-    <view class="carlist">
-      <view class="listtop">
-         <view class="left"><image src="../../images/car/xz01.png"></image></view>
-         <view class="right">
-          <image src="../../images/car/dian.png"></image>
-          <text>一家生活超市</text>
-         </view>
-      </view>
-      <view class="listcenter">
-        <view class="left"><image src="../../images/car/xz01.png"></image></view>
-        <view class="listcon">
-          <image src="../../images/index/banner.png"></image>
-          <view class="conright">
-            <view class="contit">20猴菇饼干猴奥术大师多按时打算菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干</view>
-            <view class="conbottom">
-              <view class="bleft">
-                <view class="guige">规格：原味</view>
-                <view class="money">￥256.44</view>
-              </view> 
-              <view class="bright">
-                <view class='spinner_r'>
-                  <text catchtap='spinnerJian'>-</text>
-                  <input value='{{num}}' disabled></input>
-                  <text catchtap='spinnerJia'>+</text>
+                    </view>
+                  </view>
+                  <view class="bright">
+                    <view class='spinner_r'>
+                      <text catchtap='carchange' data-goodsid="{{items.goodsId}}" data-skuid="{{items.skuId}}" data-type="1" data-index="{{index}}" data-indexs="{{indexs}}" data-money='{{items.goodsCurPrice}}'>-</text>
+                      <input value='{{items.goodsBuyNum}}' type="number" bindinput="watch" data-goodsid="{{items.goodsId}}" data-skuid="{{items.skuId}}" data-index="{{index}}" data-indexs="{{indexs}}" data-money='{{items.goodsCurPrice}}'></input>
+                      <text catchtap='carchange' data-goodsid="{{items.goodsId}}" data-skuid="{{items.skuId}}" data-type="0" data-index="{{index}}" data-indexs="{{indexs}}" data-money='{{items.goodsCurPrice}}'>+</text>
+                    </view>
+                  </view>
                 </view>
               </view>
             </view>
           </view>
+        </block>
+        <view class="listbottom">
+          <view class="left">
+            <text class="heji">合计：</text>
+            <text class="money">￥{{chooselist[index].heji}}</text>
+          </view>
+          <view class="right {{chooselist[index].btntype ?'active':''}}" catchtap="tosuredd" data-index="{{index}}">去结算</view>
         </view>
-      </view>
-      <view class="listcenter">
-        <view class="left"><image src="../../images/car/xz01.png"></image></view>
-        <view class="listcon">
-          <image src="../../images/index/banner.png"></image>
-          <view class="conright">
-            <view class="contit">20猴菇饼干猴奥术大师多按时打算菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干猴菇饼干</view>
-            <view class="conbottom">
-              <view class="bleft">
-                <view class="guige">规格：原味</view>
-                <view class="money">￥256.44</view>
-              </view> 
-              <view class="bright">
-                <view class='spinner_r'>
-                  <text catchtap='spinnerJian'>-</text>
-                  <input value='{{num}}' disabled></input>
-                  <text catchtap='spinnerJia'>+</text>
-                </view>
-              </view>
-            </view>
+        <!-- 配送1 -->
+        <view class="pSmore" style="background-color: #f7ffde;" wx:if="{{item.disfee && chooselist[index].heji < item.disfee && chooselist[index].isps == true}}">
+          <view class="pSmorecont">
+            <image src="../../images/car/tishi.png"></image>
+            <text class="peitext">满<text style="color:red; margin:0rpx;">￥{{item.disfee}}</text>即可享受配送哦~</text>
+          </view>
+        </view>
+        <!-- 配送2 -->
+        <view class="pSmore" style="background-color: #f7ffde;" wx:if="{{item.disfee == null || chooselist[index].isps == false}}">
+          <view class="pSmorecont">
+            <image src="../../images/car/baoqian.png"></image>
+            <text class="nopei">请到店自取</text>
+            <text class="peitext" style="color: #de3420;">结算商品中包含有不支持配送的商品</text>
+          </view>
+        </view>
+        <!-- 配送3 -->
+        <view class="pSmore"  style="background-color: #fff2de;" wx:if="{{item.disfee && chooselist[index].heji >= item.disfee && chooselist[index].isps == true}}">
+          <view class="pSmorecont">
+            <image src="../../images/car/peisong.png"></image>
+            <text class="peitext">可享受配送到家服务~</text>
           </view>
         </view>
       </view>
-      <view class="listbottom">
-        <view class="left">
-          <text class="heji">合计：</text>
-          <text class="money">￥265.43</text> 
-        </view>
-        <view class="right">去结算</view>
-      </view>
-    </view>
+    </block>
   </view>
   <!-- 猜你喜欢 -->
-  <view class="guessbox">
+  <view class="guessbox" wx:if="{{guesslist.length!=0}}">
     <view class="tuijiantitbox">
-      <image src="../../images/index/titxian.png" class="xianbg"></image>
+      <!-- <image src="../../images/index/titxian.png" class="xianbg"></image> -->
+      <view class="xian"></view>
       <text>猜你喜欢</text>
-      <view class="right">
-        <image src="../../images/car/shua.png"></image>
+      <view class="xian"></view>
+      <view class="right" catchtap="change">
+        <image src="../../images/car/shuaaa.png"></image>
         <text>换一批</text>
       </view>
     </view>
     <!-- 内容框 -->
     <view class="listbox">
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="listcon">
-          <view class="tit">
-            <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-          </view>
-          <view class="bottom">
-            <view class="money">
-              <text>￥6565.0</text>
+      <block wx:for="{{guesslist}}" wx:key="i">
+        <view class="list" catchtap="toxq" data-goodsid="{{item.goodsId}}">
+          <image src="{{item.goodsImg}}"></image>
+          <view class="listcon">
+            <view class="tit">
+              <text class="name">{{item.goodsName}}</text>
             </view>
-            <view class="juli">已售：1325</view>
+            <view class="bottom">
+              <view class="money">
+                <text>￥</text>
+                <text>{{item.goodsCurPrice}}</text>
+              </view>
+              <view class="juli">已售：{{item.goodsSales}}</view>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="listcon">
-          <view class="tit">
-            <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-          </view>
-          <view class="bottom">
-            <view class="money">
-              <text>￥6565.0</text>
-            </view>
-            <view class="juli">已售：1325</view>
-          </view>
-        </view>
-      </view>
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="listcon">
-          <view class="tit">
-            <text class="name">雅思达到阿斯达商店阿萨德阿萨德按时少时诵诗书</text>
-          </view>
-          <view class="bottom">
-            <view class="money">
-              <text>￥6565.0</text>
-            </view>
-            <view class="juli">已售：1325</view>
-          </view>
-        </view>
-      </view>
+      </block>
+
     </view>
   </view>
 

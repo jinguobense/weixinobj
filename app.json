@@ -1,47 +1,91 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/toshensu/toshensu",
-    "pages/fankui/fankui",
-    "pages/shensuxq/shensuxq",
-    "pages/shensu/shensu",
-    "pages/tongzhilist/tongzhilist",
-    "pages/tongzhi/tongzhi",
-    "pages/msg/msg",
-    "pages/paysuccess/paysuccess",
-    "pages/pay/pay",
-    "pages/myyouhuijuan/myyouhuijuan",
-    "pages/dianpu/dianpu",
-    "pages/share/share",
-    "pages/search/search",
-    "pages/searchend/searchend",
-    "pages/suredd/suredd",
-    "pages/dianpuxx/dianpuxx",
-    "pages/shopxq/shopxq",
-    "pages/youhuishopxq/youhuishopxq",
-    "pages/youhuishop/youhuishop",
-    "pages/cantuanxq/cantuanxq",
-    "pages/xianshibuyxq/xianshibuyxq",
-    "pages/manjianxq/manjianxq",
-    "pages/pintuanxq/pintuanxq",
-    "pages/myzuji/myzuji",
-    "pages/cantuan/cantuan",
-    "pages/youhuijuan/youhuijuan",
-    "pages/manjianmore/manjianmore",
-    "pages/manjian/manjian",
-    "pages/xianshibuy/xianshibuy",
-    "pages/pintuan/pintuan",
     "pages/user/user",
+    "pages/msg/msg",
     "pages/car/car",
-    "pages/near/near",
-    "pages/fenlei/fenlei"
-    
+    "pages/fenlei/fenlei",
+    "pages/searchend/searchend",
+    "pages/searchshopend/searchshopend",
+    "pages/search/search",
+    "pages/searchall/searchall",
+    "pages/near/near"
   ],
+  
+  "subpackages": [
+    {
+      "root": "baoA",
+      "name":"hello",
+      "pages": [
+        "pages/getdingwei/getdingwei",
+        "pages/shouquan/shouquan",
+        "pages/sharexq/sharexq",
+        "pages/toyaoqing/toyaoqing",
+        "pages/kefu/kefu",
+        "pages/newuser/newuser",
+        "pages/newuserxqq/newuserxqq",
+        "pages/retuimore/retuimore",
+        "pages/mytuijian/mytuijian",
+        "pages/mydd/mydd",
+        "pages/totuikuan/totuikuan",
+        "pages/pingjia/pingjia",
+        "pages/pingjialist/pingjialist",
+        "pages/jointuan/jointuan",
+        "pages/myyouhuijuan/myyouhuijuan",
+        "pages/tuijianshop/tuijianshop",
+        "pages/youhuijuan/youhuijuan",
+        "pages/youhuijuanchoose/youhuijuanchoose",
+        "pages/pintuan/pintuan",
+        "pages/myshoucang/myshoucang",
+        "pages/cantuan/cantuan",
+        "pages/zhixiao/zhixiao",
+        "pages/manjian/manjian",
+        "pages/xianshibuy/xianshibuy",
+        "pages/xianshibuyxq/xianshibuyxq",
+        "pages/pintuanxq/pintuanxq",
+        "pages/dizhi/dizhi",
+        "pages/fankui/fankui",
+        "pages/tongzhilist/tongzhilist",
+        "pages/zhixiaoxq/zhixiaoxq",
+        "pages/dianpu/dianpu",
+        "pages/myddtuikuan/myddtuikuan",
+        "pages/myddxq/myddxq",
+        "pages/kefuhelp/kefuhelp",
+        "pages/wenti/wenti",
+        "pages/dizhibj/dizhibj",
+        "pages/adddizhi/adddizhi",
+        "pages/toshensu/toshensu",
+        "pages/shensuxq/shensuxq",
+        "pages/shensu/shensu",
+        "pages/tongzhi/tongzhi",
+        "pages/paysuccess/paysuccess",
+        "pages/pay/pay",
+        "pages/share/share",
+        "pages/suredd/suredd",
+        "pages/dianpuxx/dianpuxx",
+        "pages/shopxq/shopxq",
+        "pages/youhuishop/youhuishop",
+        "pages/cantuanxq/cantuanxq",
+        "pages/cantuanxqshare/cantuanxqshare",
+        "pages/manjianxq/manjianxq",
+        "pages/myzuji/myzuji",
+        "pages/manjianmore/manjianmore"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "baoA"
+      ]
+    }
+  },
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "众聚逛选",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "color": "#333333",
@@ -80,6 +124,11 @@
         "text": "我的"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取附近的逛选商品"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

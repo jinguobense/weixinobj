@@ -1,77 +1,48 @@
 <!--pages/fenlei/fenlei.wxml-->
 <view class="Fenlei">
-  <!-- 左部tab -->
-  <view class="lefttab">
-    <view class="list {{tabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changetab">休闲零食</view>
-    <view class="list {{tabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changetab">蔬果生鲜</view>
-    <view class="list {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab">童装</view>
+  <view class="nogoods" wx:if="{{leftlist.length == 0 && isend == true}}">
+    <image src="../../images/tabbar/nosearchgoods.png" mode="widthFix"></image>
+    <text>暂时没有店铺在营业哦~</text>
   </view>
-  <!-- 右部内容 -->
-  <view class="rightcon">
-    <!-- 轮播图 -->
-    <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="#eee" indicator-active-color="#f00" class='banner'>
-      <!-- <block wx:for="{{banner}}" wx:key="i"> -->
-      <swiper-item>
-        <image src="../../images/index/banner.png" />
-      </swiper-item>
-      <swiper-item>
-        <image src="../../images/index/banner.png" />
-      </swiper-item>
-      <!-- </block> -->
-    </swiper>
-    <!-- 商店列表 -->
-    <view class="listbox">
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="con">
-          <view class="tit">天天回家超市</view>
-          <view class="bottom">
-            <view class="haoping">好评率：66%</view>
-            <view class="juli">125m</view>
-          </view>
-        </view>
-      </view>
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="con">
-          <view class="tit">天天回家超市天天回家超市天天回家超市</view>
-          <view class="bottom">
-            <view class="haoping">好评率：66%</view>
-            <view class="juli">125m</view>
-          </view>
-        </view>
-      </view>
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="con">
-          <view class="tit">天天回家超市</view>
-          <view class="bottom">
-            <view class="haoping">好评率：66%</view>
-            <view class="juli">125m</view>
-          </view>
-        </view>
-      </view>
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="con">
-          <view class="tit">天天回家超市</view>
-          <view class="bottom">
-            <view class="haoping">好评率：66%</view>
-            <view class="juli">125m</view>
-          </view>
-        </view>
-      </view>
-      <view class="list">
-        <image src="../../images/index/banner.png"></image>
-        <view class="con">
-          <view class="tit">天天回家超市</view>
-          <view class="bottom">
-            <view class="haoping">好评率：66%</view>
-            <view class="juli">125m</view>
-          </view>
-        </view>
-      </view>
+  <view class="headbox">
+    <!-- 搜索框 -->
+    <view class="searchbox">
+      <input placeholder="搜索您想查找的店铺" bindinput='watch' value="{{searchcon}}"></input>
+      <view catchtap="tosearch"><icon type='search' size='36rpx'></icon></view>
+      
     </view>
+  </view>
+  <view class="conbox">
 
+    <!-- 左部tab -->
+    <view class="lefttab" wx:if="{{leftlist.length > 0}}">
+      <block wx:for="{{leftlist}}" wx:key="i">
+        <view class="list {{tabindex==index ? 'active' : ''}}" data-current="{{index}}" catchtap="changetab" data-id="{{item.shopTypeId}}">{{item.shopTypeName}}</view>
+      </block>
+
+    </view>
+    <!-- 右部内容 -->
+    <view class="rightcon" wx:if="{{leftlist.length > 0}}">
+      <!-- 轮播图 -->
+
+      <image src="{{banner}}" class="banner" wx:if="{{banner}}" catchtap="tobannerid" />
+      <!-- 商店列表 -->
+      <view class="listbox">
+        <block wx:for="{{rightlist}}" wx:key="i">
+          <view class="list" catchtap="todianpu" data-shopid="{{item.shopId}}">
+            <image src="{{item.shopLogo}}" data-index="{{index}}"></image>
+
+            <view class="con">
+              <view class="tit">{{item.shopName}}</view>
+              <view class="bottom">
+                <view class="haoping">好评率:{{item.shopScore}}%</view>
+                <view class="juli">{{item.shopDistance}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+    </view>
   </view>
 </view>

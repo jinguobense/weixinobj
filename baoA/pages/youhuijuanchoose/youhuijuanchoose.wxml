@@ -1,0 +1,22 @@
+<!--pages/youhuijuanchoose/youhuijuanchoose.wxml-->
+<view class="con">
+  <!-- 劵列表 -->
+      <view class="list" wx:for="{{list}}" wx:key="i" >
+        <view class="listleft">
+          <view class="top">
+            <text class="money">￥{{item.freeCouponPrice}}</text>
+            <text class="xinxi">满{{item.fullSubPrice}}可使用</text>
+          </view>
+          <view class="mid" wx:if="{{item.goodsId}}">仅限该商品使用</view>
+          <view class="mid" wx:if="{{!item.goodsId}}">全店通用</view>
+          <view class="bottom">
+            <text>有效期: {{item.couponTime}}</text>
+          </view>
+        </view>
+        <view class="listright">
+          <view class="btn" catchtap="touse" data-juanid="{{item.userCouponId}}" data-juanmoney="{{item.freeCouponPrice}}" data-juantype="{{item.type}}">立即使用</view>
+          <image src="../../../images/index/ylq.png"></image>
+        </view>
+      </view>
+      <view class="nouser" catchtap="nouse">不使用优惠卷</view>
+</view>

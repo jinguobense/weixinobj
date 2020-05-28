@@ -1,10 +1,13 @@
 <!--index.wxml-->
 <view class="Index">
-  <image src="../../images/index/down.png" class="bg"></image>
+
   <!-- 头部 -->
   <view class="head start_C">
-    <image src="../../images/index/loc.png" class="dingweiicon"></image>
-    <text class="dingwei">郑州市</text>
+    <view class="left" catchtap="openmap">
+      <image src="../../images/index/loc.png" class="dingweiicon"></image>
+      <text class="dingwei" wx:if="{{city}}">{{city}}</text>
+      <text class="dingwei" wx:if="{{!city}}">定位中</text>
+    </view>
     <view class="sousuobox" catchtap="tosearch">
       <icon type='search' size='28rpx'></icon>
       <input placeholder="关键词搜索" disabled></input>
@@ -12,248 +15,256 @@
     </view>
     <image src="../../images/index/msg.png" class="msgicon" catchtap="tomsg"></image>
   </view>
+  <view class="bg"></view>
   <!-- 轮播图 -->
   <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" class='banner'>
-    <!-- <block wx:for="{{banner}}" wx:key="i"> -->
-    <swiper-item>
-      <image src="../../images/index/down.png" />
+    <swiper-item wx:if="{{adList.length == 0}}">
+      <image src="../../images/index/morenbg.jpg" />
     </swiper-item>
-    <swiper-item>
-      <image src="../../images/index/down.png" />
-    </swiper-item>
-    <!-- </block> -->
+    <block wx:for="{{adList}}" wx:key="i">
+      <swiper-item wx:if="{{adList.length > 0}}">
+        <image src="{{item.adImg}}" data-urltype="{{item.urlType}}" catchtap="toheadxq" data-adurl="{{item.adUrl}}" data-index="{{index}}" />
+
+      </swiper-item>
+    </block>
   </swiper>
   <!-- 中间块 -->
   <view class="centerbox">
     <!-- 分类块 -->
     <view class="fenleicon between">
-      <navigator url="../pintuan/pintuan" class="fenleilist" hover-class="none">
-          <image src="../../images/index/tp.png"></image>
-          <text>众聚团拼</text>
+      <navigator url="../../baoA/pages/pintuan/pintuan" class="fenleilist" hover-class="none">
+        <image src="../../images/index/tp.png"></image>
+        <text>小众团拼</text>
       </navigator>
-      <navigator url="../xianshibuy/xianshibuy" class="fenleilist" hover-class="none">
-          <image src="../../images/index/xs.png"></image>
-          <text>限时抢购</text>
+      <navigator url="../../baoA/pages/manjian/manjian" class="fenleilist" hover-class="none">
+        <image src="../../images/index/mj.png"></image>
+        <text>满减专场</text>
       </navigator>
-      <navigator url="../manjian/manjian" class="fenleilist" hover-class="none">
-          <image src="../../images/index/mj.png"></image>
-          <text>满减专场</text>
+      <navigator url="../../baoA/pages/cantuan/cantuan" class="fenleilist" hover-class="none">
+        <image src="../../images/index/datuan.png"></image>
+        <text>大众拼团</text>
       </navigator>
-      <navigator url="../youhuijuan/youhuijuan" class="fenleilist" hover-class="none">
+
+      <navigator url="../../baoA/pages/zhixiao/zhixiao" class="fenleilist" hover-class="none">
+        <image src="../../images/index/zx.gif"></image>
+        <text>厂家直销</text>
+      </navigator>
+      <navigator url="../../baoA/pages/youhuijuan/youhuijuan" class="fenleilist" hover-class="none">
         <image src="../../images/index/yhq.png"></image>
         <text>优惠券</text>
       </navigator>
     </view>
     <!-- 参团图片 -->
-    <navigator url="../cantuan/cantuan" hover-class="none">
-      <image class="cantuan" src="../../images/index/ptrk.png"></image>
+    <navigator url="../../baoA/pages/xianshibuy/xianshibuy" hover-class="none">
+      <image class="cantuan" src="../../images/index/banner.gif" mode="widthFix"></image>
     </navigator>
     <!-- 推荐好店标题 -->
     <view class="tuijiantitbox">
-      <image src="../../images/index/titxian.png" class="xianbg"></image>
+      <view class="xian"></view>
       <text>推荐好店</text>
-      <view class="right">
+      <view class="xian"></view>
+      <view class="right" catchtap="totuijianshop" wx:if="{{shopList.length > 0}}">
         <text>更多</text>
         <image src="../../images/index/dpjj.png"></image>
       </view>
     </view>
     <!-- 推荐好店内容 -->
     <view class="tuijiancon">
-      <view class="tuijianlist start" wx:for="{{2}}" wx:key="i" catchtap="todianpu">
-        <image src="../../images/index/down.png"></image>
-        <view class="rightcon">
-          <view class="toptit">
-            <text>露露欢乐超市</text>
-            <view class="starbox">
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp1.png"></image>
-              <image src="../../images/index/dp2.png"></image>
+      <view class="nogoods" wx:if="{{shopList.length == 0}}">
+        <image src="../../images/tabbar/nosearchgoods.png" mode="widthFix"></image>
+        <text>暂无推荐内容</text>
+      </view>
+      <block wx:for="{{shopList}}" wx:key="i">
+        <view class="tuijianlist" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.shopType}}" data-shopid="{{item.shopId}}">
+          <image src="{{item.shopLogo}}" data-index="{{index}}"></image>
+
+          <view class="rightcon">
+            <view class="toptit">
+              <text>{{item.shopName}}</text>
+              <view class="starbox">
+                <image src="../../images/index/dp1.png" wx:for="{{item.shopScore}}" wx:key="index"></image>
+                <image src="../../images/index/dp2.png" wx:for="{{5-item.shopScore}}" wx:key="index"></image>
+              </view>
+            </view>
+            <view class="centercon">
+              <text wx:if="{{item.shopType == 1}}">拼团</text>
+              <text wx:if="{{item.shopType == 2}}">满减</text>
+              <text wx:if="{{item.shopType == 3}}">抢购</text>
+              <text wx:if="{{item.shopType == 4}}">直销</text>
+              <text wx:if="{{item.shopType == 5}}">{{item.pnum}}</text>
+              <view>{{item.goodsName}}</view>
+            </view>
+            <view class="moneybox">
+              <text class="qian">￥</text>
+              <text class="money">{{item.minPrice}}</text>
+
+            </view>
+            <view class="bottomcon">
+              <view class="yishou">已售：{{item.shopSales}}单</view>
+              <view class="juli">{{item.shopDistance}}</view>
             </view>
           </view>
-          <view class="centercon">
-            <text>满减</text>
-            <view>意大利进口阿萨德阿达大声道暗示打算打暗示打</view>
-          </view>
-          <view class="money">￥129.0</view>
-          <view class="bottomcon">
-            <view class="yishou">已售：162</view>
-            <view class="juli">1.62km</view>
-          </view>
         </view>
-      </view>
-      
+      </block>
     </view>
   </view>
 
   <!-- 推荐商品 -->
   <view class="tuijianshop">
     <view class="tuijiantitbox">
-      <image src="../../images/index/titxian.png" class="xianbg"></image>
+      <view class="xian"></view>
       <text>推荐商品</text>
+      <view class="xian"></view>
     </view>
-    <view class="tabbox">
-      <view class="tablist" catchtap="changetab" data-current="1">
-        <text class="{{tabindex==1 ? 'active' : ''}}">下单量</text> 
-      </view>
-      <view class="tablist" catchtap="changetab" data-current="2">
-        <text class="{{tabindex==2 ? 'active' : ''}}">距离</text> 
-      </view>
-      <view class="tablist" catchtap="changetab" data-current="3">
-        <text class="{{tabindex==3 ? 'active' : ''}}">店铺星级</text> 
-      </view>
-      <view class="tablist" catchtap="changetab" data-current="4">
-        <text class="{{tabindex==4 ? 'active' : ''}}">好评率</text> 
+
+    <view class="tabboxx">
+      <view class="tabbox {{tjboxtype?'tabboxguding':'tabboxold'}}" id="tuijianbox">
+        <view class="tablist" catchtap="changetab" data-current="1">
+          <text class="{{tabindex==1 ? 'active' : ''}}">距离</text>
+        </view>
+        <view class="tablist" catchtap="changetab" data-current="0">
+          <text class="{{tabindex==0 ? 'active' : ''}}">下单量</text>
+        </view>
+
+        <view class="tablist" catchtap="changetab" data-current="2">
+          <text class="{{tabindex==2 ? 'active' : ''}}">店铺星级</text>
+        </view>
+        <view class="tablist" catchtap="changetab" data-current="3">
+          <text class="{{tabindex==3 ? 'active' : ''}}">好评率</text>
+        </view>
       </view>
     </view>
-    <view class="listbox">
-      <!-- 下单量 -->
-      <view class="listcon" wx:if="{{tabindex == 1}}">
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="yuanjia">￥19.00</view>
-            <view class="pingji">
-              <text>已售：10000</text>
-            </view>
-          </view>
-        </view>
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="danmai">单买价￥19.00</view>
-            <view class="pingji">
-              <text>已售：10000</text>
-            </view>
-          </view>
-        </view>
+    <view class="listbox" id="tuijiancon">
+      <view class="nogoods" wx:if="{{goodsList.length == 0}}" style="padding-top:100rpx;padding-bottom:100rpx;">
+        <image src="../../images/tabbar/nogoods.png" mode="widthFix"></image>
+        <text>暂无推荐商品</text>
       </view>
-      <!-- 距离 -->
-      <view class="listcon" wx:if="{{tabindex == 2}}">
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="yuanjia">￥19.00</view>
-            <view class="pingji">
-              <text>距离：600m</text>
-            </view>
-          </view>
-        </view>
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="danmai">单买价￥19.00</view>
-            <view class="pingji">
-              <text>距离：600m</text>
-            </view>
-          </view>
-        </view>
-      </view>
-      <!-- 店铺星级 -->
-      <view class="listcon" wx:if="{{tabindex == 3}}">
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="yuanjia">￥19.00</view>
-            <view class="pingji">
-              <text>评级：</text>
-              <view class="starbox">
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp2.png"></image>
+      <view class="listcon">
+        <view class="listpubu">
+          <block wx:for="{{goodsList}}" wx:key="index">
+            <view class="list" wx:if="{{index%2==0}}" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.shopType}}" data-shopid="{{item.shopId}}">
+              <view class="imgbox" data-index="{{index}}">
+                <image src="../../images/index/peisong.png" class="peisongimg" wx:if="{{item.distribut == 0}}"></image>
+                <image src="../../images/index/ziqu.png" class="peisongimg" wx:if="{{item.distribut == 1 || item.distribut == null}}"></image>
+                <!-- <image src="../../images/index/ziqu.png"  class="peisongimg"></image> -->
+                <image src="{{item.goodsImg}}" class="img"></image>
+                <view class="shopnamebg">
+                  <view>{{item.shopName}}</view>
+                </view>
+              </view>
+
+              <view class="con">
+                <view class="tit">{{item.goodsName}}</view>
+                <view class="moneybox">
+                  <view class="biaoqian" wx:if="{{item.shopType == 1}}">拼团</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 2}}">满减</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 3}}">抢购</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 4}}">直销</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 5}}">{{item.tourDesc}}</view>
+                  <text class="qian">￥</text>
+                  <text class="money" wx:if="{{item.shopType != 5}}">{{item.goodsCurPrice}}</text>
+                  <text class="money" wx:if="{{item.shopType == 5}}">{{item.goodsCostPrice}}</text>
+                  <view class="danwei">/{{item.goodsUnit}}</view>
+                </view>
+                <view class="danmai" wx:if="{{item.shopType == 5}}">单买价:{{item.goodsCurPrice}}</view>
+                <view class="yuanjia" wx:if="{{item.shopType == 3}}">￥{{item.goodsOrigPrice}}</view>
+                <view class="pingji">
+                  <text wx:if="{{tabindex==0}}">已售：{{item.goodsSales}}{{item.goodsUnit}}</text>
+                  <text wx:if="{{tabindex==1}}">距离：{{item.shopDistance}}</text>
+                  <text wx:if="{{tabindex==2}}">评级：</text>
+                  <view class="starbox" wx:if="{{tabindex==2}}">
+                    <image src="../../images/index/dp1.png" wx:for="{{item.shopScore}}" wx:key="index"></image>
+                    <image src="../../images/index/dp2.png" wx:for="{{5-item.shopScore}}" wx:key="index"></image>
+                  </view>
+                  <text wx:if="{{tabindex==3}}">好评率：{{item.goodsScore}}</text>
+                </view>
               </view>
             </view>
-          </view>
+          </block>
         </view>
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="danmai">单买价￥19.00</view>
-            <view class="pingji">
-              <text>评级：</text>
-              <view class="starbox">
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp1.png"></image>
-                <image src="../../images/index/dp2.png"></image>
+        <view class="listpubu">
+          <block wx:for="{{goodsList}}" wx:key="index">
+            <view class="list" wx:if="{{index%2==1}}" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-shoptype="{{item.shopType}}" data-shopid="{{item.shopId}}">
+              <view class="imgbox" data-index="{{index}}">
+                <image src="../../images/index/peisong.png" class="peisongimg" wx:if="{{item.distribut == 0}}"></image>
+                <image src="../../images/index/ziqu.png" class="peisongimg" wx:if="{{item.distribut == 1 || item.distribut == null}}"></image>
+                <!-- <image src="../../images/index/ziqu.png"  class="peisongimg"></image> -->
+                <image src="{{item.goodsImg}}" class="img"></image>
+                <view class="shopnamebg">
+                  <view>{{item.shopName}}</view>
+                </view>
+              </view>
+              <view class="con">
+                <view class="tit">{{item.goodsName}}</view>
+                <view class="moneybox">
+                  <view class="biaoqian" wx:if="{{item.shopType == 1}}">拼团</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 2}}">满减</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 3}}">抢购</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 4}}">直销</view>
+                  <view class="biaoqian" wx:if="{{item.shopType == 5}}">{{item.tourDesc}}</view>
+                  <text class="qian">￥</text>
+                  <text class="money" wx:if="{{item.shopType != 5}}">{{item.goodsCurPrice}}</text>
+                  <text class="money" wx:if="{{item.shopType == 5}}">{{item.goodsCostPrice}}</text>
+                  <view class="danwei">/{{item.goodsUnit}}</view>
+                </view>
+                <view class="danmai" wx:if="{{item.shopType == 5}}">单买价:{{item.goodsCurPrice}}</view>
+                <view class="yuanjia" wx:if="{{item.shopType == 3}}">￥{{item.goodsOrigPrice}}</view>
+                <view class="pingji">
+                  <text wx:if="{{tabindex==0}}">已售：{{item.goodsSales}}{{item.goodsUnit}}</text>
+                  <text wx:if="{{tabindex==1}}">距离：{{item.shopDistance}}</text>
+                  <text wx:if="{{tabindex==2}}">评级：</text>
+                  <view class="starbox" wx:if="{{tabindex==2}}">
+                    <image src="../../images/index/dp1.png" wx:for="{{item.shopScore}}" wx:key="index"></image>
+                    <image src="../../images/index/dp2.png" wx:for="{{5-item.shopScore}}" wx:key="index"></image>
+                  </view>
+                  <text wx:if="{{tabindex==3}}">好评率：{{item.goodsScore}}</text>
+                </view>
               </view>
             </view>
-          </view>
+          </block>
         </view>
+
       </view>
-      <!-- 好评率 -->
-      <view class="listcon" wx:if="{{tabindex == 4}}">
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="yuanjia">￥19.00</view>
-            <view class="pingji">
-              <text>好评率：100%</text>
-            </view>
-          </view>
-        </view>
-        <view class="list">
-          <image src="../../images/index/down.png" class="img"></image>
-          <view class="con">
-            <view class="tit">意大利阿萨德按时大声道阿萨德撒阿萨德阿萨德阿萨德啊按时按时</view>
-            <view class="moneybox">
-              <view class="biaoqian">满减</view>
-              <text>￥13.00</text>
-              <view>/件</view>
-            </view>
-            <view class="danmai">单买价￥19.00</view>
-            <view class="pingji">
-              <text>好评率：100%</text>
-            </view>
-          </view>
-        </view>
-      </view>
+
     </view>
   </view>
+
+  <!-- 福袋 -->
+  <!-- <image class="fudai" src="../../images/index/fudai.png" catchtap="shownew" wx:if="{{kostate == 1}}"  ></image> -->
+  <!-- 新人专享图片 -->
+  <!-- <view class="newuser {{newtype?'newshow':'newhidden'}}" hidden="{{!newshowtype}}" catchtouchmove='true'>
+    <view class="black" catchtap="hiddennew"></view>
+    <image src="../../images/index/new.png" catchtap="tonewuser" class="newimg"></image>
+  </view> -->
+
+  <!-- 通过分享进入 -->
+  <!-- {{sharetype?'shareshow':'sharehidden'}} -->
+  <!-- <view class="newuser" hidden="true" catchtouchmove='true'>
+    <view class="black"></view>
+    <view class="sharebox" data-goodsid="{{shareobj.goodsid}}" data-type="{{shareobj.type}}" catchtap="tosharexq">
+      <view class="sharecon">
+        <view class="stop">
+          <image src="{{shareobj.goodsimg}}"></image>
+        </view>
+        <view class="smid">
+          <view class="userxx">
+            <image class="userimg" src="{{shareobj.userimg}}"></image>
+            <text class="username">{{shareobj.name}}</text>
+            <text class="usermsg">给你分享了</text>
+          </view>
+          <view class="goodsxx">
+            <image class="goodsimg" src="{{shareobj.goodsimg}}"></image>
+            <text class="goodsmsg" wx:if="{{shareobj.type != 9}}">我分享给你了一个商品，快来看看吧!</text>
+            <text class="goodsmsg" wx:if="{{shareobj.type == 9}}">我分享给你了一个店铺，快来看看吧!</text>
+          </view>
+        </view>
+        <view class="sbot">
+          <view class="btn" data-goodsid="{{shareobj.goodsid}}" data-type="{{shareobj.type}}" catchtap="tosharexq" wx:if="{{shareobj.type != 9}}">查看商品</view>
+          <view class="btn" data-goodsid="{{shareobj.goodsid}}" data-type="{{shareobj.type}}" catchtap="tosharexq" wx:if="{{shareobj.type == 9}}">进入店铺</view>
+        </view>
+      </view>
+     
+    </view>
+  </view> -->
+
 </view>

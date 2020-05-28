@@ -1,0 +1,167 @@
+/* pages/paysuccess/paysuccess.wxss */
+.header{
+  width: 100%;
+  height: 545rpx;
+  background: #fff;
+  border-top: 2rpx solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header image{
+  width: 130rpx;
+  height: 130rpx;
+  display: block;
+  margin-top: 110rpx;
+  margin-bottom: 30rpx;
+}
+.header text{
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 50rpx;
+}
+.header .listbox{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 43rpx;
+}
+.header .listbox view{
+  font-size: 32rpx;
+  color: #fff;
+  width: 270rpx;
+  height: 80rpx;
+  background: #F21B3C;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 80rpx;
+   
+}
+.tuijianbox{
+  width: 100%;
+}
+.tuijianbox .tuijiantit{
+  width: 100%;
+  font-size: 32rpx;
+  text-align: center;
+  color: #333;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.listbox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25rpx;
+  padding-bottom: 20rpx;
+}
+.listcon{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+.listcon .list{
+  width: 345rpx;
+  background: #fff;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+.listcon .list .img{
+  width: 345rpx;
+  height: 345rpx;
+}
+.listcon .list .con{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 12rpx;
+  padding-bottom: 20rpx;
+}
+.listcon .list .tit{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 38rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+.listcon .list .moneybox{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.listcon .list .moneybox .biaoqian{
+  color: #FF002B;
+  font-size: 24rpx;
+  width: 60rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  border: 1px solid #FF002B;
+  border-radius: 5rpx;
+  margin-right: 5rpx;
+}
+.listcon .list .moneybox text:nth-of-type(1){
+  color: #FF002B;
+  font-size: 24rpx;
+}
+.listcon .list .moneybox text:nth-of-type(2){
+  color: #FF002B;
+  font-size: 32rpx;
+}
+.listcon .list .moneybox view:nth-of-type(2){
+  color: #9D9D9D;
+  font-size: 26rpx;
+}
+.listcon .list .danmai{
+  font-size:22rpx;
+  color: #999;
+  margin-bottom: 15rpx;
+}
+.listcon .list .yuanjia{
+  font-size:22rpx;
+  color: #999;
+  margin-bottom: 15rpx;
+  text-decoration: line-through;
+}
+
+.listcon .list .pingji{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20rpx;
+}
+.listcon .list .pingji text{
+  color: #999;
+  font-size: 20rpx;
+  margin-right: 5rpx;
+}
+.listcon .list .pingji .starbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.listcon .list .pingji .starbox image{
+  width: 21rpx;
+  height: 20rpx;
+  padding: 0;
+  display: block;
+  margin: 0 2rpx;
+} 
+.quhuotime{
+  color: #fbc10b;
+  font-size: 30rpx;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  padding-bottom: 30rpx;
+}

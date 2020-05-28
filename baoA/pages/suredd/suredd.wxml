@@ -1,0 +1,154 @@
+<!--pages/suredd/suredd.wxml-->
+<view class="Suredd {{obj.disstate == 0?'istop':''}}">
+  <cover-view class="header"  wx:if="{{obj.disstate == 0 }}">
+    <cover-view class="headlist {{peisongtype == false ?'active':''}}" data-type="0"  catchtap="choosehave">
+      <cover-view class="text">到店自取</cover-view>
+      <cover-view class="botxian {{peisongtype == false ?'active':''}}"></cover-view>
+    </cover-view>
+    <cover-view class="headlist {{peisongtype == true ?'active':''}}" data-type="1" catchtap="choosehave">
+      <cover-view class="text">选择配送</cover-view>
+      <cover-view class="botxian {{peisongtype == true ?'active':''}}"></cover-view>
+    </cover-view>
+  </cover-view>
+  <view class="dizhibox" catchtap="toaddr">
+     <image src="../../../images/dianpu/dizhi.png" class="dizhi"></image>
+     <view class="zitibox" wx:if="{{!peisongtype}}" catchtap="lookmap">
+        <text class="tit">店铺地址：</text>
+        <text class="con">{{obj.shopAddr}}</text> 
+     </view>
+     <view class="peisongbox" wx:if="{{peisongtype}}" >
+        <view class="top" wx:if="{{addrtype}}">
+          <view class="name">收货人：{{addr.addrName}}</view>
+          <view class="tel">{{addr.addrPhone}}</view>
+        </view>
+        <view class="bottom" wx:if="{{addrtype}}">收货地址：{{addr.localaddr}}{{addr.detailedAddr}}</view>
+        <view class="bottom" wx:if="{{!addrtype}}">暂无收货地址，请点击添加</view>
+     </view>
+     <text class='iconfont icon-youjiantou' wx:if="{{peisongtype}}" ></text>
+  </view>
+  <view class="mapbox" wx:if="{{!peisongtype}}">
+    <map id="myMap"
+        markers="{{markers}}"
+        longitude="{{poi.longitude}}"
+        latitude="{{poi.latitude}}"
+        scale='13' show-location >
+    </map>
+  </view>
+  <view class="quhuotime" wx:if="{{!peisongtype && obj.deadline}}">请于{{obj.deadline}}之前将您的商品取走</view>
+  <!-- 店铺信息 -->
+  <view class="dianxx">
+    <image src="../../../images/dianpu/dian.png"></image>
+    <text>{{obj.shopName}}</text>
+    <!-- <view wx:if="{{obj.disstate == 1 }}">仅支持自取</view>
+    <view wx:if="{{obj.disstate == 0 }}">支持自取</view> -->
+    
+  </view>
+  <!-- 购买的商品信息 -->
+  <view class="listbox">
+    <block wx:for="{{obj.goodsList}}" wx:key="i" >
+      <view class="list" wx:if="{{type == 'onepin' || type == 'qianggou' || type == 'tuangou' || type == 'zhixiao'|| type == 'newbuy'}}">
+        <image src="{{item.goodsImg}}"></image>
+        <view class="listright">
+          <view class="tit">{{item.goodsName}}</view>
+          <view class="guige">规格：{{item.goodsUnit}}</view>
+          <view class="bottom">
+            <view class="money" wx:if="{{item.goodsCostPrice}}">￥{{item.goodsCostPrice}}</view>
+            <view class="money" wx:if="{{!item.goodsCostPrice && !item.goodsLimitPrice}}">￥{{item.goodsCurPrice}}</view>
+            <view class="money" wx:if="{{!item.goodsCostPrice && item.goodsLimitPrice && now == 2}}">￥{{item.goodsCurPrice}}</view>
+            <view class="money" wx:if="{{!item.goodsCostPrice && item.goodsLimitPrice && now != 2}}">￥{{item.goodsLimitPrice}}</view>
+            <view class="num">x{{item.goodsBuyNum}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="list" wx:if="{{type == 'qupin' }}">
+        <image src="{{obj.goodsImg}}"></image>
+        <view class="listright">
+          <view class="tit">{{obj.goodsName}}</view>
+          <view class="guige">规格：{{obj.goodsUnit}}</view>
+          <view class="bottom">
+            <view class="money" wx:if="{{obj.goodsCostPrice}}">￥{{obj.goodsCostPrice}}</view>
+            <view class="money" wx:if="{{!obj.goodsCostPrice}}">￥{{obj.goodsCurPrice}}</view>
+            <view class="num">x{{obj.goodsBuyNum}}</view>
+          </view>
+        </view>
+      </view>
+
+    <view class="list" wx:if="{{type == 'kaipin'}}">
+      <image src="{{obj.goodsImg}}"></image>
+      <view class="listright">
+        <view class="tit">{{obj.goodsName}}</view>
+        <view class="guige">规格：{{obj.goodsUnit}}</view>
+        <view class="bottom">
+          <view class="money" wx:if="{{obj.goodsCostPrice}}">￥{{obj.goodsCostPrice}}</view>
+          <view class="money" wx:if="{{!obj.goodsCostPrice}}">￥{{obj.goodsCurPrice}}</view>
+          <view class="num">x{{obj.goodsBuyNum}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 其他列表 -->
+  <view class="otherbox">
+    
+    <view class="list" wx:if="{{obj.csType == 1}}">
+      <text>满减</text>
+    </view>
+    <view class="list youhuilist" catchtap="tochoosejuan" wx:if="{{type == 'onepin' && hasjuan == 'true' && !obj.actdesc && hasmanjian != 'true'}}" >
+      <text>优惠券</text>
+      <view class="right">
+        <text wx:if="{{yhjlist.length > 0 && juanmoney == ''}}">可使用{{yhjlist.length}}</text>
+        <text wx:if="{{yhjlist.length > 0 && juanmoney != ''}}">-{{juanmoney}}</text>
+        <text wx:if="{{!yhjlist.length > 0}}" class="gray" >暂无可使用的优惠券</text>
+        <text class='iconfont icon-youjiantou gray' wx:if="{{!yhjlist.length > 0}}"  ></text>
+        <text class='iconfont icon-youjiantou' wx:if="{{yhjlist.length > 0}}" ></text>
+      </view>
+    </view>
+    <view class="list dianhuodong" wx:if="{{obj.actdesc}}">
+      <text>满减活动：</text>
+      <view class="huodong">{{obj.actdesc}}</view>
+    
+    </view>
+    <!-- <view class="list psslist" wx:if="{{peisongtype == true && obj.disstate == 0}}">
+      <text>配送条件：</text>
+      <view wx:if="{{obj.disstate == 0 && obj.distributions == 0 && peisongtype == true}}">满30元起送 | 加1元送货到家 </view>
+      <view wx:if="{{obj.disstate == 0 && obj.distributions == 1 && peisongtype == true}}">1元起送 | 加1元送货到家</view>
+    </view> -->
+    <!-- <view class="list pslist" catchtap="choosehave" wx:if="{{obj.distributions == 0 || obj.oldmoney >= 30}}">
+      <text>是否配送：</text>
+      <view class="psbox">
+        <text>配送费￥{{obj.disCusFee}}</text>
+        <view class="xian"></view>
+        <text>支持自取</text>
+      </view>
+      <image src="../../../images/dianpu/xz2.gif" wx:if="{{peisongtype}}"></image>
+      <image src="../../../images/dianpu/xz1.gif" wx:if="{{!peisongtype}}"></image>
+    </view> -->
+    <view class="list liuyanlist" wx:if="{{!peisongtype}}">
+      <text>预留电话：</text>
+      <input type="number" placeholder="必填，填写去取货电话" bindinput="telipt" value="{{tel}}"></input>
+    </view>
+    
+
+
+
+    <view class="list tixinglist">
+      <text>商家提醒：</text>
+      <view wx:if="{{obj.shopTips}}">{{obj.shopTips}}</view>
+      <view wx:if="{{!obj.shopTips}}">暂无提醒！！！</view>
+    </view>
+    <view class="list liuyanlist">
+      <text>买家留言：</text>
+      <input type="text" placeholder="选填，填写自己的要求" bindinput="msgipt"></input>
+    </view>
+  </view>
+  <view class="foot">
+    <text class="need">需支付：</text>
+    <view class="money" wx:if="{{juanmoney ==0}}">￥{{obj.payCash}}</view>
+    <!-- <view class="money" wx:if="{{juanmoney > 0 && peisongtype == false}}">￥{{obj.payCash}}</view> -->
+    <view class="money" wx:if="{{juanmoney > 0}}">￥{{endpaycash}}</view>
+    
+    <!-- <view class="money" wx:if="{{!juanmoney}}">￥{{obj.payCash}}</view> -->
+    <view class="psmoney" wx:if="{{peisongtype}}">免配送费</view>
+    <view class="btn" catchtap="sure">提交订单</view>
+  </view>
+</view>

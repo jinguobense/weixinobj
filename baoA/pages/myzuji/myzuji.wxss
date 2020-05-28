@@ -1,0 +1,109 @@
+/* pages/myzuji/myzuji.wxss */
+.header{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 0 55rpx;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 5px 2px rgba(144, 144, 144, 0.35);
+}
+.header text{
+  font-size: 34rpx;
+  color: #0B9D4A;
+}
+/* 内容框 */
+.listbox{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 110rpx;
+}
+.listbox .list{
+  width: 100%;
+  height: 200rpx;
+  margin-bottom: 8rpx;
+  background: #fff;
+  display: flex;
+  box-sizing: border-box;
+  padding: 16rpx 22rpx;
+  justify-content: flex-start;
+  position: relative;
+}
+.listbox .list .goodsimg{
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+
+}
+
+.listbox .list .tingshou{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  left: 28rpx;
+  top: 25rpx;
+}
+.listbox .list .con{
+  width: 510rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.listbox .list .con .prices{
+  font-size: 34rpx;
+  color: #EC1D3B;
+}
+.listbox .list .con .tit{
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  /* line-height: 40rpx; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.listbox .list .con .bottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.listbox .list .con .bottom .ziqubq{
+  font-size: 22rpx;
+  color: #1895FF;
+}
+.listbox .list .con .bottom .peisongbq{
+  font-size: 22rpx;
+  color: #FF8D42;
+}
+.listbox .list .con .bottom .time{
+  font-size: 22rpx;
+  color: #666;
+}
+.nozuji{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 110rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.nozuji image{
+  width: 160rpx;
+  margin-bottom: 50rpx;
+}
+.nozuji text{
+  font-size: 30rpx;
+  color: #666;
+}

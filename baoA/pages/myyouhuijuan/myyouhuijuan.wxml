@@ -1,0 +1,54 @@
+<!--pages/myyouhuijuan/myyouhuijuan.wxml-->
+<view class="Myyouhuijuan">
+  <view class="head">
+    <view class="listt {{headerindex == 0 ? 'active':''}}" data-index="0" catchtap="tabchange">未使用</view>
+    <view class="listt {{headerindex == 2 ? 'active':''}}" data-index="2" catchtap="tabchange">已使用</view>
+    <view class="listt {{headerindex == 1 ? 'active':''}}" data-index="1" catchtap="tabchange">已过期</view>
+  </view>
+  <!-- 未使用 -->
+  <view class="box1">
+     <view class="nogoods" wx:if='{{list.length==0 && isend == true}}' >
+        <image src="../../../images/tabbar/nosearchgoods.png" mode="widthFix"></image>
+        <text>暂无优惠券内容</text>
+      </view>
+      <block wx:for="{{list}}" wx:key="i" wx:if='{{list.length>0}}'>
+        <view class="shoplist">
+          <view class="header">
+            <view class="top">
+              <view class="tit">{{item.shopName}}</view>
+              <view class="starbox">
+                <image src="../../../images/index/dp1.png" wx:for="{{item.shopScore}}" wx:key="i"></image>
+                <image src="../../../images/index/dp2.png" wx:for="{{5-item.shopScore}}" wx:key="i"></image>
+              </view>
+            </view>
+            <view class="bottom">
+              <view class="left">
+                <text class='iconfont icon-ding_wei'></text>
+                <text>{{item.shopAddr}}</text>
+              </view>
+              <view class="juli">{{item.shopDistance}}</view>
+            </view>
+          </view>
+          <!-- 劵列表 -->
+          <view class="list {{headerindex != 0 ?'gray':''}}" wx:for="{{item.couponBeans}}" wx:key="i" wx:for-index="indexs" wx:for-item="items">
+            <view class="listleft">
+              <view class="top">
+                <text class="money">￥{{items.freeCouponPrice}}</text>
+                <text class="xinxi">满{{items.fullSubPrice}}可使用</text>
+              </view>
+              <view class="mid">{{items.couponDesc}}</view>
+              <view class="bottom">
+                <text>有效期:{{items.couponTime}}</text>
+              </view>
+            </view>
+            <view class="listright" >
+              <view class="btn" wx:if="{{headerindex == 0}}" data-shopid="{{item.shopId}}" catchtap="todianpu" data-goodsid="{{items.goodsId}}">立即使用</view>
+              <view class="btn" wx:if="{{headerindex == 1}}">已过期</view>
+              <view class="btn" wx:if="{{headerindex == 2}}">已使用</view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+  </view>
+</view>

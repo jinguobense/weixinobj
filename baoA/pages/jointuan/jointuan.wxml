@@ -1,0 +1,47 @@
+<!--pages/jointuan/jointuan.wxml-->
+<view class="Jointuan">
+  <view class="list" wx:for="{{list}}" wx:key="i">
+    <image src="{{item.initiIcon}}"></image>
+    <view class="name">{{item.initiName}}</view>
+    <view class="con">
+      <view class="top">
+        <text class="black">还差</text>
+        <text class="red">{{item.num}}人</text>
+        <text class="black">拼团成功</text>
+      </view>
+      <view class="bottom">剩余{{countDownList[index].day}}天{{countDownList[index].hou}}:{{countDownList[index].min}}:{{countDownList[index].sec}}</view>
+    </view>
+    <view class="btn" catchtap="tanchusizebox" data-tourid="{{item.tourId}}">去拼单</view>
+  </view>
+  <!-- 加入购物车or购买 -->
+  <view class="tanbox"  style='display:{{blackzt}}'>
+    <view class="black {{sizexzbox?'blackshow':'blackhidden'}}"  catchtap='closechoosebox'></view>
+    <view class="conbox  {{sizexzbox?'conboxshow':'conboxhidden'}}">
+      <view class="tanboxheader">
+        <image src="{{guigelist[guigeindex].goodsImg}}"></image>
+        <view class="titbox">
+          <view class="tit">{{info.goodsName}}</view>
+          <view class="con">
+            <view class="money">￥{{guigelist[guigeindex].goodsCostPrice}}</view>
+            <text>/{{info.goodsUnit}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="guigetit">规格：</view>
+      <view class="guigecon">
+        <block wx:for="{{guigelist}}" wx:key="i">
+          <text class="listt {{guigeindex==index ? 'active' : ''}}" data-index="{{index}}" catchtap="changeguige" data-id="{{item.skuId}}">{{item.skuValue1}}</text>
+        </block>
+      </view>
+      <view class="numbox">
+        <text>购买数量：</text>
+        <view class='spinner_r'>
+          <text catchtap='spinnerJian'>-</text>
+          <input value='{{num}}' disabled></input>
+          <text catchtap='spinnerJia'>+</text>
+        </view>
+      </view>
+      <view class="sure" catchtap="suredd" ><text>确</text><text>定</text></view>
+    </view>
+  </view>
+</view>

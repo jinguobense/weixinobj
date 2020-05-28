@@ -6,20 +6,32 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.3",
-	"appid": "wx3467db198f6ab983",
-	"projectname": "work",
+	"libVersion": "2.9.2",
+	"appid": "wx6804094e218cef80",
+	"projectname": "workfenbaonew",
+	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
+	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -31,13 +43,49 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
-			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": 0,
+					"name": "baoA/pages/jointuan/jointuan",
+					"pathName": "baoA/pages/jointuan/jointuan",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/user",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "baoA/pages/pintuan/pintuan",
+					"pathName": "baoA/pages/cantuanxq/cantuanxq",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "baoA/pages/cantuanxqshare/cantuanxqshare",
+					"pathName": "baoA/pages/cantuanxqshare/cantuanxqshare",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

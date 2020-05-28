@@ -1,0 +1,85 @@
+/* pages/pingjialist/pingjialist.wxss */
+.Pingjialist{
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  padding-top: 30rpx;
+}
+.list{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 26rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+.list .top{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list .top .head{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.list .top .topcon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 595rpx;
+}
+.list .top .topcon .namebox{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.list .top .topcon .namebox .name{
+  color: #333;
+  font-size: 30rpx;
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list .top .topcon .namebox .time{
+  font-size: 26rpx;
+  color: #999;
+
+}
+.list .top .topcon .starbox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.list .top .topcon .starbox image{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 6rpx;
+}
+.list .mid{
+  width: 698rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 30rpx;
+  color: #333;
+  margin: 25rpx 0;
+}
+.list .bottom{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.list .bottom image{
+  width:174rpx;
+  height: 174rpx;
+  border-radius: 10rpx;
+  margin-right: 5rpx;
+
+}

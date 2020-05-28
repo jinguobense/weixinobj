@@ -1,0 +1,19 @@
+<!--pages/kefuhelp/kefuhelp.wxml-->
+<view class="Kefuhelp">
+  <!-- <view class="list">
+    <view>常见问题</view>
+    <icon class='iconfont icon-31fanhui2'></icon>
+  </view> -->
+  <view class="list" catchtap="tofankui">
+    <view>意见反馈</view>
+    <text class='iconfont icon-youjiantou'></text>
+  </view>
+  <view class="list" catchtap="tokefu">
+    <view>在线客服</view>
+    <text class='iconfont icon-youjiantou'></text>
+  </view>
+  <view class="list" catchtap="tocall">
+    <view>客服电话</view>
+    <text>{{tel}}</text>
+  </view>
+</view>

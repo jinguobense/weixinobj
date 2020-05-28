@@ -1,0 +1,270 @@
+<!--pages/dianpu/dianpu.wxml-->
+<view class="Dianpu">
+
+  <scroll-view class="allcon" scroll-y='true' scroll-with-animation='true' bindscroll="scroll">
+
+    <view class="headerbox" style="top:{{headertop/2 + 'rpx'}}" id="header">
+      <!-- 轮播图 -->
+      <swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" interval="2000" class='banner'>
+        <block wx:for="{{info.shopSideImg}}" wx:key="i">
+          <swiper-item>
+            <image src="{{item.img}}" data-urltype="{{item.urltype}}" data-goodstype="{{item.goodsType}}" data-urlvalue="{{item.urlvalue}}" catchtap="toimgxq" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 店铺星级块 -->
+      <view class="pingjibox">
+        <view class="left">
+          <view class="starbox">
+            <image src="../../../images/index/dp1.png" wx:for="{{star}}" wx:key="index"></image>
+            <image src="../../../images/index/dp2.png" wx:for="{{5-star}}" wx:key="index"></image>
+          </view>
+          <view class="haoping">好评率{{info.shopRate}}%</view>
+        </view>
+        <view class="shoucang" wx:if="{{isshoucang == 0}}" catchtap="shoucang" data-type="1">收藏店铺</view>
+        <view class="shoucang active" wx:if="{{isshoucang == 1}}" catchtap="shoucang" data-type="0">已收藏</view>
+        <view class="right" catchtap="tojianjie">
+          <text>店铺简介</text>
+          <text class='iconfont icon-youjiantou'></text>
+        </view>
+      </view>
+      <!-- 店铺信息块 -->
+      <view class="dianxxbox">
+        <view class="top">
+          <image src="../../../images/dianpu/dingwei.png"></image>
+          <view class="dizhi" catchtap="lookmap">{{info.shopAddr}}</view>
+          <button class="fenxiangbox" open-type="share" aria-disabled="false" role="button">
+            <image src="../../../images/dianpu/7fx.png"></image>
+            <text>分享</text>
+          </button>
+        </view>
+        <view class="bottom">
+          <view class="bleft">
+            <view class="timebox">
+              <image src="../../../images/dianpu/ic_time_shop.png"></image>
+              <text wx:if="{{info.busiTime}}">营业时间：{{info.busiTime}}</text>
+              <text wx:if="{{!info.busiTime}}">营业时间：暂无详细介绍</text>
+            </view>
+            <view class="tishi" wx:if="{{info.busiRemark}}">{{info.busiRemark}}</view>
+            <view class="tishi" wx:if="{{!info.busiRemark}}">暂无商家提示</view>
+          </view>
+          <view class="bright">
+            <view class="rlist" catchtap="totel">
+              <image src="../../../images/dianpu/5dh.png"></image>
+              <text>电话</text>
+            </view>
+            <view class="rlist" catchtap="tokefu">
+              <image src="../../../images/dianpu/6kf.png"></image>
+              <text>客服</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 活动专区 -->
+      <view class="huodongbox">
+        <view class="list" wx:if="{{info.clusterGoodsFlag == 1}}" catchtap="topintuan">
+          <image src="../../../images/dianpu/1bdtp.png"></image>
+          <text>小众团拼</text>
+        </view>
+        <view class="list" wx:if="{{info.fullRedGoodsFlag == 1}}" catchtap="tomanjian">
+          <image src="../../../images/dianpu/2mjzq.png"></image>
+          <text>满减专区</text>
+        </view>
+        <view class="list" wx:if="{{info.agtGoodsFlag == 1}}" catchtap="tozhixiao">
+          <image src="../../../images/dianpu/zx.gif"></image>
+          <text>厂家直销</text>
+        </view>
+        <view class="list" wx:if="{{info.timeLimGoodsFlag == 1}}" catchtap="toxianshibuy">
+          <image src="../../../images/dianpu/3xsg.png"></image>
+          <text>限时抢购</text>
+        </view>
+        <view class="list" wx:if="{{info.couFlag == 1}}" catchtap="toyouhui">
+          <image src="../../../images/dianpu/4yh.png"></image>
+          <text>优惠券</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部食品大框 -->
+    <view class="Foot" style="height: {{pageheight + 'rpx'}};top:{{foottop}}rpx;" id="Footer">
+      <!-- 搜索框 -->
+      <view class="headbox">
+        <view class="searchbox" catchtap="tosearch" data-shopid="{{info.shopId}}">
+          <icon type='search' size='36rpx' class="iconfont"></icon>
+          <input placeholder="请输入搜索的商品" disabled="disabled"></input>
+        </view>
+      </view>
+      <!-- 内容框 -->
+      <view class="conbox" style="height: {{(pageheight-124)}}rpx;">
+        <image src="../../../images/dianpu/shopkong.png" wx:if="{{!info.goodsTypeList.length && isend == true}}" mode="widthFix" class="kongimg"></image>
+        <view class="kongtext" wx:if="{{!info.goodsTypeList.length && isend == true}}">暂无商品哦~</view>
+        <!-- 左部tab -->
+        <view class="lefttab" wx:if="{{info.goodsTypeList.length}}">
+          <block wx:for="{{info.goodsTypeList}}" wx:key="i" wx:if="{{info.goodsTypeList.length}}">
+            <view class="list {{tabindex==index ? 'active' : ''}}" data-current="{{index}}" catchtap="changetab" data-goodstypeid="{{item.goodsTypeId}}">{{item.goodsTypeName}}</view>
+          </block>
+
+
+        </view>
+        <!-- 右部内容 -->
+        <scroll-view class="rightcon" scroll-y='true' scroll-with-animation='true' bindscrolltolower="tobottom" wx:if="{{info.goodsTypeList.length}}">
+          <block wx:for="{{conlist}}" wx:key="i" wx:if="{{info.goodsTypeList.length}}">
+            <view class="list" catchtap="toxq" data-type="{{item.rtType}}" data-goodsid="{{item.goodsId}}">
+              <image src="{{item.goodsImg}}"></image>
+              <view class="listcon">
+                <view class="tit">{{item.goodsName}}</view>
+                <view class="bottom">
+                  <view class="left">
+                    <view class="money">￥{{item.goodsCurPrice}}</view>
+                    <view class="xiaoliang">销量:{{item.goodsSales}}</view>
+                  </view>
+                  <view class="footers">
+                    <view wx:if='{{(item.distribut == 1 || item.distribut == null) || info.disstate == 1}}' class="ziqu">[到店自取]</view>
+                    <view wx:if='{{item.distribut == 0 && info.disstate == 0}}' class="prisong">[支持配送]</view>
+                    <view wx:if='{{(item.distribut == 1 || item.distribut == null) || info.disstate == 1}}' class="btn">立即购买</view>
+                    <view wx:if='{{item.distribut == 0 && info.disstate == 0}}' class="addgouwuche" catchtap="tanchusizebox" data-index="{{index}}">
+                      <image src="../../../images/dianpu/shopss.png"></image>
+                    </view>
+                  </view>
+
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <!-- 底部结算框 -->
+      <view class="footerbox" wx:if="{{info.disstate == 0}}">
+        <view class="gwcbox" catchtap="tanchulistbox">
+          <!-- <image src="../../../images/dianpu/gwc1.png" wx:if="{{heji < startmoney}}"></image> -->
+          <image src="../../../images/dianpu/gwc3.png"></image>
+          <!-- <text class="biaoqian">{{carlist.length}}</text> -->
+          <text class="biaoqian">{{goodsnum}}</text>
+          <!-- <text class="biaoqian gray" wx:if="{{heji < startmoney && carlist.length >0}}">{{carlist.length}}</text> -->
+        </view>
+        <view class="heji">
+          <view class="hjtop">
+            <text>￥</text>
+            <view>{{heji}}</view>
+          </view>
+          <view class="hjbottom">
+            <!-- <text wx:if="{{info.disstate == 0}}">加1元送货到家</text> -->
+            <view wx:if="{{info.disstate == 0}}">{{startmoney}}元起送</view>
+            <!-- <view wx:if="{{info.disstate == 1}}">仅支持自取</view> -->
+          </view>
+        </view>
+        <!-- <view class="btn" wx:if='{{heji < 1 && info.disstate == 0 && info.distributions == 1}}' style="background:#828282;">1元起送</view>
+        <view class="btn" wx:if='{{heji == 0 && info.disstate == 1}}' style="background:#828282;">去结算</view>
+        <view class="btn" wx:if='{{heji < 1 && info.disstate == 0 && info.distributions == 0}}' style="background:#828282;">去结算</view> -->
+        <!-- <view class="btn" catchtap="tosuredd" wx:if='{{heji >= 1 && info.distributions != 0 && info.disstate == 0}}'>去结算</view>
+        <view class="btn" catchtap="tosuredd" wx:if='{{heji < 30 && info.distributions == 0 && heji >= 1 && info.disstate == 0}}'>差{{endheji}}元起送</view>
+        <view class="btn" catchtap="tosuredd" wx:if='{{heji >= 30 && info.distributions == 0 && info.disstate == 0}}'>去结算</view> -->
+        <view class="btn" catchtap="tosuredd">去结算</view>
+      </view>
+    </view>
+
+    <!-- 购物车列表框 -->
+    <view class="gwclistbox" style='display:{{blackzt1}}'>
+      <view class="black {{showtype?'blackshow':'blackhidden'}}" catchtap="closelistbox"></view>
+      <view class="newgwcbox {{showtype?'conboxshow':'conboxhidden'}}">
+        <view wx:if="{{carlist.length<4}}" style="bottom:{{80 + carlist.length*115 }}rpx" class="gwctoubu">
+          <image catchtap="clearCar" src="../../../images/dianpu/cl.png" class="shanchuImg"></image>
+          <text catchtap="clearCar">清空购物车</text>
+        </view>
+        <view wx:if="{{carlist.length>=4}}" style="bottom:540rpx" class="gwctoubu {{showtype?'blackshow':'blackhidden'}}">
+          <image catchtap="clearCar" src="../../../images/dianpu/cl.png" class="shanchuImg"></image>
+          <text catchtap="clearCar">清空购物车</text>
+        </view>
+        <scroll-view class="gwccon" scroll-y='true' scroll-with-animation='true'>
+          <view class="gwclist {{item.distribut==0?'huise':''}}" wx:for="{{carlist}}" wx:key="i">
+            <view wx:if='{{item.distribut==1}}' class="biaoqianziqu">
+              到店自取
+            </view>
+            <view class="tit">{{item.goodsName}}</view>
+            <view class="guige">{{item.skuDesc}}</view>
+            <view class="money">￥{{item.goodsCurPrice}}</view>
+            <view class="numbox">
+              <image src="../../../images/dianpu/jian.png" catchtap='carchange1' data-goodsid="{{item.goodsId}}" data-skuid="{{item.skuId}}" data-type="1" data-index="{{index}}"></image>
+              <view class="num">{{item.goodsBuyNum}}</view>
+              <image src="../../../images/dianpu/jia.png" catchtap='carchange' data-goodsid="{{item.goodsId}}" data-skuid="{{item.skuId}}" data-type="0"></image>
+            </view>
+          </view>
+
+
+        </scroll-view>
+      </view>
+
+      <view style="border-top: 4rpx solid #EDEDED;" class="footerbox" wx:if="{{info.disstate == 0}}">
+        <view class="gwcbox" catchtap="closelistbox">
+          <!-- <image src="../../../images/dianpu/gwc1.png" wx:if="{{heji < startmoney}}"></image> -->
+          <image src="../../../images/dianpu/gwc3.png"></image>
+          <!-- <text class="biaoqian">{{carlist.length}}</text> -->
+          <text class="biaoqian">{{goodsnum}}</text>
+          <!-- <text class="biaoqian gray" wx:if="{{heji < startmoney && carlist.length >0}}">{{carlist.length}}</text> -->
+        </view>
+        <view class="heji">
+          <view class="hjtop">
+            <text>￥</text>
+            <view>{{heji}}</view>
+          </view>
+          <view class="hjbottom">
+            <!-- <text wx:if="{{info.disstate == 0}}">加1元送货到家</text> -->
+            <view wx:if="{{info.disstate == 0 && peisong}}">{{startmoney}}元起送</view>
+            <view wx:if="{{info.disstate == 0 && !peisong}}">到店自取</view>
+            <!-- <view wx:if="{{info.disstate == 1}}">仅支持自取</view> -->
+          </view>
+        </view>
+        <!-- <view class="btn" wx:if='{{heji < 1 && info.disstate == 0 && info.distributions == 1}}' style="background:#828282;">1元起送</view>
+        <view class="btn" wx:if='{{heji == 0 && info.disstate == 1}}' style="background:#828282;">去结算</view>
+        <view class="btn" wx:if='{{heji < 1 && info.disstate == 0 && info.distributions == 0}}' style="background:#828282;">去结算</view> -->
+        <!-- <view class="btn" catchtap="tosuredd" wx:if='{{heji >= 1 && info.distributions != 0 && info.disstate == 0}}'>去结算</view>
+        <view class="btn" catchtap="tosuredd" wx:if='{{heji < 30 && info.distributions == 0 && heji >= 1 && info.disstate == 0}}'>差{{endheji}}元起送</view>
+        <view class="btn" catchtap="tosuredd" wx:if='{{heji >= 30 && info.distributions == 0 && info.disstate == 0}}'>去结算</view> -->
+        <view class="btn" catchtap="tosuredd">去结算</view>
+      </view>
+    </view>
+    <!-- 选规格 -->
+    <view class="tanbox" style='display:{{blackzt}}'>
+      <view class="black {{sizexzbox?'blackshow':'blackhidden'}}" catchtap='closechoosebox'></view>
+      <view class="conbox  {{sizexzbox?'conboxshow':'conboxhidden'}}" id="tannbox">
+        <view class="tanboxheader">
+          <image src="{{conlist[goodsindex].goodsImg}}"></image>
+          <view class="titbox">
+            <view class="tit">{{conlist[goodsindex].goodsName}}</view>
+            <view class="con">
+              <view class="money">￥{{conlist[goodsindex].goodsSku[guigeindex].goodsCurPrice}}</view>
+              <!-- <text>/件</text> -->
+            </view>
+          </view>
+        </view>
+        <view class="guigetit">规格：</view>
+        <view class="guigecon">
+          <block wx:for="{{conlist[goodsindex].goodsSku}}" wx:key="i">
+            <text class="list {{guigeindex==index ? 'active' : ''}}" data-index="{{index}}" catchtap="changeguige">{{item.skuValue1}}</text>
+          </block>
+
+
+        </view>
+        <view class="numbox">
+          <text>购买数量：</text>
+          <view class='spinner_r'>
+            <text catchtap='spinnerJian'>-</text>
+            <input value='{{num}}' disabled></input>
+            <text catchtap='spinnerJia'>+</text>
+          </view>
+        </view>
+        <view class="sure" catchtap="addcar">
+          <text>加入购物车</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- <map id="myMap"
+      markers="{{markers}}"
+      style="width:100%;height:300px;"
+      longitude="{{poi.longitude}}"
+      latitude="{{poi.latitude}}"
+       scale='13' show-location style="position:fixed;z-index:10000;left:0;top:0;">
+  </map> -->
+  <!-- polyline="{{polyline}}" -->
+</view>

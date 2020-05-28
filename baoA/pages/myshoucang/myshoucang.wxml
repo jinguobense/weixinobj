@@ -1,0 +1,44 @@
+<!--pages/myshoucang/myshoucang.wxml-->
+<view class="Myshoucang">
+  <view class="header">
+    <view class="headerlist {{headindex ==0 ? 'active':''}}" data-index="0" catchtap="tabchange">商品</view>
+    <view class="headerlist {{headindex ==1 ? 'active':''}}" data-index="1" catchtap="tabchange">店铺</view>
+  </view>
+  <!-- <swiper class="conbox" bindchange="huachange" current="{{headindex}}">
+    <swiper-item> -->
+  <view class="conbox">
+    <view class="con" wx:if="{{headindex == 0}}">
+      <!-- data-index="{{index}}"  bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{stylelist[index]}}" -->
+      <view class="list" wx:for="{{goodslist}}" wx:key="i" catchtap="toxq" data-goodsid="{{item.goodsId}}" data-goodstype="{{item.goodsType}}" data-type="0" bindtouchstart='bindTouchStart' bindtouchend='bindTouchEnd' data-index="{{index}}">
+        <image src="{{item.goodsImg}}" class="goodsimg"></image>
+        <image src="../../../images/user/yitingshou.png" class="tingshou" wx:if="{{item.goodsState == 1}}"></image>
+        <view class="right">
+          <view class="name">{{item.goodsName}}</view>
+          <view class="moneybox">
+            <view class="money">￥{{item.goodsCurPrice}}</view>
+            <view class="ziqubq" wx:if="{{item.distribut == 1 || item.distribut == null}}">[到店自取]</view>
+            <view class="peisongbq" wx:if="{{item.distribut == 0}}">[支持配送]</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <!-- </swiper-item>
+    <swiper-item> -->
+    <view class="con" wx:if="{{headindex == 1}}">
+      <view class="list" wx:for="{{shoplist}}" wx:key="i" catchtap="toxq" data-shopid="{{item.shopId}}" data-type="1" data-shopstate="{{item.shopState}}" bindtouchstart='bindTouchStart' bindtouchend='bindTouchEnd' data-index="{{index}}">
+        <image src="{{item.shopLogo}}" class="goodsimg"></image>
+        <image src="../../../images/user/yitingye.png" class="tingshou" wx:if="{{item.shopState  == 1}}"></image>
+        <view class="dianright">
+          <view class="dian">{{item.shopName}}</view>
+          <view class="con">
+            <image src="../../../images/user/dingwei.png"></image>
+            <view>{{item.shopAddr}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- </swiper-item> -->
+    <!-- </swiper> -->
+  </view>
+</view>

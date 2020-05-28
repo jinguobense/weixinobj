@@ -1,0 +1,80 @@
+/* pages/retuimore/retuimore.wxss */
+.Zhixiao{
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 22rpx;
+}
+/* 内容框 */
+.listbox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 26rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 20rpx;
+}
+.listbox .list{
+  width: 340rpx;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10rpx;
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  padding-bottom: 15rpx;
+}
+.listbox .list image{
+  width: 340rpx;
+  height: 340rpx;
+}
+.listbox .list .listcon{
+  width: 345rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.listbox .list .listcon .tit{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-top: 10rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 5rpx 0;
+}
+.listbox .list .listcon .tit .biaoqian{
+  padding: 5rpx 10rpx;
+  border: 1rpx solid #ff002b;
+  border-radius: 10rpx;
+  color: #ff002b;
+  font-size: 22rpx;
+  margin-right: 10rpx;
+}
+.listbox .list .listcon .tit .name{
+  color: #333;
+  letter-spacing: 2rpx;
+  font-size: 28rpx;
+  line-height: 1;
+}
+.listbox .list .listcon .bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.listbox .list .listcon .bottom .money text:nth-of-type(1){
+  font-size: 32rpx;
+  color: #E9130D;
+}
+.listbox .list .listcon .bottom .money text:nth-of-type(2){
+  font-size: 22rpx;
+  color: #999;
+}
+.listbox .list .listcon .bottom .juli{
+  font-size: 22rpx;
+  color: #999;
+}

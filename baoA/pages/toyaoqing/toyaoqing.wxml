@@ -1,0 +1,35 @@
+<!--pages/toyaoqing/toyaoqing.wxml-->
+<view class="Yaoqing">
+<!-- style='width:0px;height:0px;overflow:hidden;position:fixed;top:-10000rpx;' -->
+  <view style='width:0px;height:0px;overflow:hidden;position:fixed;top:-10000rpx;'><canvas canvas-id="shareimg" class="canvasimg" ></canvas></view>
+  <view class="header">
+    <image src="{{info.goodsImg}}" ></image>
+    <view class="goodxq">
+      <view class="tit">{{info.goodsName}}</view>
+      <view class="money">￥{{info.goodsCostPrice}}</view>
+    </view>
+  </view>
+  <view class="conbox">
+    <view class="imgbox">
+      <image wx:for="{{info.tourMemList}}" wx:key="i" src="{{item.memberIcon}}"></image>
+      <image wx:for="{{info.missNum}}" wx:key="i" src="../../../images/user/wenhao.png"></image>
+    </view>
+
+    <view class="tishicon">
+      <view class="left">
+        <text>仅剩</text>
+        <text class="red">{{info.missNum}}</text>
+        <text>个名额</text>
+      </view>
+      <view class="right">
+        <view class="time">{{countDownList[0].hou}}:{{countDownList[0].min}}:{{countDownList[0].sec}}</view>
+        <text>后结束</text>
+      </view>
+    </view>
+    <button class="btn fenxiangbox"  open-type="share" aria-disabled="false" role="button" wx:if="{{shareimg}}">
+      邀请好友参团
+    </button>
+    <view  class="btn fenxiangbox" catchtap="jiazai" wx:if="{{!shareimg}}">邀请好友参团</view>
+  </view>
+
+</view>

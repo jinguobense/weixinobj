@@ -1,0 +1,35 @@
+<!--pages/paysuccess/paysuccess.wxml-->
+<view class="Paysuccess">
+  <view class="header">
+    <image src="../../../images/user/duihao.gif"></image>
+    <text>支付成功</text>
+    <view class="quhuotime" wx:if="{{deadline}}">请于{{deadline}}之前将您的商品取走</view>
+    <view class="listbox">
+      <view catchtap="todd">查看订单</view>
+      <view catchtap="tohome">返回首页</view>
+    </view>
+  </view>
+  <view class="tuijianbox">
+    <view class="tuijiantit">为您推荐</view>
+    <view class="listbox">
+      <view class="listcon">
+        <block wx:for="{{guesslist}}" wx:key="i">
+          <view class="list" catchtap="toxq" data-goodsid="{{item.goodsId}}">
+            <image src="{{item.goodsImg}}" class="img"></image>
+            <view class="con">
+              <view class="tit">{{item.goodsName}}</view>
+              <view class="moneybox">
+                <text>￥</text>
+                <text>{{item.goodsCurPrice}}</text>
+              </view>
+              <view class="pingji">
+                <text>已售：{{item.goodsSales}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+  </view>
+</view>

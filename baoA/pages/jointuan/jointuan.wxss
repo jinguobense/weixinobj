@@ -1,0 +1,244 @@
+/* pages/jointuan/jointuan.wxss */
+.Jointuan{
+  width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+  overflow-y: auto;
+}
+.list{
+  width: 100%;
+  height: 140rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #f4f4f4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.list image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+
+}
+.list .name{
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 20rpx;
+  width: 180rpx;
+}
+.list .con{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 60rpx;
+}
+.list .con .top{
+  display: flex;
+  align-items: center;
+}
+.list .con .top .black{
+  color: #333;
+  font-size: 28rpx;
+
+}
+.list .con .top .red{
+  color: #d71616;
+  font-size: 28rpx;
+  margin: 0 5rpx;
+}
+.list .con .bottom{
+  font-size: 26rpx;
+  color: #333;
+
+}
+.list .btn{
+  width: 120rpx;
+  height: 54rpx;
+  background-color: #d71616;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #ffffff;
+  line-height: 54rpx;
+  text-align: center;
+
+}
+/* 弹出框 */
+.tanbox{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  left: 0;
+  top: 0;
+}
+.tanbox .black{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 101;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.tanbox .conbox{
+  width: 100%;
+  position: absolute;
+  height: 700rpx;
+  z-index: 110;
+  left: 0;
+  bottom: -700rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.conboxshow {
+  transform: translateY(-700rpx);
+  transition: all 0.5s;
+}
+
+.conboxhidden {
+  transform: translateY(700rpx);
+  transition: all 0.7s;
+}
+.blackshow {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.blackhidden {
+  opacity: 0;
+  transition: all 0.7s;
+}
+.tanbox .conbox .tanboxheader{
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.tanbox .conbox .tanboxheader image{
+  width: 208rpx;
+  height: 208rpx;
+  border-radius: 20rpx;
+  position: relative;
+  top: -20rpx;
+  margin-right: 20rpx;
+}
+.tanbox .conbox .tanboxheader .titbox{
+  flex: 1;
+  height:100%;
+  margin-top: 25rpx;
+
+}
+.tanbox .conbox .tanboxheader .titbox .tit{
+  font-size: 32rpx;
+  color: #333;
+  line-height: 44rpx;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.tanbox .conbox .tanboxheader .titbox .con{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.tanbox .conbox .tanboxheader .titbox view{
+  font-size: 34rpx;
+  color: #EE1E3E;
+}
+.tanbox .conbox .tanboxheader .titbox text{
+  font-size: 24rpx;
+  color: #333;
+}
+.tanbox .conbox .guigetit{
+  width: 100%;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  line-height: 80rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.tanbox .conbox .guigecon{
+  width: 100%;
+  height: 160rpx;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.tanbox .conbox .guigecon .listt{
+  font-size: 26rpx;
+  color: #333;
+  padding: 11rpx 24rpx;
+  border-radius: 48rpx;
+  border:1rpx solid #fff;
+  margin-right: 20rpx;
+  margin-bottom: 15rpx;
+}
+.tanbox .conbox .guigecon .listt.active{
+  border:1rpx solid #FF7C01;
+  color: #FF7C01;
+}
+.tanbox .conbox .numbox{
+  width: 100%;
+  height: 146rpx;
+  box-sizing: border-box;
+  padding: 0 15rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.tanbox .conbox .numbox text{
+  color: #333;
+  font-size: 28rpx;
+}
+.tanbox .conbox .sure{
+  flex: 1;
+  background: linear-gradient(to right, #FF9503 , #FF7400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tanbox .conbox .sure text{
+  font-size: 40rpx;
+  color: #fff;
+  margin: 0 30rpx;
+}
+/* 数量改变样式 */
+.spinner_r{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width:220rpx;
+height:70rpx;
+border:1px solid rgba(216,216,216,1);
+border-radius:10rpx;
+overflow: hidden;
+margin-right: 20rpx;
+
+}
+.spinner_r text{
+  flex: 1;
+  text-align: center;
+  font-size: 50rpx!important;
+}
+.spinner_r input{
+  flex: 1;
+  text-align: center;
+  border-left: 1px solid #eee;
+   border-right: 1px solid #eee;
+   color: #212121;
+   font-size: 34rpx;
+}

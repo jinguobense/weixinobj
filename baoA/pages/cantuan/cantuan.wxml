@@ -1,0 +1,76 @@
+<!--pages/cantuan/cantuan.wxml-->
+<view class="Cantuan">
+  <view class="header">
+    <!-- 搜索框 -->
+    <view class="searchbox">
+      <input placeholder="搜索您想要的宝贝" bindinput='watch' value="{{searchcon}}"></input>
+      <view catchtap="tosearchend"><icon type='search' size='36rpx'></icon></view>
+    </view>
+    <!-- 类别横向滚动框 -->
+    <scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+      <text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0" >全部</text>
+      <block wx:for="{{headlist}}" wx:key="i">
+        <text class="list recommend_hot_box {{tabindex==index+1 ? 'active' : ''}}" data-current="{{index+1}}" catchtap="changetab" id="ele{{index+1}}" data-idr="{{item.pfgTypeId1}}">{{item.pfgTypeName1}}</text>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 内容框 -->
+  <view class="listbox">
+    <view class="nogoods" wx:if='{{conlist.length==0 && isend==true}}'>
+      <image src="../../../images/tabbar/nogoods.png" mode="widthFix"></image>
+      <text>暂时没有商品</text>
+    </view>
+    <block wx:for="{{conlist}}" wx:key="i" >
+      <view class="list" catchtap="toxq" data-goodsid="{{item.goodsId}}" wx:if='{{conlist.length>0}}'>
+        <image src="{{item.goodsImg}}"></image>
+        <view class="listcon">
+          <view class="tit">
+            <text class="name">{{item.goodsName}}</text>
+          </view>
+          <progress  percent="{{jindulist[index]}}" stroke-width="8" color="#ff0000" border-radius='10' active='true'></progress>
+          <view class="bottom">
+            <view class="money">
+              <text>￥</text>
+              <text>{{item.goodsCurPrice}}</text>
+              <!-- <text>/件</text> -->
+            </view>
+            <view class="yishou">{{item.goRatio}}</view>
+          </view>
+          <view class="yuanjia">￥{{item.goodsOrigPrice}}</view>
+          <view class="redtimebox" wx:if="{{actEndTimeList[index].type==1}}">
+            <view>距离结束:</view>
+            <text class="redbox">{{countDownList[index].day}}</text>
+            <text class="redtext">天</text>
+            <text class="redbox">{{countDownList[index].hou}}</text>
+            <text class="redtext">:</text>
+            <text class="redbox">{{countDownList[index].min}}</text>
+            <text class="redtext">:</text>
+            <text class="redbox">{{countDownList[index].sec}}</text>
+          </view>
+          <view class="redtimebox" wx:if="{{actEndTimeList[index].type!=1 && actEndTimeList[index].type!=0}}">
+            <view>距离结束:</view>
+            <text class="redbox">00</text>
+            <text class="redtext">天</text>
+            <text class="redbox">00</text>
+            <text class="redtext">:</text>
+            <text class="redbox">00</text>
+            <text class="redtext">:</text>
+            <text class="redbox">00</text>
+          </view>
+          <view class="graytimebox" wx:if="{{actEndTimeList[index].type==0}}">
+            <view>距离开始:</view>
+            <text class="graybox">{{countDownList[index].day}}</text>
+            <text class="graytext">天</text>
+            <text class="graybox">{{countDownList[index].hou}}</text>
+            <text class="graytext">:</text>
+            <text class="graybox">{{countDownList[index].min}}</text>
+            <text class="graytext">:</text>
+            <text class="graybox">{{countDownList[index].sec}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+
+  </view>
+</view>
